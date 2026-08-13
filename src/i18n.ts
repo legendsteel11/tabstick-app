@@ -164,6 +164,13 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.3.0',
+          items: [
+            '스티커를 우클릭해 그 자리에서 다른 메모로 바꾸거나 한 장 더 붙일 수 있습니다. 첫 스티커를 붙인 후에는 팔레트까지 가지 않아도 됩니다',
+            '기능 최적화 및 일부 버그 수정',
+          ],
+        },
+        {
           version: '1.2.1',
           items: [
             '새 판이 나오면 앱이 알려 줍니다. 앱 정보 탭과 트레이 메뉴에서 확인하고 바로 받을 수 있습니다',
@@ -458,6 +465,13 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.3.0',
+          items: [
+            'Right-click a sticker to swap it for another memo or add one more - once the first sticker is up, no trip to the palette',
+            'Refinements and bug fixes',
+          ],
+        },
         {
           version: '1.2.1',
           items: [

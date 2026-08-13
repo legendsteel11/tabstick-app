@@ -53,7 +53,7 @@ const ready = true
 
 // 표시용 버전(배지 "v1.0.2")과 릴리즈 태그(v1.0.2)는 여기. channel이 비면 (Beta) 알약이 사라진다 -
 // 2026-07-26에 뗐다(개인 프로그램의 베타 표기가 "덜 만든 것"으로 읽힌다는 지적).
-const version = '1.2.1'
+const version = '1.3.0'
 const channel = ''
 
 /**
