@@ -164,7 +164,7 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
-          version: '1.4.1',
+          version: '1.4.2',
           items: [
             '메모 내용을 전체 선택한 채 크기를 조절할 때 느려지는 문제를 수정했습니다',
           ],
@@ -482,7 +482,7 @@ const dict = {
       notesNewer: 'Newer update notes',
       notes: [
         {
-          version: '1.4.1',
+          version: '1.4.2',
           items: [
             'Fixed a slowdown when resizing a memo with all of its text selected',
           ],
