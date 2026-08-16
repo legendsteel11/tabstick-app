@@ -164,6 +164,16 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.4.0',
+          items: [
+            '설정의 크기 항목을 한자리에 모으고 [전체 크기]를 더했습니다. 하나만 움직이면 스티커·팔레트·메뉴가 함께 맞춰지고, 그중 하나만 따로 정할 수도 있습니다',
+            '팔레트와 트레이에서 [전체 잠금]을 쓸 수 있습니다. 붙여 둔 메모를 한 번에 접고 잠가, 자리를 비울 때 화면을 덮어 둡니다',
+            '메모 잠금이 [편집 잠금]으로 이름을 바꾸고 메모 우클릭 메뉴 맨 아래로 옮겼습니다. 적다가 그 자리에서 바로 잠급니다',
+            '스티커 우클릭에서 팔레트를 바로 불러올 수 있고, 메모 편집 메뉴에 빈 줄 넣기가 생겼습니다',
+            '기능 최적화 및 일부 버그 수정',
+          ],
+        },
+        {
           version: '1.3.0',
           items: [
             '스티커를 우클릭해 그 자리에서 다른 메모로 바꾸거나 한 장 더 붙일 수 있습니다. 첫 스티커를 붙인 후에는 팔레트까지 가지 않아도 됩니다',
@@ -465,6 +475,16 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.4.0',
+          items: [
+            'The size settings now sit together, under one [Overall size]. Move it and the sticker, palette and menus follow - or set any of them on its own',
+            'Lock everything from the palette or the tray - every memo folds away at once, for when you step away from the desk',
+            'Locking a memo is now [Lock editing], at the bottom of the memo\'s own right-click menu - lock it where you are writing',
+            'Bring the palette to a sticker from its right-click menu, and add blank lines from the memo menu',
+            'Refinements and bug fixes',
+          ],
+        },
         {
           version: '1.3.0',
           items: [
