@@ -164,6 +164,14 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.4.4',
+          items: [
+            '긴 메모에서 입력과 스크롤이 훨씬 빨라졌습니다',
+            '붙여넣은 글이 한도를 넘어 잘리면 알려 줍니다',
+            '메모가 펼쳐져 있을 때 스티커 우클릭 메뉴가 메모를 가리지 않습니다',
+          ],
+        },
+        {
           version: '1.4.3',
           items: [
             '창을 옮길 때 메모가 창에 더 잘 붙어 따라옵니다',
@@ -489,6 +497,14 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.4.4',
+          items: [
+            'Typing and scrolling in a long memo are much faster',
+            "You're told when pasted text was cut to fit",
+            "With a memo open, the sticker's right-click menu opens clear of it",
+          ],
+        },
         {
           version: '1.4.3',
           items: [
