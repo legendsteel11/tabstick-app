@@ -164,6 +164,14 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.4.5',
+          items: [
+            '트레이 메뉴가 바깥을 누르면 닫힙니다',
+            '윈도우 시작 시 실행하면 팔레트 없이 트레이에서 시작합니다',
+            '트레이 메뉴에서 바로 스티커를 집을 수 있습니다',
+          ],
+        },
+        {
           version: '1.4.4',
           items: [
             '긴 메모에서 입력과 스크롤이 훨씬 빨라졌습니다',
@@ -497,6 +505,14 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.4.5',
+          items: [
+            'The tray menu closes when you click away',
+            'Starting with Windows now begins in the tray, without the palette',
+            'Stickers can be picked up straight from the tray menu',
+          ],
+        },
         {
           version: '1.4.4',
           items: [
