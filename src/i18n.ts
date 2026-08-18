@@ -94,16 +94,31 @@ const dict = {
       title: '기타기능',
       items: [
         { title: '메모 잠금', desc: '중요한 메모는 잠시 잠가둘 수 있습니다. 잠긴 메모는 잠금을 풀 때까지 수정하거나 지울 수 없습니다.' },
+        // 2026-08-18에 들어왔다. '메모 잠금' 바로 옆에 세운다 - 앱에서도 이 둘은 '편집 잠금 /
+        // 전체 잠금'으로 갈라 부르는 한 갈래이고(Strings.cs 주석), 떨어뜨려 놓으면 카드를 읽는
+        // 사람이 같은 기능의 두 이름으로 받는다.
+        { title: '전체 잠금', desc: '자리를 비울 때 전체 잠금을 선택하면 부착된 메모가 한 번에 접히고 잠깁니다. 팔레트와 트레이 메뉴 양쪽에서 사용할 수 있습니다.' },
         // 저장과 백업을 한 칸에 합쳤다(2026-07-28). 둘 다 '알아서 남긴다'는 한 얘기라
         // 따로 세울 때보다 붙여 놓는 편이 뜻이 선명하고, 그 자리에 자동 시작이 들어왔다.
         { title: '자동 저장·백업', desc: '글자를 입력하거나 바꿀 때 자동으로 저장되고, 앱을 종료하거나 내용을 삭제할 때는 따로 백업을 남깁니다.' },
+        // 2026-08-18. 사용방법 6단계에 '파일로 내보내거나' 한 마디로 묻혀 있던 것을 꺼냈다.
+        // 앞 칸(자동 저장·백업)과 나란히 둔다 - '앱이 알아서 남기는 것' 다음에 '내가 꺼내 가는
+        // 것'이 오는 차례다.
+        { title: '파일로 내보내기', desc: '스티커 관리에서 아홉 개의 메모를 한자리에서 확인하고, TXT나 CSV 파일로 내보낼 수 있습니다.' },
         // 2026-08-03에 들어왔다. '편집 기능'(우클릭으로 기호·구분선 입력)이 있던 자리인데,
         // 그 카드가 말하던 것을 이 카드가 넓혀서 담는다 - 둘을 나란히 두면 사용자 눈에는
         // 같은 얘기가 두 번이다.
         { title: '목록과 체크박스', desc: '여러 줄을 선택해 기호를 누르면 각 줄 앞에 붙습니다. 할 일에는 체크박스를 달아 Ctrl+클릭으로 사용하세요.' },
         { title: '메모 색 만들기', desc: '메모지 색을 취향대로 바꿔 보세요. 여섯 칸마다 배경색과 글자 색을 프리셋으로 만들고 언제든지 선택해 사용할 수 있습니다.' },
         { title: '스티커 찾기', desc: '팔레트에서 떠난 스티커를 추적하고 회수할 수 있습니다.' },
-        { title: '자동 시작', desc: '윈도우를 켤 때 팔레트가 함께 올라오도록 설정할 수 있습니다.' },
+        // 2026-08-18. '자동 시작' 바로 앞에 세운다 - 부팅으로 시작하면 트레이에서 뜨므로,
+        // 두 칸이 이어서 읽혀야 "그러면 팔레트는 어디 갔나"가 그 자리에서 풀린다.
+        { title: '트레이 메뉴', desc: '팔레트를 숨겨도 트레이 아이콘은 그대로 남습니다. 우클릭하면 팔레트와 같은 색이 표시되어 스티커를 바로 집을 수 있고, 전체 잠금과 스티커 관리도 여기에 있습니다.' },
+        // ⚠ 1.4.5에서 동작이 바뀌었다. 그 전에는 부팅 때도 팔레트가 함께 떴는데, 이제 **부팅으로
+        // 시작하면 팔레트 없이 트레이에서** 올라온다. 카드 제목은 '자동 시작'을 두되 본문 첫
+        // 마디는 설정의 실제 라벨('윈도우 시작 시 실행')과 맞춘다 - 제목은 기능 이름이고,
+        // 설정에서 찾을 사람은 본문의 라벨로 찾는다.
+        { title: '자동 시작', desc: '윈도우 시작 시 함께 실행되도록 설정할 수 있습니다. 이 경우 화면을 가리지 않도록 팔레트 없이 트레이에서 시작합니다.' },
         // '설정 기억'은 2026-08-03에 뺐다. 설정이 유지되는 것은 어느 앱에서나 당연해서, 적어
         // 두면 오히려 "안 그런 앱도 있나" 쪽으로 읽힌다. 여섯 칸이 3열에 정확히 떨어지기도 한다.
       ],
@@ -113,7 +128,7 @@ const dict = {
       steps: [
         {
           title: '스티커를 집어 창에 붙이기',
-          desc: '팔레트에서 색 하나를 클릭하면 스티커가 커서에 붙습니다. 그대로 원하는 프로그램 창 아무 곳이나 클릭하면 부착됩니다. 옮기는 중에는 우클릭·바탕화면 클릭·ESC로 언제든 취소할 수 있습니다.',
+          desc: '팔레트에서 색 하나를 클릭하면 스티커가 커서에 붙습니다. 그대로 원하는 프로그램 창 아무 곳이나 클릭하면 부착됩니다. 옮기는 중에는 우클릭·바탕화면 클릭·ESC로 언제든 취소할 수 있습니다. 팔레트를 숨긴 상태에서는 트레이 아이콘을 우클릭해서 같은 색을 선택할 수 있습니다.',
         },
         {
           title: '가볍게 적기',
@@ -133,7 +148,7 @@ const dict = {
         },
         {
           title: '스티커 관리와 설정',
-          desc: '팔레트의 ••• 버튼을 누르면 스티커 관리가 열립니다. 아홉 메모의 내용을 한자리에서 보고, 파일로 내보내거나 삭제할 수 있습니다. 설정에서는 팔레트 모양, 앱·스티커 크기, 글자 크기와 줄 간격, 메모지 색, 다크/라이트, 언어를 바꿉니다.',
+          desc: '팔레트의 ••• 버튼을 누르면 스티커 관리가 열립니다. 트레이 메뉴에서도 열 수 있습니다. 아홉 메모의 내용을 한자리에서 보고, 파일로 내보내거나 삭제할 수 있습니다. 설정에서는 팔레트 모양, 앱·스티커 크기, 글자 크기와 줄 간격, 메모지 색, 다크/라이트, 언어를 바꿉니다.',
         },
       ],
     },
@@ -407,59 +422,77 @@ const dict = {
       title: 'Why I made it',
       items: [
         // 카카오톡은 영어권에 안 통해 일반화한다(a chat window).
-        'I had sent the wrong thing in a chat window once, and never wanted to again.',
-        'Talking to an AI, I hated wasting tokens on a stray Enter mid-message.',
+        'I once sent the wrong thing to the wrong chat window, and never wanted to do it again.',
+        'Chatting with an AI, a stray Enter would send half a message and burn a turn.',
+        // ⚠ **여기의 sticky notes는 모니터 옆에 붙이던 진짜 포스트잇이다** - 앱 이야기가
+        // 아니다. 다른 곳의 sticky note는 Windows 기본 앱과 겹쳐서 걷어냈지만(2026-08-18),
+        // 이 줄만은 그대로 둔다. 앱을 만든 이유가 여기 있다.
         'The sticky notes beside my monitor kept falling off.',
-        'Following one recipe, I was tired of scrolling between the ingredients and the steps.',
-        'Digging a half-watched video out of my history was a chore.',
+        'Cooking from a recipe, I got tired of scrolling between the ingredients and the steps.',
+        'Digging a half-watched video out of my browser history was a chore.',
       ],
     },
     screenshots: {
       title: 'Features',
       items: [
         {
-          title: 'One click brings its window forward',
-          desc: 'Stack as many windows as you like — clicking a sticker pulls its window to the front. No more hunting through identical taskbar icons; pick it by colour.',
+          // 제목의 its가 가리킬 것이 제목 안에 없었다(2026-08-18 검수). 스티커를 앞에 세운다.
+          title: 'Click a sticker, bring its window forward',
+          desc: 'However many windows you have open, clicking a sticker pulls its window to the front. No more hunting through identical taskbar icons — pick the window by its color.',
         },
         {
-          title: 'Every sticky note stays with its window',
+          title: 'Every note stays with its window',
           desc: 'It moves with the window, minimizes with it, and returns to the palette when the window closes. Close one by accident and what you wrote is still there.',
         },
         {
           title: 'Manage with just nine stickers',
-          desc: 'Keep to nine sticky notes. Remember each by its color, reuse them as you write and wipe, and save only the important ones separately.',
+          desc: 'Nine notes, and that’s it. Remember each by its color, write, wipe, and reuse them, and save only the important ones separately.',
         },
         {
           title: 'Any direction, any spot',
-          desc: 'Attach up to three notes to a window and open each one. Once attached, move a note to the window’s left, right, inside, or outside — and up or down, of course.',
+          desc: 'Attach up to three notes to a window and open each one. Once attached, move a note to the left or right of the window, inside or outside, then nudge it up or down.',
         },
         {
-          title: 'From the window you’re on, straight into a note',
-          desc: 'Drop a YouTube link or some text straight into a note. Ctrl+click a link to jump right to it. The other way round, drag an address or some text from the window onto a note and it lands there as it is.',
+          title: 'Drop things straight into a note',
+          desc: 'Drop a YouTube link or some text straight into a note. Ctrl+click a link to jump right to it. Or the reverse: drag an address or some text from the window onto a note and it drops in as-is.',
         },
         {
-          title: 'Three palette shapes and sizes',
-          desc: 'Pick default, row, or column — and a size to taste. The palette is always a tray-menu click away.',
+          // 제목이 "모양 셋과 크기 셋"으로 읽혔다. 크기는 자유다.
+          title: 'Three palette shapes, any size',
+          desc: 'Pick default, row, or column, then set the size you want. The palette is always a tray-menu click away.',
         },
         {
-          title: 'Your own colours and marks',
-          desc: 'Save the paper and text colours you like as presets, ready to pick whenever you want them. Mark up your lines with the symbols you reach for most, or add checkboxes.',
+          title: 'Your own colors and marks',
+          desc: 'Save the note and text colors you like as presets, ready to pick whenever you want them. Mark up your lines with the symbols you reach for most, or add checkboxes.',
         },
         {
+          // ▣ **두 문장으로 나눈다**(2026-08-18 검수). 한 문장에 서로 다른 예시 둘이 들어 있어
+          // 페이지에서 가장 읽기 어려운 자리였다. 예시 숫자는 캡처와 맞춘 국문 그대로 둔다.
           title: 'Add it up without leaving the note',
-          desc: 'Select the lines that hold numbers, pick an operator from the right-click menu, and the answer appears below them. Lines written as 11.68 * 2 are multiplied first and then added when you press +, and with your budget on the top line, selecting everything and pressing - gives you what is left.',
+          desc: 'Select the lines that hold numbers, pick an operator from the right-click menu, and the answer appears below them. A line written as 11.68 * 2 is multiplied first, then added in when you press +. Put your budget on the top line, select everything, and press - to see what is left.',
         },
       ],
     },
     features: {
       title: 'More',
       items: [
-        { title: 'Lock a note', desc: 'Lock an important note for a while. A locked note cannot be edited or cleared until you unlock it.' },
-        { title: 'Saves and backs itself up', desc: 'Saves as you type or edit, and writes a separate backup whenever the app closes or content is deleted.' },
-        { title: 'Lists and checkboxes', desc: 'Select several lines and pick a symbol to put one at the head of each. Add a checkbox to a to-do and use it with Ctrl+click.' },
-        { title: 'Make your own paper', desc: 'Give the paper the colours you like. Save a background and a text colour in each of the six slots as presets, ready to pick whenever you want.' },
-        { title: 'Find a sticker', desc: 'Track down and reclaim a sticker that has left the palette.' },
-        { title: 'Start with Windows', desc: 'Set the palette to come up with your next boot.' },
+        { title: 'Lock a note', desc: 'Lock a note you do not want to change. A locked note cannot be edited or cleared until you unlock it.' },
+        // 국문 '전체 잠금'과 짝. UI 라벨이 그대로 Lock all이라 문장 안에서도 그 말을 쓴다.
+        { title: 'Lock all', desc: 'Stepping away from the desk? Lock all folds every attached note away at once. It sits on the palette and in the tray menu.' },
+        { title: 'Saves and backs up on its own', desc: 'Saves as you type or edit, and writes a separate backup whenever the app closes or you delete a note.' },
+        // 국문 '파일로 내보내기'와 짝. 보관함의 영문 라벨은 Stickers다(tray.archive).
+        { title: 'Export to a file', desc: 'Open Stickers to see all nine notes in one place, and export them as a TXT or CSV file.' },
+        // ▣ 사용방법 3단계와 겹치던 절차 설명을 걷고 쓰임 쪽으로 돌렸다(2026-08-18 검수).
+        { title: 'Lists and checkboxes', desc: 'Put a bullet or a dash at the head of your lines, and give a to-do a checkbox you can tick with Ctrl+click.' },
+        { title: 'Save your own colors', desc: 'Save a background and a text color in each of the six slots as presets, ready to pick whenever you want.' },
+        // 'has left the palette'는 스티커가 스스로 나간 것으로 읽혔다(2026-08-18 검수).
+        { title: 'Find a sticker', desc: 'Track down a sticker that’s out on a window and bring it back to the palette.' },
+        // 국문 '트레이 메뉴'와 짝. 'Start with Windows' 앞에 두는 이유는 국문 주석에.
+        { title: 'Tray menu', desc: 'Hide the palette and the tray icon stays put. Right-click it for the same colors as the palette — pick up a sticker straight away, or reach Lock all and Stickers from there.' },
+        // ⚠ 1.4.5에서 동작이 바뀌었다 - 부팅으로 시작하면 팔레트 없이 트레이에서 뜬다.
+        // 설정의 실제 라벨은 'Start with Windows'라 제목을 그대로 두고 본문이 새 동작을 말한다.
+        // 제목이 주어를 못 세워서 본문 첫 마디에 TabStick을 적는다(검수).
+        { title: 'Start with Windows', desc: 'Set TabStick to run when Windows starts. It comes up in the tray with the palette hidden, so nothing covers your screen.' },
       ],
     },
     howto: {
@@ -467,19 +500,21 @@ const dict = {
       steps: [
         {
           title: 'Pick a sticker, click a window',
-          desc: 'Click a color in the palette and the sticker rides your cursor. Click anywhere on the window you want and it sticks. While carrying it, right-click, a desktop click, or ESC cancels.',
+          desc: 'Click a color in the palette and the sticker rides your cursor. Click anywhere on the window you want and it sticks. To cancel, right-click, click the desktop, or press Esc. With the palette hidden, right-click the tray icon to reach the same colors.',
         },
         {
-          title: 'Write it down, lightly',
-          desc: 'Write as it comes to you. A single character saves automatically, and links or paths open with Ctrl+click.',
+          title: 'Jot it down',
+          desc: 'Write as it comes to you. Even a single character is saved automatically, and links or paths open with Ctrl+click.',
         },
         {
           title: 'Give the note some shape',
-          desc: 'Select several lines and pick a symbol from the right-click menu to put one at the head of each. For a to-do list, add checkboxes and use them with Ctrl+click. Text size, line spacing and paper colour can each be set per note.',
+          desc: 'Select several lines and pick a symbol from the right-click menu to put one at the head of each. For a to-do list, add checkboxes and use them with Ctrl+click. Text size, line spacing, and note color can all be set per note.',
         },
         {
-          title: 'Place and size the paper',
-          desc: 'From the sticker right-click menu, send the paper to the left or right of the window, inside or outside (applies to all stickers). Drag an edge or corner to resize, or double-click to fit that direction — the bottom edge fits the height, the left edge the width, and the corner puts both back. Hold Shift while resizing to snap to a 20px grid — handy for making several notes the same size.',
+          // 괄호는 "이 설정이 스티커 전체에 걸린다"는 뜻이다(코드에서 확인 - 좌/우·안/밖은
+          // _settings에 있어 창마다가 아니라 앱 전체 값이다). 검수가 물은 두 뜻 중 이쪽이다.
+          title: 'Position and resize the note',
+          desc: 'From the sticker right-click menu, send the note to the left or right of the window, inside or outside (this setting applies to every sticker). Drag an edge or corner to resize, or double-click an edge to fit that side — the bottom edge fits the height, the left edge the width, and the corner resets both. Hold Shift while resizing to snap to a 20px grid — handy for making several notes the same size.',
         },
         {
           title: 'Take it off, put it back',
@@ -487,7 +522,7 @@ const dict = {
         },
         {
           title: 'Stickers and settings',
-          desc: 'The ••• button on the palette opens the Stickers tab: read all nine notes in one place, export them to a file, or delete them. Settings cover the palette shape, app and sticker size, text size and line spacing, paper colours, dark/light, and language.',
+          desc: 'The ••• button on the palette opens the Stickers tab, and so does the tray menu: see all nine notes in one place, export them to a file, or delete them. Settings cover the palette shape, app and sticker size, text size and line spacing, note colors, dark/light, and language.',
         },
       ],
     },
@@ -649,40 +684,50 @@ const dict = {
       title: 'Frequently asked',
       items: [
         {
-          q: 'Do I have to save while I am writing?',
-          a: 'No — you never have to save it yourself. It saves the moment you stop typing, and again the moment you click away. Shut the PC down, put the sticker back, and what you wrote is still there.',
+          q: 'Do I have to save my notes manually?',
+          a: 'No — you never have to save anything yourself. It saves the moment you stop typing, and again the moment you click away. Shut down your PC, put the sticker back on a window, and what you wrote is still there.',
         },
         {
           q: 'If I close a window, do I lose what I wrote?',
-          a: 'No. The sticker returns to the palette and everything you wrote stays with it. Drop it on another window and the memo carries on where it left off.',
+          a: 'No. The sticker returns to the palette and everything you wrote stays with it. Drop it on another window and your note is exactly as you left it.',
         },
         {
-          q: 'If I reopen a window I closed, does its memo come back on its own?',
-          a: 'Not on its own. This was built only with what Microsoft officially permits, and while tricks could have made it work, they were deliberately left out. The sticker is waiting in the palette — pick it up, drop it on the new window, and carry on.',
+          // ▣ '못 하는 것'을 신뢰의 근거로 돌려 놓은 답이라 뜻은 그대로 두고 말만 고쳤다
+          // (2026-08-18 검수). tricks → undocumented workarounds가 이 맥락의 표준 단어이고,
+          // Microsoft → Windows가 자연스럽다.
+          q: 'If I reopen a window, does the note come back automatically?',
+          a: 'Not automatically. TabStick only uses what Windows officially supports. Reattaching on its own would mean relying on undocumented workarounds, so it’s left out on purpose. The sticker is waiting in the palette — pick it up, drop it on the new window, and carry on.',
         },
         {
-          q: 'I deleted a memo without saving it.',
-          a: 'A copy is written automatically just before a memo is deleted (and again when the app closes). The filename carries the date and the sticker colour, so you can spot it at a glance — backup_260728_yellow_0001.txt, for instance. The folder defaults to TabStick under Documents; open or change it under the app menu → Settings → Memo backup folder.',
+          // ⚠⚠ **`Memo backup folder`는 앱의 실제 라벨이라 그대로 둔다.** 검수는 `Note backup
+          // folder`로 바꾸자고 했는데, 앱 설정에 그 글자가 없어서 찾아 들어간 사람이 못 찾는다.
+          // 랜딩이 앱 화면을 인용하는 자리는 앱 표기가 먼저다 - 용어 통일은 앱을 옮긴 다음이다.
+          q: 'I deleted a note by mistake. Can I get it back?',
+          a: 'A copy is written automatically just before a note is deleted (and again when the app closes). The filename carries the date and the sticker color, so you can spot it at a glance — backup_260728_yellow_0001.txt, for instance. The folder defaults to TabStick under Documents; open or change it under the app menu → Settings → Memo backup folder.',
         },
         {
-          q: 'Can I get my notes out as a file?',
-          a: 'Yes — one at a time or all at once. Right-click a sticker and choose Save for just that one; for everything, open Stickers from the ••• button on the palette and use Export. The bulk export offers plain text or CSV, so it opens straight into a spreadsheet.',
+          q: 'Can I export my notes to a file?',
+          a: 'Yes — one at a time or all at once. Right-click a sticker and choose Save for just that one; for everything, open Stickers from the ••• button on the palette and use Export. The bulk export offers plain text or CSV, so it opens directly in a spreadsheet.',
         },
         {
-          q: 'Can I bring in something I wrote elsewhere?',
-          a: 'Yes. Right-click a sticker and choose Load to read a text file straight in. It asks first, before replacing what is already written there.',
+          q: 'Can I import a text file into a note?',
+          a: 'Yes. Right-click a sticker and choose Load to pull in a text file. It asks before replacing anything already there.',
         },
         {
-          q: 'Can I open a link or folder path written in a memo?',
-          a: 'Yes. Ctrl+click opens it in your default browser or in Explorer.',
+          q: 'Can I open links and file paths from a note?',
+          a: 'Yes. Ctrl+click opens a link in your default browser, or a path in File Explorer.',
         },
         {
-          q: 'Can I add more stickers, or restyle a memo?',
-          a: 'Nine stickers, fixed. Notes piling up until they are harder to manage than helpful — easing that is why this app exists, so the limit of nine is where it starts. The weight goes on what a memo is for rather than on dressing it up. Paper colour is the one place left open: the six slots are yours to make.',
+          // ★ **길이가 아니라 어조가 문제였다**(2026-08-18). 이유를 한 문장으로 말하면 결정으로,
+          // 세 문장으로 말하면 변명으로 들린다. 그리고 'dressing it up'은 원한 사람을 깎는 말이라
+          // 뺐다. 제한을 **사용자가 얻는 것**(색으로 아홉을 다 기억한다)으로 바꿔 말한다 -
+          // 색이 불변 인덱스라는 대원칙 그대로다.
+          q: 'Can I add more than nine stickers, or customize how a note looks?',
+          a: 'Nine is the limit, and that’s deliberate. The whole point is to keep notes few enough that you can remember every one of them by color — more stickers would work against that. Styling is kept light for the same reason. Colors are the exception: the six preset slots are yours to set up however you like.',
         },
         {
           q: 'Do my notes go to a server?',
-          a: 'No. They are stored only on your PC. It checks GitHub for a newer version so it can tell you one exists — even then, no notes or personal data are sent.',
+          a: 'No. They are stored only on your PC. It checks GitHub for a newer version so it can let you know — even then, no notes or personal data are sent.',
         },
       ],
     },
