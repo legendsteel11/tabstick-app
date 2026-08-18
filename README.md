@@ -31,3 +31,9 @@ This is the public home of TabStick — the website (deployed on Vercel) and the
 release binaries. The application source is kept private for now.
 
 Font: [Pretendard](https://github.com/orioncactus/pretendard) (SIL Open Font License 1.1).
+
+## Licence
+
+Free to use, at home and at work. Redistributing the binaries, charging for
+them, or bundling them with something else needs written permission — see
+[LICENSE.md](LICENSE.md). Linking here is welcome.
