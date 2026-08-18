@@ -382,6 +382,9 @@ const dict = {
       // 내장한 글꼴·아이콘 고지. 두 라이선스 모두 배포할 때 표기를 요구한다. 앱 정보 탭에도
       // 같은 두 줄이 있고(ArchiveWindow), 여기 것은 받기 전에도 볼 수 있게 두는 몫이다.
       credits: '사용한 오픈소스',
+      // 라이선스 고지. GitHub의 LICENSE.md로 넘긴다 - 받기 전에도 재배포 조건을 볼 수 있게
+      // 두는 몫이다. 저작권 줄에 붙여 같은 무게로 낮춰 둔다.
+      licence: '라이선스',
       copyright: '© 2026 TabStick.',
     },
   },
@@ -688,6 +691,7 @@ const dict = {
       otherTool: 'Another tool by the same maker',
       otherToolName: 'Edgetree',
       credits: 'Open source used',
+      licence: 'Licence',
       copyright: '© 2026 TabStick.',
     },
   },

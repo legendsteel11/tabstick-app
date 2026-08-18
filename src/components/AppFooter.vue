@@ -76,7 +76,13 @@ onUnmounted(() => clearTimeout(clear))
         (Apache 2.0)
       </p>
 
-      <p class="copyright">{{ t.footer.copyright }}</p>
+      <!-- 라이선스는 저작권 줄에 붙인다 - 푸터에 블록을 하나 더 세우지 않고, 규정이라 적어 두는
+           credits와 같은 무게로 물러나 있게 한다. 링크는 리포의 LICENSE.md로 간다. -->
+      <p class="copyright">
+        {{ t.footer.copyright }} ·
+        <a href="https://github.com/legendsteel11/tabstick-app/blob/main/LICENSE.md"
+           target="_blank" rel="noopener">{{ t.footer.licence }}</a>
+      </p>
     </div>
   </footer>
 </template>
@@ -202,5 +208,17 @@ onUnmounted(() => clearTimeout(clear))
 .copyright {
   font-size: 14px;
   opacity: 0.6;
+}
+
+/* credits 링크와 같은 처리 - 색을 따로 주지 않고 옅은 밑줄만 둬서, 있는 줄은 알되
+   저작권 줄보다 앞으로 나오지 않게 한다. */
+.copyright a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.copyright a:hover {
+  color: var(--accent-strong);
 }
 </style>
