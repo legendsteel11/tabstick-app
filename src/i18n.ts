@@ -717,7 +717,7 @@ const dict = {
           // folder`로 바꾸자고 했는데, 앱 설정에 그 글자가 없어서 찾아 들어간 사람이 못 찾는다.
           // 랜딩이 앱 화면을 인용하는 자리는 앱 표기가 먼저다 - 용어 통일은 앱을 옮긴 다음이다.
           q: 'I deleted a note by mistake. Can I get it back?',
-          a: 'A copy is written automatically just before a note is deleted (and again when the app closes). The filename carries the date and the sticker color, so you can spot it at a glance — backup_260728_yellow_0001.txt, for instance. The folder defaults to TabStick under Documents; open or change it under the app menu → Settings → Memo backup folder.',
+          a: 'A copy is written automatically just before a note is deleted (and again when the app closes). The filename carries the date and the sticker color, so you can spot it at a glance — backup_260728_yellow_0001.txt, for instance. The folder defaults to TabStick under Documents; open or change it under the app menu → Settings → Note backup folder.',
         },
         {
           q: 'Can I export my notes to a file?',
