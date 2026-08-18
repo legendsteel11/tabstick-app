@@ -179,6 +179,15 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.4.6',
+          items: [
+            '윈도우 시작 시 실행할 때 트레이 아이콘이 나오지 않던 문제를 고쳤습니다',
+            '팔레트를 숨긴 채로 종료하면 다음에도 숨긴 채로 시작합니다',
+            '팔레트의 ••• 버튼을 휠클릭하면 트레이로 바로 내려갑니다',
+            '스티커 우클릭 메뉴가 스티커에서 살짝 떨어져 나옵니다',
+          ],
+        },
+        {
           version: '1.4.5',
           items: [
             '트레이 메뉴가 바깥을 누르면 닫힙니다',
@@ -557,6 +566,15 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.4.6',
+          items: [
+            'Fixed the tray icon not appearing when TabStick starts with Windows',
+            'The palette comes back hidden if you left it hidden',
+            'Middle-click the ••• button to put the palette in the tray',
+            'The sticker’s right-click menu stands clear of the sticker',
+          ],
+        },
         {
           version: '1.4.5',
           items: [
