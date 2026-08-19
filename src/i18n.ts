@@ -179,6 +179,13 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '1.4.7',
+          items: [
+            '메모 폭을 조정할 때 스티커가 떨어져 보이던 것을 수정했습니다',
+            '스티커를 우클릭해서 설정을 열거나 앱을 종료할 수 있습니다',
+          ],
+        },
+        {
           version: '1.4.6',
           items: [
             '윈도우 시작 시 실행할 때 트레이 아이콘이 나오지 않던 문제를 고쳤습니다',
@@ -566,6 +573,13 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '1.4.7',
+          items: [
+            'Fixed the sticker appearing to come away while a note’s width is dragged',
+            'Right-click a sticker to open Settings or quit TabStick',
+          ],
+        },
         {
           version: '1.4.6',
           items: [
