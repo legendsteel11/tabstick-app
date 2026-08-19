@@ -1,11 +1,11 @@
 import { ref, computed } from 'vue'
 
-export type Lang = 'ko' | 'en'
+export type Lang = 'ko' | 'en' | 'vi'
 
 export const lang = ref<Lang>('ko')
 
 export function toggleLang() {
-  lang.value = lang.value === 'ko' ? 'en' : 'ko'
+lang.value = lang.value === 'ko' ? 'en' : lang.value === 'en' ? 'vi' : 'ko'
 }
 
 const dict = {
@@ -772,6 +772,353 @@ const dict = {
       copyright: '© 2026 TabStick.',
     },
   },
+  vi: {
+    nav: {
+        why: 'Tại sao',
+        screenshots: 'Tính năng',
+        features: 'Thêm',
+        howto: 'Cách hoạt động',
+        download: 'Tải xuống',
+        faq: 'Câu hỏi thường gặp',
+    },
+    hero: {
+        eyebrow: 'Ứng dụng ghi chú dán chỉ mục cửa sổ',
+        title: 'TabStick',
+        tagline: 'Gắn ghi chú cạnh cửa sổ thuộc về nó — không phải trên màn hình nền của bạn.',
+        badges: ['Miễn phí', 'Không quảng cáo', 'Ghi chú của bạn ở lại trên máy tính của bạn'],
+    },
+    why: {
+        title: 'Tại sao tôi tạo ra nó',
+        items: [
+            // 카카오톡은 영어권에 안 통해 일반화한다(a chat window).
+            'Tôi từng gửi nhầm nội dung vào cửa sổ trò chuyện nhầm lẫn, và chưa bao giờ muốn làm lại điều đó.',
+            'Trò chuyện với AI, một phím Enter lạc lối sẽ gửi nửa tin nhắn và tự động kết thúc lượt.',
+            // ⚠️ **여기의 sticky notes는 모니터 옆에 붙이던 진짜 포스트잇이다** - 앱 이야기가
+            // 아니다. 다른 곳의 sticky note는 Windows 기본 앱과 겹쳐서 걷어냈지만(2026-08-18),
+            // 이 줄만은 그대로 둔다. 앱을 만든 이유가 여기 있다.
+            'Các ghi chú dán cạnh màn hình của tôi cứ bị rơi ra.',
+            'Nấu ăn theo công thức, tôi cảm thấy mệt mỏi vì phải cuộn trang giữa các nguyên liệu và các bước.',
+            'Tìm lại một video xem dở từ lịch sử duyệt web thực sự là một việc vặt mệt mỏi.',
+        ],
+    },
+    screenshots: {
+        title: 'Tính năng',
+        items: [
+            {
+                // 제목의 its가 가리킬 것이 제목 안에 없었다(2026-08-18 검수). 스티커를 앞에 세운다.
+                title: 'Nhấp vào một nhãn dán, đưa cửa sổ của nó lên phía trước',
+                desc: 'Dù bạn mở bao nhiêu cửa sổ, việc nhấp vào một nhãn dán sẽ kéo cửa sổ của nó lên trên cùng. Không còn phải tìm kiếm qua các biểu tượng thanh tác vụ giống hệt nhau — hãy chọn cửa sổ theo màu sắc của nó.',
+            },
+            {
+                title: 'Mỗi ghi chú ở lại với cửa sổ của nó',
+                desc: 'Nó di chuyển cùng cửa sổ, thu nhỏ cùng cửa sổ và quay trở lại bảng màu khi cửa sổ đóng lại. Đóng nhầm một cửa sổ và những gì bạn đã viết vẫn ở đó.',
+            },
+            {
+                title: 'Quản lý chỉ với chín nhãn dán',
+                desc: 'Chín ghi chú, và thế là hết. Nhớ từng cái qua màu sắc của chúng, viết, xóa và tái sử dụng, đồng thời chỉ lưu giữ những ghi chú quan trọng một cách riêng biệt.',
+            },
+            {
+                title: 'Bất kỳ hướng nào, bất kỳ vị trí nào',
+                desc: 'Gắn tối đa ba ghi chú vào một cửa sổ và mở từng ghi chú một. Khi đã gắn, hãy di chuyển ghi chú sang bên trái hoặc bên phải của cửa sổ, bên trong hoặc bên ngoài, sau đó tinh chỉnh dịch lên hoặc xuống.',
+            },
+            {
+                title: 'Thả mọi thứ thẳng vào một ghi chú',
+                desc: 'Thả một liên kết YouTube hoặc một số văn bản thẳng vào ghi chú. Nhấn Ctrl+nhấp vào liên kết để chuyển thẳng đến đó. Hoặc ngược lại: kéo một địa chỉ hoặc văn bản từ cửa sổ lên ghi chú và nó sẽ được thả vào nguyên trạng.',
+            },
+            {
+                // 제목이 "모양 셋과 크기 셋"으로 읽혔다. 크기는 자유다.
+                title: 'Ba hình dạng bảng màu, mọi kích thước',
+                desc: 'Chọn kiểu mặc định, hàng hoặc cột, sau đó đặt kích thước bạn muốn. Bảng màu luôn chỉ cách một cú nhấp chuột trên menu khay hệ thống.',
+            },
+            {
+                title: 'Màu sắc và dấu ấn của riêng bạn',
+                desc: 'Lưu màu ghi chú và văn bản bạn thích làm cài đặt sẵn, sẵn sàng chọn bất cứ khi nào bạn muốn. Đánh dấu các dòng của bạn bằng các ký hiệu bạn hay dùng nhất, hoặc thêm hộp kiểm.',
+            },
+            {
+                // ▣ **두 문장으로 나눈다**(2026-08-18 검수). 한 문장에 서로 다른 예시 둘이 들어 있어
+                // 페이지에서 가장 읽기 어려운 자리였다. 예시 숫자는 캡처와 맞춘 국문 그대로 둔다.
+                title: 'Cộng dồn mà không cần rời khỏi ghi chú',
+                desc: 'Chọn các dòng chứa số, chọn phép toán từ menu nhấp chuột phải và kết quả sẽ xuất hiện bên dưới chúng. Một dòng được viết là 11.68 * 2 được nhân lên trước, sau đó được cộng vào khi bạn nhấn +. Đặt ngân sách của bạn ở dòng trên cùng, chọn tất cả và nhấn - để xem phần còn lại.',
+            },
+        ],
+    },
+    features: {
+        title: 'Thêm',
+        items: [
+        { title: 'Khóa ghi chú', desc: 'Khóa ghi chú mà bạn không muốn thay đổi. Ghi chú đã khóa không thể được chỉnh sửa hoặc xóa cho đến khi bạn mở khóa.' },
+        // 국문 '전체 잠금'과 짝. UI 라벨이 그대로 Lock all이라 문장 안에서도 그 말을 쓴다.
+        { title: 'Khóa tất cả', desc: 'Bạn rời khỏi bàn làm việc phải không? Khóa tất cả sẽ thu gọn mọi ghi chú đã đính kèm đi ngay lập tức. Nó nằm trên bảng màu và trong menu khay hệ thống.' },
+        { title: 'Tự động lưu và sao lưu', desc: 'Lưu khi bạn gõ hoặc chỉnh sửa, đồng thời ghi lại một bản sao lưu riêng biệt bất cứ khi nào ứng dụng đóng lại hoặc bạn xóa ghi chú.' },
+        // 국문 '파일로 내보내기'와 짝. 보관함의 영문 라벨은 Stickers다(tray.archive).
+        { title: 'Xuất ra tệp', desc: 'Mở phần Nhãn dán để xem tất cả chín ghi chú ở cùng một nơi, và xuất chúng dưới dạng tệp TXT hoặc CSV.' },
+        // ▣ 사용방법 3단계와 겹치던 절차 설명을 걷고 쓰임 쪽으로 돌렸다(2026-08-18 검수).
+        { title: 'Danh sách và hộp kiểm', desc: 'Đặt dấu đầu dòng hoặc dấu gạch ngang ở đầu các dòng của bạn, và thêm vào việc cần làm một hộp kiểm mà bạn có thể tích bằng cách Ctrl+nhấp.' },
+        { title: 'Lưu màu sắc của riêng bạn', desc: 'Lưu màu nền và màu văn bản ở mỗi sáu ô làm cài đặt sẵn, sẵn sàng chọn bất cứ khi nào bạn muốn.' },
+        // 'has left the palette'는 스티커가 스스로 나간 것으로 읽혔다(2026-08-18 검수).
+        { title: 'Tìm nhãn dán', desc: 'Theo dõi một nhãn dán đang ở trên cửa sổ và đưa nó quay trở lại bảng màu.' },
+        // 국문 '트레이 메뉴'와 짝. 'Start with Windows' 앞에 두는 이유는 국문 주석에.
+        { title: 'Menu khay hệ thống', desc: 'Ẩn bảng màu và biểu tượng khay hệ thống vẫn giữ nguyên vị trí. Nhấp chuột phải vào nó để có các màu sắc giống như bảng màu — lấy ngay một nhãn dán, hoặc truy cập Khóa tất cả và Nhãn dán từ đó.' },
+        // ⚠ 1.4.5에서 동작이 바뀌었다 - 부팅으로 시작하면 팔레트 없이 트레이에서 뜬다.
+        // 설정의 실제 라벨은 'Start with Windows'라 제목을 그대로 두고 본문이 새 동작을 말한다.
+        // 제목이 주어를 못 세워서 본문 첫 마디에 TabStick을 적는다(검수).
+        { title: 'Khởi động cùng Windows', desc: 'Đặt TabStick chạy khi Windows khởi động. Nó hiện lên ở khay hệ thống với bảng màu được ẩn đi, do đó không có gì che khuất màn hình của bạn.' },
+    ],
+},
+howto: {
+    title: 'Cách hoạt động',
+    steps: [
+        {
+            title: 'Chọn nhãn dán, nhấp vào cửa sổ',
+            desc: 'Nhấp vào một màu trong bảng màu và nhãn dán sẽ đi theo con trỏ của bạn. Nhấp vào bất kỳ đâu trên cửa sổ bạn muốn và nó sẽ dính vào. Để hủy, hãy nhấp chuột phải, nhấp vào màn hình nền hoặc nhấn Esc. Khi bảng màu bị ẩn, hãy nhấp chuột phải vào biểu tượng khay hệ thống để truy cập các màu tương tự.',
+        },
+        {
+            title: 'Ghi nhanh lại',
+            desc: 'Viết ngay khi ý tưởng xuất hiện. Ngay cả một ký tự duy nhất cũng được lưu tự động, và các liên kết hoặc đường dẫn mở ra bằng Ctrl+nhấp.',
+        },
+        {
+            title: 'Tạo hình cho ghi chú',
+            desc: 'Chọn nhiều dòng và chọn một biểu tượng từ menu nhấp chuột phải để đặt một biểu tượng vào đầu mỗi dòng. Đối với danh sách việc cần làm, hãy thêm hộp kiểm và sử dụng chúng bằng Ctrl+nhấp. Kích thước văn bản, khoảng cách dòng và màu sắc ghi chú đều có thể được thiết lập cho từng ghi chú.',
+        },
+        {
+            // 괄호는 "이 설정이 스티커 전체에 걸린다"는 뜻이다(코드에서 확인 - 좌/우·안/밖은
+            // _settings에 있어 창마다가 아니라 앱 전체 값이다). 검수가 물은 두 뜻 중 이쪽이다.
+            title: 'Định vị và thay đổi kích thước ghi chú',
+            desc: 'Từ menu nhấp chuột phải của nhãn dán, hãy đưa ghi chú sang bên trái hoặc bên phải của cửa sổ, bên trong hoặc bên ngoài (cài đặt này áp dụng cho mọi nhãn dán). Kéo một cạnh hoặc góc để thay đổi kích thước, hoặc nhấp đúp vào một cạnh để khớp với cạnh đó — cạnh dưới khớp với chiều cao, cạnh trái khớp với chiều rộng và góc sẽ đặt lại cả hai. Giữ phím Shift trong khi thay đổi kích thước để bám vào lưới 20px — rất tiện dụng để làm cho nhiều ghi chú có cùng kích thước.',
+        },
+        {
+            title: 'Gỡ ra, đặt lại',
+            desc: 'Đóng ứng dụng và các nhãn dán sẽ quay trở lại bảng màu. Bạn cũng có thể gửi một nhãn dán quay lại từ menu của nó, hoặc nhấp chuột phải vào ô bảng màu trống để lấy lại — sau đó dán nó lên một cửa sổ khác.',
+        },
+        {
+            title: 'Nhãn dán và cài đặt',
+            desc: 'Nút ••• trên bảng màu mở ra tab Nhãn dán, và menu khay hệ thống cũng vậy: xem tất cả chín ghi chú ở một nơi, xuất chúng ra tệp hoặc xóa chúng. Cài đặt bao gồm hình dạng bảng màu, kích thước ứng dụng và nhãn dán, kích thước văn bản và khoảng cách dòng, màu sắc ghi chú, chế độ tối/sáng và ngôn ngữ.',
+        },
+    ],
+},
+download: {
+    title: 'Tải xuống',
+    recommend: 'Được khuyên dùng',
+    cta: 'Tải xuống',
+    pending: 'Sắp ra mắt',
+    setupTitle: 'Trình cài đặt',
+    setupDesc: 'Tải xuống, bấm qua, hoàn tất — nó nằm trong menu Bắt đầu của bạn và gỡ cài đặt sạch sẽ.',
+    portableTitle: 'Bản di động (Portable)',
+    portableDesc: 'Giải nén và chạy. Không cần cài đặt.',
+    lightTitle: 'Bản rút gọn (Light)',
+    lightDesc: 'Cần có .NET 8 Desktop Runtime.',
+    // 영문은 Changelog로 적는다(2026-08-05) - 아카이브들이 그 낱말로 찾는데 "Update notes"는
+    // 못 잡아, oldergeeks 등록 페이지의 변경 사항 칸이 "찾을 수 없음"으로 비었다.
+    notesTitle: 'Nhật ký thay đổi',
+    notesOlder: 'Ghi chú cập nhật cũ hơn',
+    notesNewer: 'Ghi chú cập nhật mới hơn',
+    notes: [
+        {
+            version: '1.4.6',
+            items: [
+                'Đã sửa lỗi biểu tượng khay hệ thống không hiển thị khi TabStick khởi động cùng Windows',
+                'Bảng màu sẽ hiển thị trở lại ở trạng thái ẩn nếu bạn để nó ở trạng thái ẩn',
+                'Nhấp đúp vào nút ••• để đưa bảng màu vào khay hệ thống',
+                'Menu nhấp chuột phải của nhãn dán hiển thị tách biệt rõ ràng khỏi nhãn dán',
+            ],
+        },
+        {
+            version: '1.4.5',
+            items: [
+                'Menu khay hệ thống đóng lại khi bạn nhấp ra ngoài',
+                'Khởi động cùng Windows giờ đây sẽ bắt đầu trong khay hệ thống, không hiển thị bảng màu',
+                'Có thể nhấc các nhãn dán trực tiếp từ menu khay hệ thống',
+            ],
+        },
+        {
+            version: '1.4.4',
+            items: [
+                'Việc gõ phím và cuộn trang trong một ghi chú dài nhanh hơn rất nhiều',
+                'Thông báo cho bạn biết khi văn bản được dán bị cắt bớt cho vừa vặn',
+                'Khi một ghi chú đang mở, menu nhấp chuột phải của nhãn dán mở ra không bị che khuất',
+            ],
+        },
+        {
+            version: '1.4.3',
+            items: [
+                'Các ghi chú bám sát cạnh cửa sổ hơn trong lúc bạn di chuyển nó',
+                'Thanh cuộn của ghi chú dễ cầm nắm lại hơn',
+                'Việc thay đổi kích thước hoặc cuộn một ghi chú có toàn bộ văn bản được chọn trở nên nhẹ nhàng hơn rất nhiều',
+            ],
+        },
+    ],
+    {
+            version: '1.4.2',
+            items: [
+                'Đã sửa lỗi giảm tốc độ khi thay đổi kích thước ghi chú với toàn bộ văn bản được chọn',
+            ],
+        },
+        {
+            version: '1.4.0',
+            items: [
+                'Cài đặt kích thước nay nằm chung lại, dưới mục [Kích thước tổng thể]. Di chuyển mục này thì nhãn dán, bảng màu và các menu sẽ đi theo - hoặc thiết lập riêng lẻ từng mục',
+                'Khóa mọi thứ từ bảng màu hoặc khay hệ thống - mọi ghi chú đều được thu gọn lại ngay lập tức, dùng cho khi bạn rời khỏi bàn làm việc',
+                'Khóa ghi chú nay đổi thành [Khóa chỉnh sửa], nằm ở cuối menu nhấp chuột phải của ghi chú - khóa ngay tại nơi bạn đang viết',
+                'Đưa bảng màu đến nhãn dán từ menu nhấp chuột phải của nó, và thêm các dòng trống từ menu ghi chú',
+                'Cải tiến và sửa lỗi',
+            ],
+        },
+        {
+            version: '1.3.0',
+            items: [
+                'Nhấp chuột phải vào nhãn dán để đổi sang ghi chú khác hoặc thêm ghi chú mới - khi nhãn dán đầu tiên đã hiển thị, không cần thao tác với bảng màu',
+                'Cải tiến và sửa lỗi',
+            ],
+        },
+        {
+            version: '1.2.1',
+            items: [
+                'Ứng dụng nay thông báo cho bạn khi có phiên bản mới - hãy kiểm tra tab Giới thiệu hoặc menu khay hệ thống để nhận phiên bản mới ở đó',
+                'Các ký hiệu, kích thước văn bản và dòng tổng dễ sử dụng hơn trong ghi chú - vùng chọn được giữ nguyên ngay cả khi cú nhấp chuột phải nằm ở bên ngoài vùng chọn',
+                'Cải tiến và sửa lỗi',
+            ],
+        },
+        {
+            version: '1.2.0',
+            items: [
+                'Tính toán bên trong ghi chú - chọn các số và sử dụng + - × ÷ % trong menu nhấp chuột phải',
+                'Một dòng được viết 2500 * 4 được tính là tích của nó. Viết danh sách như bình thường và nhấn + để tính tổng, hoặc đặt ngân sách của bạn ở dòng đầu tiên và nhấn - để xem phần còn lại',
+                'Cài đặt hiển thị ngay dòng tiêu đề ghi chú, và có thể kéo dòng đó để di chuyển ghi chú',
+                'Chọn xem nhãn dán có di chuyển bên trong cửa sổ lấp đầy màn hình hay không',
+                'Cải tiến và sửa lỗi',
+            ],
+        },
+        {
+            version: '1.1.0',
+            items: [
+                'Tạo trang ghi chú của riêng bạn (cài đặt sẵn). Thiết lập màu nền và màu văn bản trong mỗi sáu ô và chọn từ các ô đó.',
+                'Khoảng cách dòng gồm tám mức',
+                'Chọn nhiều dòng và chọn một ký hiệu để định dạng phần đầu của chúng',
+                'Hộp kiểm, được tích và bỏ tích bằng cách Ctrl+nhấp vào hộp kiểm',
+                'Nhấp đúp vào một cạnh nay đơn giản là khớp chiều rộng hoặc khớp chiều cao',
+                'Đặt lại nhãn dán - tách rời, mở khóa và làm trống trong một lần nhấn',
+                'Cải tiến và sửa lỗi',
+            ],
+        },
+        {
+            version: '1.0.8',
+            items: [
+                'Gõ phím trong ghi chú dài mượt mà hơn rất nhiều',
+                'Cài đặt giữ cho kích thước ghi chú đồng bộ trong một cửa sổ',
+            ],
+        },
+        {
+            version: '1.0.7',
+            items: [
+                'Cải thiện hiệu suất và sửa lỗi',
+                'Tên các mục gọn gàng hơn trong menu nhấp chuột phải của nhãn dán',
+            ],
+        },
+        {
+            version: '1.0.6',
+            items: [
+                'Thay đổi kích thước và di chuyển cửa sổ mượt mà hơn',
+                'Kéo ghi chú bằng cạnh trên hoặc tiêu đề của nó để di chuyển lên hoặc xuống',
+                'Nhãn dán của một ghi chú đang mở nay hiển thị hình cây bút chì',
+            ],
+        },
+        {
+            version: '1.0.5',
+            items: [
+                'Nhấp vào cuối dòng nay đưa con trỏ văn bản đến đó',
+                'Con trỏ văn bản và vùng chọn nổi bật rõ ràng hơn',
+                'Thanh cuộn dễ nhìn hơn',
+            ],
+        },
+        {
+            version: '1.0.4',
+            items: [
+                'Kích thước bảng màu: Nhỏ / Bình thường / Lớn → 50-130%',
+                'Phạm vi kích thước văn bản ghi chú được mở rộng thành 11-24',
+                'Shift + nhấp vào nhãn dán → đưa cửa sổ của nó lên phía trước mà không mở ghi chú',
+            ],
+        },
+        {
+            version: '1.0.3',
+            items: [
+                'Nhấp chuột phải vào nhãn dán → Tiêu đề → tiêu đề xuất hiện trên ghi chú (chỉnh sửa trực tiếp tại đó)',
+                'Màu phông chữ / nền ghi chú → đã chuyển sang menu nhấp chuột phải của ghi chú',
+                'Đã thêm mục Nhấp chuột phải vào nhãn dán → Nhấc lại',
+                'Đã thêm tùy chọn khởi động cùng Windows',
+                'Đã thêm tùy chọn kích thước cho mọi menu nhấp chuột phải',
+            ],
+        },
+    ],
+    mobileNote: 'TabStick chạy trên Windows.\nSao chép liên kết và mở nó trên máy tính của bạn.',
+    copyLink: 'Sao chép liên kết',
+    copied: 'Đã sao chép',
+    soon: 'Đang chuẩn bị liên kết tải xuống.',
+    // 영문 화면에서는 언어 이름도 영어로 적는다 - 긁어 가는 쪽이 읽는 것은 이 화면이다.
+    requirement: 'Windows 10 / 11 · 64-bit · Tiếng Anh · Tiếng Hàn',
+    bothApps:
+      'Cài đặt .NET 8 Desktop Runtime một lần và bản Light sẽ trở thành một tùy chọn — cũng như Edgetree, một ứng dụng khác, từ một tệp nhỏ duy nhất. (Tải xuống nhỏ hơn và số liệu bộ nhớ hiển thị dung lượng thực tế đang được sử dụng.)',
+    smartscreeNote: // Hoặc giữ nguyên smartscreenNote
+      'Nếu SmartScreen của Windows xuất hiện trong lần chạy đầu tiên, hãy chọn Thêm thông tin → Vẫn chạy.',
+    },
+    faq: {
+      title: 'Các câu hỏi thường gặp',
+      items: [
+        {
+          q: 'Tôi có phải lưu ghi chú của mình thủ công không?',
+          a: 'Không — bạn không bao giờ phải tự lưu bất cứ thứ gì. Ứng dụng sẽ lưu ngay khi bạn dừng gõ và lưu lại lần nữa ngay khi bạn nhấp ra ngoài. Tắt máy tính, đưa nhãn dán trở lại cửa sổ và những gì bạn đã viết vẫn ở đó.',
+        },
+        {
+          q: 'Nếu tôi đóng cửa sổ, tôi có bị mất những gì đã viết không?',
+          a: 'Không. Nhãn dán sẽ quay trở lại bảng màu và mọi thứ bạn viết sẽ đi kèm với nó. Thả nó lên một cửa sổ khác và ghi chú của bạn sẽ y nguyên như lúc bạn rời đi.',
+        },
+        {
+          // ▣ '못 하는 것'을 신뢰의 근거로 돌려 놓은 답이라 뜻은 그대로 두고 말만 고쳤다
+          // (2026-08-18 검수). tricks → undocumented workarounds가 이 맥락의 표준 단어이고,
+          // Microsoft → Windows가 자연스럽다.
+          q: 'Nếu tôi mở lại cửa sổ, ghi chú có tự động quay lại không?',
+          a: 'Không tự động. TabStick chỉ sử dụng những gì Windows hỗ trợ chính thức. Việc tự động đính kèm lại sẽ có nghĩa là phải dựa vào các cách giải quyết không chính thức, vì vậy tính năng đó bị bỏ qua có chủ ý. Nhãn dán đang đợi trong bảng màu — hãy lấy nó, thả lên cửa sổ mới và tiếp tục.',
+        },
+        {
+          // ⚠⚠ **`Memo backup folder`는 앱의 실제 라벨이라 그대로 둔다.** 검수는 `Note backup
+          // folder`로 바꾸자고 했는데, 앱 설정에 그 글자가 없어서 찾아 들어간 사람이 못 찾는다.
+          // 랜딩이 앱 화면을 인용하는 자리는 앱 표기가 먼저다 - 용어 통일은 앱을 옮긴 다음이다.
+          q: 'Tôi vô tình xóa ghi chú. Tôi có thể lấy lại không?',
+          a: 'Một bản sao được ghi tự động ngay trước khi ghi chú bị xóa (và một lần nữa khi ứng dụng đóng lại). Tên tệp mang theo ngày tháng và màu sắc của nhãn dán, vì vậy bạn có thể nhận ra ngay lập tức — ví dụ: backup_260728_yellow_0001.txt. Thư mục mặc định nằm trong TabStick dưới mục Documents; mở hoặc thay đổi thư mục này trong menu ứng dụng → Cài đặt → Thư mục sao lưu ghi chú.',
+        },
+        {
+          q: 'Tôi có thể xuất ghi chú ra tệp không?',
+          a: 'Có — xuất từng cái một hoặc xuất tất cả cùng lúc. Nhấp chuột phải vào nhãn dán và chọn Lưu cho riêng ghi chú đó; đối với tất cả mọi thứ, hãy mở Nhãn dán từ nút ••• trên bảng màu và sử dụng Xuất. Tính năng xuất hàng loạt cung cấp văn bản thuần túy hoặc CSV, do đó tệp có thể mở trực tiếp trong bảng tính.',
+        },
+        {
+          q: 'Tôi có thể nhập tệp văn bản vào ghi chú không?',
+          a: 'Có. Nhấp chuột phải vào nhãn dán và chọn Tải lên để đưa tệp văn bản vào. Ứng dụng sẽ hỏi trước khi thay thế bất kỳ nội dung nào đã có sẵn.',
+        },
+        {
+          q: 'Tôi có thể mở các liên kết và đường dẫn tệp từ ghi chú không?',
+          a: 'Có. Ctrl+nhấp sẽ mở một liên kết trong trình duyệt mặc định của bạn hoặc một đường dẫn trong File Explorer.',
+        },
+        {
+          // ★ **길이가 아니라 어조가 문제였다**(2026-08-18). 이유를 한 문장으로 말하면 결정으로,
+          // 세 문장으로 말하면 변명으로 들린다. 그리고 'dressing it up'은 원한 사람을 깎는 말이라
+          // 뺐다. 제한을 **사용자가 얻는 것**(색으로 아홉을 다 기억한다)으로 바꿔 말한다 -
+          // 색이 불변 인덱스라는 대원칙 그대로다.
+          q: 'Tôi có thể thêm nhiều hơn chín nhãn dán hoặc tùy chỉnh giao diện của ghi chú không?',
+          a: 'Chín là giới hạn, và đó là điều có chủ ý. Điểm mấu chốt là giữ số lượng ghi chú ít để bạn có thể nhớ từng ghi chú bằng màu sắc — có nhiều nhãn dán hơn sẽ đi ngược lại điều đó. Kiểu dáng được giữ ở mức nhẹ nhàng vì lý do tương tự. Màu sắc là ngoại lệ: sáu ô cài đặt sẵn là để bạn tự thiết lập theo ý muốn.',
+        },
+        {
+          q: 'Ghi chú của tôi có được gửi lên máy chủ không?',
+          a: 'Không. Chúng chỉ được lưu trữ trên máy tính của bạn. Ứng dụng kiểm tra GitHub để tìm phiên bản mới hơn nhằm thông báo cho bạn — ngay cả khi đó, không có ghi chú hoặc dữ liệu cá nhân nào được gửi đi.',
+        },
+      ],
+    },
+    footer: {
+      contact: 'Yêu cầu',
+      otherTool: 'Một công cụ khác của cùng tác giả',
+      otherToolName: 'Edgetree',
+      credits: 'Mã nguồn mở được sử dụng',
+      licence: 'Giấy phép',
+      copyright: '© 2026 TabStick.',
+    },
+  },      
 } as const
 
 export const t = computed(() => dict[lang.value])
