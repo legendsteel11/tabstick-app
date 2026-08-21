@@ -8,10 +8,10 @@ import { t } from '../i18n'
       <div class="section-heading">
         <!-- 제목과 캐릭터(GIF)를 한 줄에 나란히, 가로 가운데 정렬 + 세로 가운데 맞춤. -->
         <div class="heading-row">
+          <!-- 캐릭터 Tabsty(2026-08-21). 그전에는 제목 뒤에서 도는 GIF였는데 **그 그림은 지금
+               캐릭터가 아니라** 7월에 따로 만든 것이었다. 자리도 제목 왼쪽으로 옮겼다. -->
+          <img class="mascot" src="/character/why.png" alt="" />
           <h2>{{ t.why.title }}</h2>
-          <!-- 제자리에서 천천히 도는 캐릭터(8방향 스프라이트로 만든 GIF). 제목 오른쪽(? 뒤)에 작게. -->
-          <img class="mascot" src="/screenshots/character-rotate.gif"
-               alt="제자리에서 도는 캐릭터" width="100" height="100" />
         </div>
       </div>
 
@@ -27,22 +27,19 @@ import { t } from '../i18n'
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  /* 2 → 12(2026-08-21). 옛 GIF는 그림 안에 좌우 여백이 들어 있어 gap을 0에 가깝게 둬야
+     붙어 보였다. 지금 PNG는 여백이 없어 그 값 그대로면 제목에 닿는다. */
+  gap: 12px;
 }
 
+/* 캐릭터 Tabsty(2026-08-21). 그전 GIF에 있던 clip-path·음수 여백·pixelated는 전부 걷었다 -
+   그것들은 **그 GIF 안에 배경색 여백이 들어 있어서** 필요했던 손질이고, 이 PNG는 배경이
+   투명하며 여백도 없다. 지금 남은 것은 크기 하나뿐이다. */
 .mascot {
-  width: 100px;
-  height: 100px;
+  height: 110px;
+  width: auto;
   flex-shrink: 0;
-  /* 픽셀 아트라 축소해도 흐려지지 않게. */
-  image-rendering: pixelated;
-  /* GIF 안쪽에 배경색(--bg와 같은 #f0f0f2) 여백이 좌우 ~35px씩 들어 있다. 캐릭터는 116px
-     캔버스에서 x 40~73만 쓴다 - 그래서 gap을 0으로 해도 제목에서 떨어져 보였다(2026-07-29).
-     칠해지는 부분을 잘라 내고(clip-path), 같은 값의 음수 여백으로 차지하는 자리까지 줄인다.
-     자르기만 하면 자리는 그대로라 안 붙고, 음수 여백만 주면 불투명한 배경이 '?'를 덮는다.
-     간격을 더 붙이거나 떼려면 이 24px 하나만 올리고 내리면 된다. */
-  clip-path: inset(0 24px);
-  margin: 0 -24px;
+  pointer-events: none;
 }
 
 .questions {

@@ -28,7 +28,11 @@ const shots = computed(() =>
   <section id="screenshots">
     <div class="container">
       <div class="section-heading">
-        <h2>{{ t.screenshots.title }}</h2>
+        <!-- 캐릭터 Tabsty가 제목 왼쪽에 선다(2026-08-21). -->
+        <div class="heading-row">
+          <img class="mascot" src="/character/features.png" alt="" />
+          <h2>{{ t.screenshots.title }}</h2>
+        </div>
       </div>
 
       <div class="grid">
@@ -48,6 +52,22 @@ const shots = computed(() =>
 </template>
 
 <style scoped>
+/* 제목과 캐릭터를 한 줄에. 값은 다른 섹션과 같다 - 섹션마다 다르면 훑어 내릴 때 눈에 걸린다. */
+.heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* 110의 90%(2026-08-21). 엎드려 가리키는 자세라 가로로 넓어 같은 높이에서도 커 보였다. */
+.heading-row .mascot {
+  height: 100px;
+  width: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
 /* 섹션 배경은 위아래와 번갈아 간다(2026-07-28). 전체 차례는
    히어로·제작동기(--bg) → 특징(--bg-alt) → 기타기능(--bg) → 사용방법(--bg-alt) →
    다운로드(--bg) → FAQ(--bg-alt). 예전에는 규칙 없이 어떤 섹션끼리는 붙고 어떤 것은

@@ -123,11 +123,12 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
   <section id="download">
     <div class="container">
       <div class="section-heading">
-        <!-- 다운로드 제목과 초록 메모 든 고양이를 한 줄에, 세로 가운데 정렬. -->
+        <!-- 캐릭터 Tabsty가 제목 왼쪽에 선다(2026-08-21). 초록 메모를 든 작은 고양이가 제목
+             오른쪽에 있었는데 **캐릭터가 들어오면서 뺐다** - 한 줄에 그림이 둘이면 어느 쪽도
+             제목의 짝으로 읽히지 않는다. 파일(cat-memo.png)은 남겨 두었다. -->
         <div class="title-row">
+          <img class="mascot" src="/character/download.png" alt="" />
           <h2>{{ t.download.title }}</h2>
-          <img class="memo-cat" src="/screenshots/cat-memo.png" alt="" aria-hidden="true"
-               width="22" height="16" />
         </div>
       </div>
 
@@ -328,6 +329,18 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
   gap: 12px;
 }
 
+/* 캐릭터 Tabsty(2026-08-21). 가로로 긴 그림이라 높이를 재도 폭이 꽤 나간다. */
+.title-row .mascot {
+  height: 120px;
+  width: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .title-row .mascot { height: 84px; }
+}
+
 /* ---------- 업데이트 내역 ---------- */
 /* 단추 바로 위에 서지만 단추보다 조용해야 한다 - 카드 배경·가는 테두리로 두고, 색을 채운
    히어로가 시선을 그대로 가져가게 둔다. 폭은 히어로와 같은 620이라 한 기둥으로 읽힌다. */
@@ -417,11 +430,6 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
   left: 2px;
   color: var(--accent-strong);
   font-weight: 700;
-}
-
-.memo-cat {
-  display: block;
-  flex-shrink: 0;
 }
 
 /* ---------- 히어로(설치) ---------- */

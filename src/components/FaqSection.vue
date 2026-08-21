@@ -9,7 +9,11 @@ import { t } from '../i18n'
   <section id="faq">
     <div class="container">
       <div class="section-heading">
-        <h2>{{ t.faq.title }}</h2>
+        <!-- 캐릭터 Tabsty가 제목 왼쪽에 선다(2026-08-21). -->
+        <div class="heading-row">
+          <img class="mascot" src="/character/faq.png" alt="" />
+          <h2>{{ t.faq.title }}</h2>
+        </div>
       </div>
 
       <!-- details/summary라 JS 없이 접히고, 키보드·스크린리더가 그냥 읽는다.
@@ -28,6 +32,21 @@ import { t } from '../i18n'
 </template>
 
 <style scoped>
+/* 제목과 캐릭터를 한 줄에. 값은 다른 섹션과 같다 - 섹션마다 다르면 훑어 내릴 때 눈에 걸린다. */
+.heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.heading-row .mascot {
+  height: 110px;
+  width: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
 /* 배경·가로선 규칙은 ScreenshotCards 주석에. */
 section {
   background: var(--bg-alt);

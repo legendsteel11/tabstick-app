@@ -13,7 +13,12 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
         <img src="/icon.png" alt="" width="56" height="56" class="icon" />
         <p class="eyebrow">{{ t.hero.eyebrow }}</p>
         <!-- 제목 오른쪽 위에 ™처럼 걸려 있던 Beta 표시는 2026-07-26에 뗐다. -->
-        <h1 class="title">{{ t.hero.title }}</h1>
+        <div class="title-row">
+          <h1 class="title">{{ t.hero.title }}</h1>
+          <!-- 캐릭터 Tabsty(2026-08-21). 파일은 긴 변 400이고 화면에는 190으로 선다 -
+               고DPI에서 흐리지 않을 만큼만 크게 두고 그 이상은 담지 않는다. -->
+          <img class="mascot" src="/character/hero.png" alt="" />
+        </div>
         <p class="tagline">{{ t.hero.tagline }}</p>
 
         <!-- 받을지 정하기 전에 알고 싶은 셋. 단점·해명을 앞세우지 않는다는 규칙과 부딪히지
@@ -32,6 +37,38 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
 </template>
 
 <style scoped>
+/* ⚠ **제품명은 화면 가운데 그대로 두고 캐릭터만 옆에 얹는다**(2026-08-21 요청).
+   한 줄에 나란히 놓았더니 둘이 한 덩이로 가운데를 잡아 **제목이 왼쪽으로 밀렸다.**
+   캐릭터를 흐름에서 빼면(absolute) 자리를 차지하지 않아 제목이 원래 자리를 지킨다.
+   `.copy`가 text-align:center이고 이 상자는 제목 폭에 딱 맞으므로(inline-block) 가운데에 선다. */
+.title-row {
+  display: inline-block;
+  position: relative;
+}
+
+.title-row .mascot {
+  position: absolute;
+  /* 제목 오른쪽 끝에서 시작해 그만큼 떨어진다. */
+  left: 100%;
+  margin-left: 30px;
+  /* 제목 아래끝을 기준으로 그만큼 띄워 위로 솟는다 - 세로로 긴 그림이라 이 편이 안정적이다. */
+  bottom: 16px;
+  height: 190px;
+  width: auto;
+  /* 글 옆에 선 그림이라 클릭 대상이 아니다. */
+  pointer-events: none;
+}
+
+/* 좁은 화면에서는 제목이 먼저다. 자리를 안 차지하는 대신 화면 밖으로 나갈 수 있어 줄인다. */
+@media (max-width: 860px) {
+  .title-row .mascot { height: 130px; margin-left: 8px; }
+}
+
+/* 더 좁아지면 아예 내린다 - 절대 위치라 여기서는 잘려 보일 뿐이다. */
+@media (max-width: 560px) {
+  .title-row .mascot { display: none; }
+}
+
 .hero {
   padding-top: 56px;
   background:
