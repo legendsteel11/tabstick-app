@@ -172,7 +172,8 @@ const dict = {
       lightTitle: '경량',
       lightDesc: '.NET 8 데스크톱 런타임이 필요합니다.',
       // 업데이트 내역. 앱이 업데이트 뒤 첫 실행에 띄우는 창과 같은 글이다(EdgeIndex/WhatsNew.cs).
-      // 새로 생긴 것만 적는다 - 고친 자리는 받는 사람에게 "그동안 고장나 있었다"로 읽힌다.
+      // 새로 생긴 것을 먼저 적는다 - 고친 자리만 늘어놓으면 받는 사람에게 "그동안 고장나 있었다"로
+      // 읽힌다. 다만 쓰던 사람이 실제로 만난 고장은 함께 적는다. 겪은 사람이 노트에서 그것부터 찾는다.
       // **DownloadSection의 notesVersion·version과 함께 올린다.** 내역만 앞서 나가면 새 기능을
       // 광고하면서 링크는 옛 파일을 가리킨다.
       notesTitle: '업데이트 내역',
@@ -185,13 +186,23 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '2.0.1',
+          items: [
+            '메모를 우클릭해서 그 메모의 프리셋을 바로 설정할 수 있습니다',
+            '메모 우클릭 메뉴가 짧아지고 항목 간격이 정리되었습니다',
+            '팔레트를 항상 위에 표시할 때 프리셋 창이 가려지던 문제를 수정했습니다',
+            '이미지 크기와 투명도 슬라이더에서 클릭한 위치로 손잡이가 이동합니다',
+            '본문이 이미지 영역을 침범하지 않도록 설정했을 때 커서가 이미지 위에 보이던 것을 수정했습니다',
+          ],
+        },
+        {
           version: '2.0.0',
           items: [
             '메모 하단에 배경으로 이미지를 넣을 수 있습니다',
             '캐릭터 이미지 9종이 들어 있고, 원하는 이미지 파일을 선택할 수도 있습니다',
             '배경 이미지의 크기, 투명도, 배치, 좌우반전을 조정할 수 있습니다',
             '프리셋 창에서 변경한 내용을 원래대로 되돌릴 수 있습니다',
-            '색 프리셋 칸에 A부터 F까지 표시되어 비슷한 색도 구분됩니다',
+            '프리셋 칸에 A부터 F까지 표시되어 비슷한 색도 구분됩니다',
           ],
         },
         {
@@ -594,13 +605,23 @@ const dict = {
       notesNewer: 'Newer update notes',
       notes: [
         {
+          version: '2.0.1',
+          items: [
+            'Edit a note’s preset from the note itself',
+            'The note’s right-click menu is shorter and more evenly spaced',
+            'Fixed the preset window opening behind an always-on-top palette',
+            'Click anywhere on the image size or opacity slider and its knob goes there',
+            'Fixed the caret showing over the image when text is kept clear of it',
+          ],
+        },
+        {
           version: '2.0.0',
           items: [
             'A note can carry an image in its bottom corner',
             'Nine character images are included, or choose a file of your own',
             'Set the image’s size, opacity, placement and flip',
             'Restore a preset to how it was before you opened it',
-            'Colour preset swatches are lettered A to F',
+            'Preset swatches are lettered A to F',
           ],
         },
         {
