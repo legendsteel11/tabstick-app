@@ -181,7 +181,7 @@ const dict = {
         {
           version: '2.0.0',
           items: [
-            '메모 배경에 이미지를 넣을 수 있습니다',
+            '메모 하단에 배경으로 이미지를 넣을 수 있습니다',
             '캐릭터 이미지 9종이 들어 있고, 원하는 이미지 파일을 선택할 수도 있습니다',
             '배경 이미지의 크기, 투명도, 배치, 좌우반전을 조정할 수 있습니다',
             '프리셋 창에서 변경한 내용을 원래대로 되돌릴 수 있습니다',
@@ -586,7 +586,7 @@ const dict = {
         {
           version: '2.0.0',
           items: [
-            'A note can carry a background image',
+            'A note can carry an image in its bottom corner',
             'Nine character images are included, or choose a file of your own',
             'Set the image’s size, opacity, placement and flip',
             'Restore a preset to how it was before you opened it',
