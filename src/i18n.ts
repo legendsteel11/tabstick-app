@@ -179,6 +179,16 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '2.0.0',
+          items: [
+            '메모 배경에 이미지를 넣을 수 있습니다',
+            '캐릭터 이미지 9종이 들어 있고, 원하는 이미지 파일을 선택할 수도 있습니다',
+            '배경 이미지의 크기, 투명도, 배치, 좌우반전을 조정할 수 있습니다',
+            '프리셋 창에서 변경한 내용을 원래대로 되돌릴 수 있습니다',
+            '색 프리셋 칸에 A부터 F까지 표시되어 비슷한 색도 구분됩니다',
+          ],
+        },
+        {
           version: '1.4.7',
           items: [
             '메모 폭을 조정할 때 스티커가 떨어져 보이던 것을 수정했습니다',
@@ -573,6 +583,16 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '2.0.0',
+          items: [
+            'A note can carry a background image',
+            'Nine character images are included, or choose a file of your own',
+            'Set the image’s size, opacity, placement and flip',
+            'Restore a preset to how it was before you opened it',
+            'Colour preset swatches are lettered A to F',
+          ],
+        },
         {
           version: '1.4.7',
           items: [
