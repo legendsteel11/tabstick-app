@@ -52,7 +52,7 @@ onUnmounted(() => clearTimeout(clear))
 const ready = true
 
 // 표시용 버전(배지 "v1.0.2")과 릴리즈 태그(v1.0.2)는 여기. channel이 비면 (Beta) 알약이 사라진다 -
-// 2026-07-26에 뗐다(개인 프로그램의 베타 표기가 "덜 만든 것"으로 읽힌다는 지적).
+// 2026-07-26에 뗐다(개인 프로그램의 베타 표기가 "덜 만든 것"으로 읽히기 때문이다).
 const version = '2.0.0'
 const channel = ''
 
@@ -94,7 +94,7 @@ const base = `TabStick-${fileVer}-win-x64`
 // ⚠ **세 이름이 릴리즈에 올린 파일명과 글자 하나까지 같아야 한다.** 여기가 어긋나면 링크가
 // 404로 죽는데, 페이지는 멀쩡해 보여서 받으려는 사람만 안다. 실제로 경량이 1.0.5에서
 // `-win-x64.exe`→`-win-x64-light.exe`로 바뀌었는데 여기를 안 고쳐, 그 판이 나가 있는 내내
-// 경량만 404였다(2026-07-29, 제보로 발견). **버전을 올릴 때 이름 규칙도 함께 확인할 것.**
+// 경량만 404였다(2026-07-29에 드러났다). **버전을 올릴 때 이름 규칙도 함께 확인할 것.**
 const relBase = `https://github.com/legendsteel11/tabstick-app/releases/download/v${version}`
 const dl = {
   setup: { size: '49 MB', file: `${base}-setup.exe`, href: `${relBase}/${base}-setup.exe` },
@@ -136,7 +136,7 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
            보는 자리라 새로 생긴 기능만 올린다. 고친 자리·내부 정리는 여기 올리지 않는다
            (받는 사람에겐 그동안 고장나 있었다는 말로만 읽힌다). -->
       <div class="notes">
-        <!-- 지난 판도 꺾쇠로 넘겨 본다(2026-07-29 요청). 꺾쇠는 제목 오른쪽에 붙인다 -
+        <!-- 지난 판도 꺾쇠로 넘겨 본다(2026-07-29). 꺾쇠는 제목 오른쪽에 붙인다 -
              왼쪽에 두면 판이 쌓일 때 제목이 오른쪽으로 밀려 카드마다 시작선이 달라진다. -->
         <div class="notes-head">
           <span>v{{ note.version }} {{ t.download.notesTitle }}</span>

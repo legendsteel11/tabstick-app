@@ -36,7 +36,7 @@ onUnmounted(() => clearTimeout(clear))
           <span>TabStick</span>
           <!-- 링크로 걸지 않는다 - 지금 그 주소에 서 있는 사람에게 자기 자신으로 가는
                링크는 눌러도 아무 일이 없다. 대신 눌러서 복사하는 자리로 쓴다: 읽고 기억하라고
-               적어 둔 글자였는데, 기억하는 대신 가져갈 수 있게 한다(2026-07-28 요청).
+               적어 둔 글자였는데, 기억하는 대신 가져갈 수 있게 한다(2026-07-28).
                모바일 안내(DownloadSection)의 복사 단추와 같은 주소를 같은 방식으로 복사한다. -->
           <button type="button" class="domain" @click="copySite"
                   :title="copied ? t.download.copied : t.download.copyLink"
@@ -168,7 +168,7 @@ onUnmounted(() => clearTimeout(clear))
 }
 
 /* 다른 도구(Edgetree) 안내를 살짝 강조 - 옅은 파랑 틴트 알약으로 감싸 다른 푸터 줄과
-   구분하고, 링크는 볼드로 올린다(2026-07-24 요청). 내용 폭만큼만 감싸게 inline-block. */
+   구분하고, 링크는 볼드로 올린다(2026-07-24). 내용 폭만큼만 감싸게 inline-block. */
 .other {
   display: inline-block;
   font-size: 15px;

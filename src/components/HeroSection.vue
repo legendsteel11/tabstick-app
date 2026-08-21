@@ -37,7 +37,7 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
 </template>
 
 <style scoped>
-/* ⚠ **제품명은 화면 가운데 그대로 두고 캐릭터만 옆에 얹는다**(2026-08-21 요청).
+/* ⚠ **제품명은 화면 가운데 그대로 두고 캐릭터만 옆에 얹는다**(2026-08-21).
    한 줄에 나란히 놓았더니 둘이 한 덩이로 가운데를 잡아 **제목이 왼쪽으로 밀렸다.**
    캐릭터를 흐름에서 빼면(absolute) 자리를 차지하지 않아 제목이 원래 자리를 지킨다.
    `.copy`가 text-align:center이고 이 상자는 제목 폭에 딱 맞으므로(inline-block) 가운데에 선다. */

@@ -87,7 +87,7 @@ import { t, lang, toggleLang } from '../i18n'
   font-size: 17px;
   /* 메뉴 한 칸은 절대 두 줄이 되지 않는다. flex 항목은 min-width:auto라 자리가 모자라면
      min-content까지 줄어드는데, 그 min-content가 "How it works"에서는 한 낱말이고 한글은
-     글자 하나라, 폭이 빠듯해지면 "제작동 기"처럼 접혔다(2026-07-29 제보, 740~780px).
+     글자 하나라, 폭이 빠듯해지면 "제작동 기"처럼 접혔다(2026-07-29 확인, 740~780px).
      접히는 대신 넘치게 두고, 넘치지 않도록 아래 미디어쿼리가 사이와 크기를 줄인다. */
   white-space: nowrap;
 }
