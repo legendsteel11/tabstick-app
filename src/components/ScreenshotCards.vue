@@ -17,8 +17,11 @@ import { t, lang } from '../i18n'
 // 이 컷은 **메뉴를 닫고 다시 찍었다** - 우클릭 메뉴가 열린 컷은 메뉴가 메모 위로 겹쳐
 // 숫자가 가려졌고, 세로로 길어 카드 비율(1.44)에 넣으면 아래가 통째로 잘렸다.
 // 720x500을 원본 화소 그대로 잘라내 축소가 없다.
-const KO = ['spc-07.gif', 'spc-01.png', 'spc-02.png', 'spc-03.png', 'spc-04.png', 'spc-05.png', 'spc-08.png', 'spc-09.png']
-const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'scp-en-04.png', 'spc-05.png', 'scp-en-08.png', 'scp-en-09.png']
+// 2026-08-21에 아홉 칸이 됐다(배경 이미지). **한·영 따로 찍었다** - 프리셋 창의 글자가 크게
+// 보이는 컷이라 공용으로 쓸 수 없다(앞의 spc-05·spc-07만 글자가 안 나와 공용이다).
+// 3열이라 아홉이면 마지막 줄이 꽉 찬다(여덟일 때는 한 칸이 비어 있었다).
+const KO = ['spc-07.gif', 'spc-01.png', 'spc-02.png', 'spc-03.png', 'spc-04.png', 'spc-05.png', 'spc-08.png', 'spc-09.png', 'spc-10.png']
+const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'scp-en-04.png', 'spc-05.png', 'scp-en-08.png', 'scp-en-09.png', 'scp-en-10.png']
 const shots = computed(() =>
   (lang.value === 'en' ? EN : KO).map((src) => ({ src, pos: 'center' })),
 )

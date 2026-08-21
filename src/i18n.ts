@@ -85,6 +85,12 @@ const dict = {
           title: '메모 안에서 바로 계산-',
           desc: '숫자가 들어있는 행들을 선택한 상태에서 우클릭 메뉴의 연산기호를 선택하면 답을 아래쪽에 표시합니다. 2500 * 4 처럼 적은 행들을 선택한 후 +를 누르면 미리 곱한 후 합산되며, 제일 위에 예산을 적고 전부 선택한 후 -를 누르면 잔액이 계산됩니다.',
         },
+        // 2026-08-21 추가(v2.0.0). 캡처는 메모에 캐릭터가 앉은 모습과 그것을 고르는 창을
+        // 함께 담았다 - 어디서 정하는지가 그림에 같이 나온다.
+        {
+          title: '메모에 간단한 이미지를-',
+          desc: '메모 하단에 이미지를 배경으로 넣을 수 있습니다. 캐릭터 이미지가 함께 들어 있고, 원하는 이미지 파일을 선택할 수 있습니다. 크기와 투명도, 배치를 조정할 수 있습니다.',
+        },
         // '편리한 앱 메뉴' 카드는 2026-07-27에 뺐다. 관리 화면이 있다는 얘기라 어느 앱에나
         // 있는 것이고, 받을 이유를 만드는 힘이 여섯 중 제일 약했다(사용자 판단). 캡처 spc-06은
         // 파일로 남겨 뒀다.
@@ -510,6 +516,10 @@ const dict = {
           // 페이지에서 가장 읽기 어려운 자리였다. 예시 숫자는 캡처와 맞춘 국문 그대로 둔다.
           title: 'Add it up without leaving the note',
           desc: 'Select the lines that hold numbers, pick an operator from the right-click menu, and the answer appears below them. A line written as 11.68 * 2 is multiplied first, then added in when you press +. Put your budget on the top line, select everything, and press - to see what is left.',
+        },
+        {
+          title: 'A small image on your note',
+          desc: 'An image can sit behind the foot of a note. Character images come with the app, or pick a file of your own, and you choose the size, how faint it is, and which side it rests on.',
         },
       ],
     },
