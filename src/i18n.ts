@@ -186,6 +186,16 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '2.1.0',
+          items: [
+            '메모 배경 이미지를 원하는 위치로 이동할 수 있습니다',
+            '이미지 세로 위치가 메모 높이에 따라 자동으로 조정됩니다',
+            '이미지의 최대 크기가 더 커졌습니다',
+            '메모에서 프리셋 설정을 앱 메뉴 없이 단독으로 불러올 수 있으며 기능이 정리되었습니다',
+            '업데이트 후 이미지가 보이지 않거나 위치가 달라진 경우 위치 초기화를 누르세요',
+          ],
+        },
+        {
           version: '2.0.1',
           items: [
             '메모를 우클릭해서 그 메모의 프리셋을 바로 설정할 수 있습니다',
@@ -604,6 +614,16 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        {
+          version: '2.1.0',
+          items: [
+            'Move a note’s background image anywhere on the note',
+            'The image’s vertical position adjusts to the note’s height',
+            'The image can be larger than before',
+            'Edit a note’s preset on its own, without the app menu, and the window is tidier',
+            'If the image looks out of place after updating, press Reset position',
+          ],
+        },
         {
           version: '2.0.1',
           items: [
