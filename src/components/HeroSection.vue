@@ -10,13 +10,17 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
   <section id="top" class="hero">
     <div class="container">
       <div class="copy">
-        <img src="/icon.png" alt="" width="56" height="56" class="icon" />
-        <p class="eyebrow">{{ t.hero.eyebrow }}</p>
-        <!-- 제목 오른쪽 위에 ™처럼 걸려 있던 Beta 표시는 2026-07-26에 뗐다. -->
-        <div class="title-row">
-          <h1 class="title">{{ t.hero.title }}</h1>
-          <!-- 캐릭터 Tabsty(2026-08-21). 파일은 긴 변 400이고 화면에는 190으로 선다 -
-               고DPI에서 흐리지 않을 만큼만 크게 두고 그 이상은 담지 않는다. -->
+        <!-- 아이콘·한 줄 소개·제목을 한 상자(lead)로 묶는다(2026-08-22) - 오른쪽 캐릭터가
+             이 상자를 기준으로 서서, 묶음의 높이와 저절로 맞는다. -->
+        <div class="lead">
+          <img src="/icon.png" alt="" width="56" height="56" class="icon" />
+          <p class="eyebrow">{{ t.hero.eyebrow }}</p>
+          <!-- 제목 오른쪽 위에 ™처럼 걸려 있던 Beta 표시는 2026-07-26에 뗐다. -->
+          <div class="title-row">
+            <h1 class="title">{{ t.hero.title }}</h1>
+          </div>
+          <!-- 캐릭터 Tabsty(2026-08-21). 파일은 긴 변 400. 화면 크기는 붙박이 값이 아니라
+               왼쪽 묶음의 높이를 따라간다(아래 .lead .mascot). -->
           <img class="mascot" src="/character/hero.png" alt="" />
         </div>
         <p class="tagline">{{ t.hero.tagline }}</p>
@@ -41,32 +45,47 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
    한 줄에 나란히 놓았더니 둘이 한 덩이로 가운데를 잡아 **제목이 왼쪽으로 밀렸다.**
    캐릭터를 흐름에서 빼면(absolute) 자리를 차지하지 않아 제목이 원래 자리를 지킨다.
    `.copy`가 text-align:center이고 이 상자는 제목 폭에 딱 맞으므로(inline-block) 가운데에 선다. */
+/* 아이콘~제목 묶음이자 캐릭터의 기준 상자. 폭이 안 내용(제목)에 맞고 .copy의 가운데
+   정렬로 중앙에 선다 - 캐릭터는 흐름 밖(absolute)이라 제목 자리를 밀지 않는다. */
+.lead {
+  display: inline-block;
+  position: relative;
+}
+
 .title-row {
   display: inline-block;
   position: relative;
 }
 
-.title-row .mascot {
+/* 캐릭터 크기는 값이 아니라 **묶음의 높이**가 정한다(2026-08-22) - 머리가 아이콘 위끝,
+   발이 제목 아래끝에 맞는다. 빼는 16은 제목의 아래 여백(h1 margin-bottom) 몫이다.
+   ⚠ **img는 top·bottom으로 늘어나지 않는다**(대체 요소는 auto 높이가 원본 크기로 풀린다) -
+   처음에 그렇게 뒀다가 400px 원본이 그대로 서서 태그라인까지 덮었다. height를 직접 준다. */
+.lead .mascot {
   position: absolute;
-  /* 제목 오른쪽 끝에서 시작해 그만큼 떨어진다. */
+  /* 묶음 오른쪽 끝에서 시작해 그만큼 떨어진다. */
   left: 100%;
-  margin-left: 30px;
-  /* 제목 아래끝을 기준으로 그만큼 띄워 위로 솟는다 - 세로로 긴 그림이라 이 편이 안정적이다. */
-  bottom: 16px;
-  height: 190px;
+  margin-left: 20px;
+  /* 발을 제목 아래끝에 붙인 채 살짝만 줄인다(2026-08-22) - 빼는 값을 16에서 30으로 키우면
+     그만큼 머리 쪽이 내려온다. */
+  /* 발끝을 TabStick 글자 아래선에 맞춘다 - 글줄 상자에는 글자 밑으로 여백이 더 있어서
+     (내림 문자 몫), 상자 기준(16)보다 그만큼 올려야 눈으로 맞는다. */
+  bottom: 28px;
+  height: calc(100% - 30px);
   width: auto;
   /* 글 옆에 선 그림이라 클릭 대상이 아니다. */
   pointer-events: none;
 }
 
-/* 좁은 화면에서는 제목이 먼저다. 자리를 안 차지하는 대신 화면 밖으로 나갈 수 있어 줄인다. */
+/* 좁은 화면에서는 제목이 먼저다. 자리를 안 차지하는 대신 화면 밖으로 나갈 수 있어,
+   묶음 높이 대신 고정 높이로 줄여 아래 기준으로 세운다. */
 @media (max-width: 860px) {
-  .title-row .mascot { height: 130px; margin-left: 8px; }
+  .lead .mascot { top: auto; bottom: 16px; height: 110px; margin-left: 8px; }
 }
 
 /* 더 좁아지면 아예 내린다 - 절대 위치라 여기서는 잘려 보일 뿐이다. */
 @media (max-width: 560px) {
-  .title-row .mascot { display: none; }
+  .lead .mascot { display: none; }
 }
 
 .hero {
@@ -93,7 +112,8 @@ const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif'
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  margin-bottom: 12px;
+  /* 12 → 4(2026-08-22). 한 줄 소개와 제목이 한 묶음으로 읽히게 붙인다. */
+  margin-bottom: 4px;
 }
 
 h1 {
