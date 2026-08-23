@@ -76,6 +76,13 @@ section {
   padding: 40px 0;
 }
 
+/* 헤더 메뉴(앵커)로 이동할 때 섹션이 sticky 헤더 밑으로 들어가지 않게 한다.
+   값은 헤더 높이(bar 64 + 밑줄 1) - 이만큼 내려 서면 섹션 위 여백과 제목 옆
+   캐릭터 머리까지 그대로 보인다. */
+section[id] {
+  scroll-margin-top: 65px;
+}
+
 @media (max-width: 720px) {
   section {
     padding: 28px 0;
