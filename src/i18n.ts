@@ -460,7 +460,6 @@ const dict = {
     footer: {
       contact: '문의',
       otherTool: '같은 개발자의 다른 도구',
-      otherToolName: 'Edgetree',
       // 내장한 글꼴·아이콘 고지. 두 라이선스 모두 배포할 때 표기를 요구한다. 앱 정보 탭에도
       // 같은 두 줄이 있고(ArchiveWindow), 여기 것은 받기 전에도 볼 수 있게 두는 몫이다.
       credits: '사용한 오픈소스',
@@ -850,8 +849,7 @@ const dict = {
     },
     footer: {
       contact: 'Requests',
-      otherTool: 'Another tool by the same maker',
-      otherToolName: 'Edgetree',
+      otherTool: 'Other tools by the same maker',
       credits: 'Open source used',
       licence: 'Licence',
       copyright: '© 2026 TabStick.',
