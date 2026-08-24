@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { t, lang, toggleLang } from '../i18n'
+import { t, lang, langs, langLabel, langSwitchLabel, setLang } from '../i18n'
 </script>
 
 <template>
@@ -22,16 +22,21 @@ import { t, lang, toggleLang } from '../i18n'
         <a href="#faq">{{ t.nav.faq }}</a>
       </nav>
 
-      <button
-        class="lang-toggle"
-        type="button"
-        @click="toggleLang"
-        :aria-label="lang === 'ko' ? 'Switch to English' : '한국어로 전환'"
-      >
-        <span :class="{ active: lang === 'ko' }">한</span>
-        <span class="sep">/</span>
-        <span :class="{ active: lang === 'en' }">EN</span>
-      </button>
+      <!-- 언어가 셋이 되면서 번갈아 누르는 단추를 그만두고 셋을 나란히 세웠다. 넷 이상이면
+           드롭다운을 봐야 하지만, 셋은 한눈에 보이고 제 언어로 한 번에 갈 수 있는 편이 낫다.
+           글자는 그 언어를 찾는 사람이 읽을 수 있는 것으로 둔다(한 · EN · 日). -->
+      <div class="lang-toggle">
+        <template v-for="(code, i) in langs" :key="code">
+          <span v-if="i > 0" class="sep">/</span>
+          <button
+            type="button"
+            :class="{ active: lang === code }"
+            :aria-label="langSwitchLabel[code]"
+            :aria-current="lang === code ? 'true' : undefined"
+            @click="setLang(code)"
+          >{{ langLabel[code] }}</button>
+        </template>
+      </div>
     </div>
   </header>
 </template>
@@ -109,6 +114,17 @@ import { t, lang, toggleLang } from '../i18n'
   font-weight: 600;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+/* 칸 셋이 각자 눌리는 단추가 됐다. 겉모습은 예전 그대로 - 글자만 서 있고, 고른 것 하나가
+   색으로 드러난다. 단추의 기본 차림(테두리·배경·자기 글꼴)은 걷어낸다. */
+.lang-toggle button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 .lang-toggle .sep {

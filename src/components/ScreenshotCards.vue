@@ -22,8 +22,12 @@ import { t, lang } from '../i18n'
 // 3열이라 아홉이면 마지막 줄이 꽉 찬다(여덟일 때는 한 칸이 비어 있었다).
 const KO = ['spc-07.gif', 'spc-01.png', 'spc-02.png', 'spc-03.png', 'spc-04.png', 'spc-05.png', 'spc-08.png', 'spc-09.png', 'spc-10.png']
 const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'scp-en-04.png', 'spc-05.png', 'scp-en-08.png', 'scp-en-09.png', 'scp-en-10.png']
+
+// **일본어는 영문 컷을 빌려 쓴다**(2026-08-24). 일본어 캡처는 아직 없는데, 그 사이 한국어 컷을
+// 내보내면 일본어 사용자는 읽을 수 없는 화면을 보게 된다. 영문 UI는 적어도 무엇을 하는 화면인지
+// 짚어 볼 수 있다. ▶ 일본어로 다시 찍으면 여기에 JA 배열을 하나 더 세운다.
 const shots = computed(() =>
-  (lang.value === 'en' ? EN : KO).map((src) => ({ src, pos: 'center' })),
+  (lang.value === 'ko' ? KO : EN).map((src) => ({ src, pos: 'center' })),
 )
 </script>
 

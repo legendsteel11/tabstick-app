@@ -2,8 +2,12 @@
 import { computed } from 'vue'
 import { t, lang } from '../i18n'
 
-// 언어별 히어로 GIF. 영문 UI 캡처는 영문판에만 쓰고, 캡처가 없는 언어는 한글판으로 떨어진다.
-const heroSrc = computed(() => (lang.value === 'en' ? '/screenshots/hero-en.gif' : '/screenshots/hero.gif'))
+// 언어별 히어로 GIF. **한국어만 한글 캡처를 쓰고 나머지는 영문 캡처로 간다**(2026-08-24).
+// 일본어 캡처가 아직 없는데, 그 사이 한글 화면을 내보내면 일본어 사용자는 첫 화면에서 아무것도
+// 읽을 수 없다. ▶ 일본어로 다시 찍으면 여기에 한 갈래를 더한다.
+const heroSrc = computed(() =>
+  lang.value === 'ko' ? '/screenshots/hero.gif' : '/screenshots/hero-en.gif',
+)
 </script>
 
 <template>
@@ -131,6 +135,12 @@ h1 {
   line-height: 1.5;
   margin-bottom: 16px;
   font-weight: 500;
+
+  /* 줄을 고르게 나눈다. 일본어는 글자 사이 어디서나 끊기므로, 그냥 두면 마지막 한두 글자만
+     다음 줄로 떨어져 문장이 어색해진다(`り。` 한 덩이가 홀로 내려왔다). 이 자리는 문장이
+     짧고 가운데 정렬이라 균형이 곧 인상이다.
+     ▣ 브라우저가 이 값을 모르면 예전처럼 흐르므로 잃는 것은 없다. */
+  text-wrap: balance;
 }
 
 /* 성격 표시지 약속 목록이 아니다. 크게 박으면 그쪽이 첫인상이 되고, 나중에 Pro가 생겨
