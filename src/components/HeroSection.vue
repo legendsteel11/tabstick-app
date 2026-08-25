@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { t, lang } from '../i18n'
+import { t, lang, type Lang } from '../i18n'
 
-// 언어별 히어로 GIF. **한국어만 한글 캡처를 쓰고 나머지는 영문 캡처로 간다**(2026-08-24).
-// 일본어 캡처가 아직 없는데, 그 사이 한글 화면을 내보내면 일본어 사용자는 첫 화면에서 아무것도
-// 읽을 수 없다. ▶ 일본어로 다시 찍으면 여기에 한 갈래를 더한다.
-const heroSrc = computed(() =>
-  lang.value === 'ko' ? '/screenshots/hero.gif' : '/screenshots/hero-en.gif',
-)
+// 히어로는 GIF에서 mp4로 옮겼다(2026-08-25). 같은 33초 영상이 GIF로는 7.8MB(그마저 1280으로
+// 줄인 것)인데 mp4로는 1.4MB이고 1920 그대로다. 화면이 내내 바뀌는 영상이라 GIF가 압축할
+// 여지가 없다. 첫 화면에서 받는 파일이라 이 차이가 그대로 체감된다.
+//
+// ▶ **일본어 영상은 아직 없어 영문판을 빌려 쓴다.** 한글 화면을 내보내면 일본어 사용자는
+// 첫 화면에서 아무것도 읽을 수 없는데, 영문이면 적어도 무슨 화면인지 짚어 볼 수 있다
+// (스크린샷 카드에서 쓰는 규칙과 같다). 일본어로 찍으면 표에 한 줄만 더하면 된다.
+const HERO: Partial<Record<Lang, string>> = {
+  ko: '/screenshots/hero.mp4',
+  en: '/screenshots/hero-en.mp4',
+}
+
+const heroSrc = computed(() => HERO[lang.value] ?? '/screenshots/hero-en.mp4')
 </script>
 
 <template>
@@ -38,7 +45,16 @@ const heroSrc = computed(() =>
         </ul>
       </div>
       <div class="shot">
-        <img :src="heroSrc" alt="TabStick index notes attached to browser windows, with the color palette" />
+        <!-- autoplay는 muted가 있어야 걸리고, playsinline이 없으면 모바일 사파리가 전체
+             화면으로 띄운다. 소리는 인코딩할 때 아예 뺐다. -->
+        <video
+          :src="heroSrc"
+          autoplay
+          loop
+          muted
+          playsinline
+          aria-label="TabStick index notes attached to browser windows, with the color palette"
+        />
       </div>
     </div>
   </section>
@@ -175,14 +191,17 @@ h1 {
   margin-right: 11px;
 }
 
+/* 800에서 올렸다(2026-08-25). GIF 시절에는 1280으로 줄인 것을 쓰느라 크게 벌리면 흐려졌는데,
+   mp4로 옮기면서 1920 그대로 들어와 여유가 생겼다. 컨테이너가 1100이라 그 아래로 둔다. */
 .shot {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-.shot img {
+.shot img,
+.shot video {
   width: 100%;
   display: block;
   border-radius: 12px;
