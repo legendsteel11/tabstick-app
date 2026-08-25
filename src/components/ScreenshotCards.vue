@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { t, lang } from '../i18n'
+import ImageLightbox from './ImageLightbox.vue'
 
 // 여섯 컷 모두 표시 박스와 같은 비율(720x500 = 1.44:1)이라, 데스크톱 3열에서는 object-fit: cover가
 // 아무것도 자르지 않는다. 좁아져 비율이 어긋나는 모바일에서만 잘리는데, 컷마다 요점이 가운데에
@@ -29,6 +30,12 @@ const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'sc
 const shots = computed(() =>
   (lang.value === 'ko' ? KO : EN).map((src) => ({ src, pos: 'center' })),
 )
+
+/* 카드를 누르면 원본 크기로 펼친다. 카드 폭이 340px 남짓이라 카드에서는 무슨 화면인지만
+   알리고, 글자를 읽는 몫은 확대창이 받는다. 그래서 카드 쪽에서 잘라 넣지 않는다. */
+const opened = ref<number | null>(null)
+const sources = computed(() => shots.value.map((s) => `/screenshots/${s.src}`))
+const alts = computed(() => t.value.screenshots.items.map((item) => item.title))
 </script>
 
 <template>
@@ -44,10 +51,9 @@ const shots = computed(() =>
 
       <div class="grid">
         <figure v-for="(item, i) in t.screenshots.items" :key="item.title" class="card">
-          <div class="shot">
-            <img :src="`/screenshots/${shots[i].src}`" :alt="item.title" loading="lazy"
-                 :style="{ objectPosition: shots[i].pos }" />
-          </div>
+          <button type="button" class="shot" @click="opened = i">
+            <img :src="`/screenshots/${shots[i].src}`" :alt="item.title" loading="lazy" />
+          </button>
           <figcaption>
             <h3>{{ item.title }}</h3>
             <p>{{ item.desc }}</p>
@@ -55,6 +61,8 @@ const shots = computed(() =>
         </figure>
       </div>
     </div>
+
+    <ImageLightbox v-model="opened" :sources="sources" :alts="alts" />
   </section>
 </template>
 
@@ -103,21 +111,38 @@ section {
   flex-direction: column;
 }
 
+/* 잘라내지 않는다(2026-08-25). 예전에는 720x500 창에 원본 화소를 그대로 잘라 넣었는데,
+   찍는 쪽이 그 창에 요점을 맞춰 넣어야 해서 찍고 확인하고 다시 찍기를 되풀이해야 했다.
+   지금은 컷을 통째로 담고, 글자를 읽는 몫은 누르면 열리는 확대창이 받는다.
+   16:9인 것은 화면 전체를 찍은 컷을 그대로 넣기 위해서다. */
 .shot {
   background: var(--bg-alt);
-  height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  padding: 0;
+  border: none;
   border-bottom: 1px solid var(--border);
+  display: block;
+  overflow: hidden;
+  cursor: zoom-in;
 }
 
 .shot img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  object-position: top left;
+  object-fit: contain;
+  /* 살짝 커지는 것으로 누를 수 있다는 것을 알린다. 카드가 overflow:hidden이라 넘치지 않는다. */
+  transition: transform 0.2s ease;
+}
+
+.shot:hover img {
+  transform: scale(1.03);
+}
+
+/* 키보드로 옮겨 다닐 때 어느 카드에 있는지 보이게 한다. */
+.shot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 figcaption {
