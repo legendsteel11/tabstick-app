@@ -15,6 +15,18 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
 
+    <!-- 일본어 화면에만 쓰는 글꼴. 원판 Pretendard에는 한자가 한 자도 없어(0/20992), 일본어
+         문장을 가나와 한자 두 글꼴이 나눠 그리게 된다. Noto Sans JP는 unicode-range로 잘게
+         쪼개져 있어서, 페이지에 실제로 나온 글자 조각만 내려받는다. 언어 전환이 클라이언트에서
+         일어나므로 한국어·영어 화면의 DOM에는 일본어가 없고, 그래서 일본어를 고른 사람만
+         실제 폰트 파일을 받는다. 적용 규칙은 style.css의 html[lang="ja"]에 있다. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
+    />
+
     <!-- Search Console 소유권 확인. 파일(public/google9821a0e3e94a21a5.html)로도 같이
          올려 두었다 - 확인 방법을 어느 쪽으로 고르든 통과하도록. -->
     <meta name="google-site-verification" content="MozeKofV5a9BWaIehIGll6Y1JL1t3CxX3-bZEumWvm8" />

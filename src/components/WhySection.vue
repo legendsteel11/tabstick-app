@@ -80,6 +80,14 @@ import { t } from '../i18n'
   color: var(--accent-strong);
 }
 
+/* 일본어에서는 기울이지 않는다. 한자·가나 서체에는 이탤릭 자형이 없어 화면에 보이는
+   기울임은 전부 브라우저가 만든 합성(偽斜体)이고, 일본어 조판에서는 피하는 쪽이다.
+   강조는 굵기와 색이 대신 받는다 - 아래 두 줄은 그대로 둔다. */
+html[lang='ja'] .questions li {
+  font-style: normal;
+  font-synthesis: none;
+}
+
 /* 개발 취지가 전부 자문(自問)이라, 따옴표를 붙여 혼잣말처럼 읽히게 한다. */
 .questions li::before {
   content: '“';
