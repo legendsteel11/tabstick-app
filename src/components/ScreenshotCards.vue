@@ -23,13 +23,16 @@ import ImageLightbox from './ImageLightbox.vue'
 // 3열이라 아홉이면 마지막 줄이 꽉 찬다(여덟일 때는 한 칸이 비어 있었다).
 // 2026-08-25에 한국어 아홉 장을 새로 찍어 갈아 끼웠다. 이름과 자리가 그대로 맞는다(nsc-01이
 // 첫 카드). 예전 배열은 spc-07, spc-01, spc-02… 순이라 번호와 자리가 어긋나 있었다.
-const KO = ['nsc-01.png', 'nsc-02.png', 'nsc-03.png', 'nsc-04.png', 'nsc-05.png', 'nsc-06.png', 'nsc-07.png', 'nsc-08.png', 'nsc-09.png']
-const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'scp-en-04.png', 'spc-05.png', 'scp-en-08.png', 'scp-en-09.png', 'scp-en-10.png']
+const KO = ['nsc-01.webp', 'nsc-02.webp', 'nsc-03.webp', 'nsc-04.webp', 'nsc-05.webp', 'nsc-06.webp', 'nsc-07.webp', 'nsc-08.webp', 'nsc-09.webp']
+const EN = ['nsc-01.webp', 'nsc-en-02.webp', 'nsc-en-03.webp', 'nsc-en-04.webp', 'nsc-en-05.webp', 'nsc-en-06.webp', 'nsc-en-07.webp', 'nsc-en-08.webp', 'nsc-en-09.webp']
 
-// **일본어는 영문 컷을 빌려 쓴다**(2026-08-24). 일본어 캡처는 아직 없는데, 그 사이 한국어 컷을
-// 내보내면 일본어 사용자는 읽을 수 없는 화면을 보게 된다. 영문 UI는 적어도 무엇을 하는 화면인지
-// 짚어 볼 수 있다. ▶ 일본어로 다시 찍으면 여기에 JA 배열을 하나 더 세운다.
-const shots = computed(() => (lang.value === 'ko' ? KO : EN))
+// 영어·일본어도 2026-08-25에 같은 구성으로 찍었다. **첫 칸은 세 언어가 함께 쓴다** - 메모가
+// 접힌 채 스티커만 보이는 컷이라 앱 글자가 나오지 않아 언어를 타지 않는다.
+const JA = ['nsc-01.webp', 'nsc-ja-02.webp', 'nsc-ja-03.webp', 'nsc-ja-04.webp', 'nsc-ja-05.webp', 'nsc-ja-06.webp', 'nsc-ja-07.webp', 'nsc-ja-08.webp', 'nsc-ja-09.webp']
+
+const shots = computed(() =>
+  lang.value === 'ko' ? KO : lang.value === 'ja' ? JA : EN,
+)
 
 /* 카드를 누르면 원본 크기로 펼친다. 카드 폭이 340px 남짓이라 카드에서는 무슨 화면인지만
    알리고, 글자를 읽는 몫은 확대창이 받는다. 그래서 카드 쪽에서 잘라 넣지 않는다. */
