@@ -97,9 +97,12 @@ const base = `TabStick-${fileVer}-win-x64`
 // 경량만 404였다(2026-07-29에 드러났다). **버전을 올릴 때 이름 규칙도 함께 확인할 것.**
 const relBase = `https://github.com/legendsteel11/tabstick-app/releases/download/v${version}`
 const dl = {
-  setup: { size: '49 MB', file: `${base}-setup.exe`, href: `${relBase}/${base}-setup.exe` },
-  portable: { size: '64 MB', file: `${base}-portable.zip`, href: `${relBase}/${base}-portable.zip` },
-  light: { size: '5 MB', file: `${base}-light.exe`, href: `${relBase}/${base}-light.exe` },
+  // ⚠ **크기는 판마다 다시 잰다.** 2.2.0에서 일본어용 글꼴이 들어가며 셋 다 커졌는데
+  // (49→56 · 64→72 · 5→14), 특히 light는 세 배가 되어 옛 표기를 그대로 두면 받는 사람이
+  // 기대한 것과 어긋난다. 값은 릴리즈 자산의 실제 바이트에서 온다.
+  setup: { size: '56 MB', file: `${base}-setup.exe`, href: `${relBase}/${base}-setup.exe` },
+  portable: { size: '72 MB', file: `${base}-portable.zip`, href: `${relBase}/${base}-portable.zip` },
+  light: { size: '14 MB', file: `${base}-light.exe`, href: `${relBase}/${base}-light.exe` },
 }
 // t는 computed(ComputedRef)라 <script setup> 최상단에서 t.download를 만지면 undefined다.
 // 라벨은 템플릿에서 t를 참조한다(템플릿은 ref를 자동 언랩한다).
