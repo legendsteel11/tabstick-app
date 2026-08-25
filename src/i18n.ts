@@ -128,16 +128,20 @@ const dict = {
           // 코드에 Drop 핸들러가 없다고 안 되는 것으로 넘겨짚지 말 것(2026-07-28 실측 확인).
           desc: '유튜브 주소, 텍스트를 바로 메모로 옮겨 놓으세요. 링크는 Ctrl+클릭으로 바로 이동할 수 있습니다. 반대로 창에서 주소나 글을 끌어다 메모에 놓으면 그대로 옮겨집니다.',
         },
+        // 2026-08-25 교체. 팔레트 모양·크기 카드가 있던 자리다. 그 설명은 기타기능으로 옮겼다 -
+        // 기능이 없어진 것이 아니라, 아홉 칸 중 한 자리를 내줄 만큼 받을 이유를 만들지는 못한다고
+        // 보았다(2026-07-27에 '편리한 앱 메뉴'를 뺀 것과 같은 기준). 대신 이 자리는 아래 색 카드가
+        // 두 가지를 한꺼번에 담고 있던 것을 갈라 받는다 - 형식은 여기, 색은 저기.
         {
-          title: '세가지 팔레트 모양과 크기-',
-          desc: '기본형, 가로형, 세로형, 그리고 크기를 취향대로 선택하세요. 팔레트는 트레이 메뉴에서 언제든지 다시 불러올 수 있습니다.',
+          title: '우클릭 한 번으로 메모 편집-',
+          desc: '자주 쓰는 기호로 형식을 지정하거나 체크박스를 사용할 수 있습니다. 글자 크기와 행간도 같은 메뉴에서 바로 선택할 수 있습니다.',
         },
         // 2026-08-03 추가. 기타기능·사용방법에도 같은 얘기가 있는데, 여기는 '특징'이라
         // 겹쳐도 된다 - 저쪽은 찾아보는 자리고 여기는 보여주는 자리다.
         // 일곱 번째라 3열 마지막 줄에 홀로 서고 두 칸이 빈다.
         {
-          title: '원하는 색과 형식으로-',
-          desc: '원하는 메모색, 글자색으로 마음껏 미리 정해두고 사용할 수 있습니다. 또 자주 쓰는 기호로 형식을 지정하거나 체크박스를 사용할 수 있습니다.',
+          title: '원하는 메모색, 글자색으로-',
+          desc: '원하는 메모색, 글자색으로 마음껏 미리 정해두고 사용할 수 있습니다.',
         },
         // 2026-08-05 추가(v1.2.0). 캡처는 장 보는 페이지에 붙은 메모라, 무엇에 쓰는지가
         // 문장보다 그림에서 먼저 읽힌다.
@@ -179,6 +183,9 @@ const dict = {
         { title: '스티커 찾기', desc: '팔레트에서 떠난 스티커를 추적하고 회수할 수 있습니다.' },
         // 2026-08-18. '자동 시작' 바로 앞에 세운다 - 부팅으로 시작하면 트레이에서 뜨므로,
         // 두 칸이 이어서 읽혀야 "그러면 팔레트는 어디 갔나"가 그 자리에서 풀린다.
+        // 2026-08-25에 특징 카드에서 내려온 항목. 문장은 그때 것 그대로다. 카드 한 자리를
+        // 내주기에는 약하다고 보았을 뿐, 기능이 없어진 것이 아니라 설명이 사라지면 안 된다.
+        { title: '팔레트 모양과 크기', desc: '기본형, 가로형, 세로형, 그리고 크기를 취향대로 선택하세요. 팔레트는 트레이 메뉴에서 언제든지 다시 불러올 수 있습니다.' },
         { title: '트레이 메뉴', desc: '팔레트를 숨겨도 트레이 아이콘은 그대로 남습니다. 우클릭하면 팔레트와 같은 색이 표시되어 스티커를 바로 집을 수 있고, 전체 잠금과 스티커 관리도 여기에 있습니다.' },
         // ⚠ 1.4.5에서 동작이 바뀌었다. 그 전에는 부팅 때도 팔레트가 함께 떴는데, 이제 **부팅으로
         // 시작하면 팔레트 없이 트레이에서** 올라온다. 카드 제목은 '자동 시작'을 두되 본문 첫
@@ -583,13 +590,14 @@ const dict = {
           desc: 'Drop a YouTube link or some text straight into a note. Ctrl+click a link to jump right to it. Or the reverse: drag an address or some text from the window onto a note and it drops in as-is.',
         },
         {
-          // 제목이 "모양 셋과 크기 셋"으로 읽혔다. 크기는 자유다.
-          title: 'Three palette shapes, any size',
-          desc: 'Pick default, row, or column, then set the size you want. The palette is always a tray-menu click away.',
+          // 2026-08-25 교체. 아래 색 카드가 색과 서식을 한꺼번에 담고 있던 것을 갈라 받는다 -
+          // 서식은 여기, 색은 저기. 두 문장 모두 지난 검수를 거친 그대로다.
+          title: 'Edit a note with one right-click',
+          desc: 'Mark up your lines with the symbols you reach for most, or add checkboxes. Text size and line spacing sit in the same menu.',
         },
         {
-          title: 'Your own colors and marks',
-          desc: 'Save the note and text colors you like as presets, ready to pick whenever you want them. Mark up your lines with the symbols you reach for most, or add checkboxes.',
+          title: 'Your own note and text colors',
+          desc: 'Save the note and text colors you like as presets, ready to pick whenever you want them.',
         },
         {
           // ▣ **두 문장으로 나눈다**(2026-08-18 검수). 한 문장에 서로 다른 예시 둘이 들어 있어
@@ -618,6 +626,7 @@ const dict = {
         // 'has left the palette'는 스티커가 스스로 나간 것으로 읽혔다(2026-08-18 검수).
         { title: 'Find a sticker', desc: 'Track down a sticker that’s out on a window and bring it back to the palette.' },
         // 국문 '트레이 메뉴'와 짝. 'Start with Windows' 앞에 두는 이유는 국문 주석에.
+        { title: 'Palette shape and size', desc: 'Pick default, row, or column, then set the size you want. The palette is always a tray-menu click away.' },
         { title: 'Tray menu', desc: 'Hide the palette and the tray icon stays put. Right-click it for the same colors as the palette — pick up a sticker straight away, or reach Lock all and Stickers from there.' },
         // ⚠ 1.4.5에서 동작이 바뀌었다 - 부팅으로 시작하면 팔레트 없이 트레이에서 뜬다.
         // 설정의 실제 라벨은 'Start with Windows'라 제목을 그대로 두고 본문이 새 동작을 말한다.
@@ -964,12 +973,14 @@ const dict = {
           desc: 'YouTubeのURLも文章も、そのままメモに移しておけます。リンクはCtrl+クリックですぐ開けます。逆に、ウィンドウからアドレスや文章をドラッグしてメモに落とせば、そのまま入ります。',
         },
         {
-          title: 'パレットは、3つの形と好きなサイズで。',
-          desc: '標準・横・縦の3つの形と、お好みのサイズを選べます。パレットはトレイメニューからいつでも呼び戻せます。',
+          // 2026-08-25 교체. 아래 색 카드에서 서식 몫을 갈라 받는다. 뒷문장(문자 크기·행간)만
+          // 새로 옮긴 것이고 앞문장은 지난 검수본 그대로다.
+          title: '右クリック一つで、メモを編集。',
+          desc: 'よく使う記号で行頭を整えたり、チェックボックスを使ったりできます。文字サイズと行間も、同じメニューからすぐに選べます。',
         },
         {
-          title: '好きな色と、好きな書式で。',
-          desc: 'お好みのメモの色と文字色を、あらかじめ決めておけます。よく使う記号で行頭を整えたり、チェックボックスを使ったりもできます。',
+          title: '好きなメモの色と、文字色で。',
+          desc: 'お好みのメモの色と文字色を、あらかじめ決めておけます。',
         },
         {
           title: 'メモの中で、そのまま計算。',
@@ -1011,6 +1022,10 @@ const dict = {
         {
           title: 'ステッカー探し',
           desc: 'どのウィンドウに貼ったか分からなくなっても、探して呼び戻せます。',
+        },
+        {
+          title: 'パレットの形とサイズ',
+          desc: '標準・横・縦の3つの形と、お好みのサイズを選べます。パレットはトレイメニューからいつでも呼び戻せます。',
         },
         {
           title: 'トレイメニュー',
