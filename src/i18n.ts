@@ -253,6 +253,19 @@ const dict = {
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
       notes: [
         {
+          version: '2.2.0',
+          items: [
+            '체크박스와 자주 쓰는 기호를 아이콘으로 바로 넣을 수 있습니다',
+            '원 숫자와 통화 기호를 우클릭 메뉴에서 바로 넣을 수 있습니다',
+            '글자 크기와 행간을 한 번에 선택할 수 있습니다',
+            '펼쳐 둔 메모의 스티커에 붙는 표시가 바뀌었고, 여섯 가지 중에서 선택할 수 있습니다',
+            '윈도우 시작 시 팔레트를 표시할지 설정할 수 있습니다',
+            '앱 글꼴을 Pretendard와 시스템 글꼴 중에서 선택할 수 있습니다',
+            '팔레트와 우클릭 메뉴의 칸 간격이 크기에 따라 미세하게 어긋나던 것을 수정했습니다',
+            '일본어가 추가되었습니다',
+          ],
+        },
+        {
           version: '2.1.0',
           items: [
             '메모 배경 이미지를 원하는 위치로 이동할 수 있습니다',
@@ -683,6 +696,19 @@ const dict = {
       notesNewer: 'Newer update notes',
       notes: [
         {
+          version: '2.2.0',
+          items: [
+            'Reach checkboxes and the symbols you use most from icons',
+            'Circled numbers and currency marks are in the right-click menu',
+            'Text size and line spacing are picked in one go',
+            'The mark on a sticker with its note open has changed, and can be chosen from six',
+            'Choose whether the palette shows when Windows starts',
+            'Choose the app font between Pretendard and the system font',
+            'Fixed item spacing in the palette and right-click menus being slightly out at some sizes',
+            'Japanese has been added',
+          ],
+        },
+        {
           version: '2.1.0',
           items: [
             'Move a note’s background image anywhere on the note',
@@ -1088,6 +1114,23 @@ const dict = {
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        // ⚠ **이 카드만 차례가 다르다.** 다른 언어는 자주 만나는 것부터 세우는데, 일본어는
+        // `日本語に対応しました`가 맨 위다. 앱의 업데이트 창과 사정이 갈린다 - 그 창은 이미 쓰고
+        // 있는 사람이 보므로 언어 추가가 남 얘기로 시작하지만, 이 페이지를 일본어로 보는 사람에게
+        // 2.2.0의 머리기사는 그것 자체다. 원어민 검수에서 나온 지적이다.
+        {
+          version: '2.2.0',
+          items: [
+            '日本語に対応しました',
+            'チェックボックスやよく使う記号を、アイコンからすぐ付けられるようになりました',
+            '丸数字と通貨記号を、右クリックメニューからすぐ入力できます',
+            'メモの文字サイズと行間を、一度に選べるようになりました',
+            '開いているメモのステッカーに付く印が変わり、6種類から選べるようになりました',
+            'Windowsの起動時にパレットを表示するかどうかを設定できます',
+            'アプリのフォントを、Pretendardとシステムフォントのどちらかから選べます',
+            'パレットと右クリックメニューで、サイズによって項目の間隔がわずかにずれていたのを修正しました',
+          ],
+        },
         {
           version: '2.1.0',
           items: [
