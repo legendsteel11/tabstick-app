@@ -3,9 +3,9 @@ import { computed, ref } from 'vue'
 import { t, lang } from '../i18n'
 import ImageLightbox from './ImageLightbox.vue'
 
-// 여섯 컷 모두 표시 박스와 같은 비율(720x500 = 1.44:1)이라, 데스크톱 3열에서는 object-fit: cover가
-// 아무것도 자르지 않는다. 좁아져 비율이 어긋나는 모바일에서만 잘리는데, 컷마다 요점이 가운데에
-// 몰려 있어 center면 어느 쪽이 잘려도 요점이 남는다.
+// 컷은 자르지 않는다(2026-08-25). 예전에는 720x500 창에 원본 화소를 그대로 잘라 넣어서, 찍는
+// 쪽이 그 창에 요점을 맞춰 넣어야 했다 - 찍고, 포토샵으로 확인하고, 창을 옮겨 다시 찍는 일이
+// 되풀이됐다. 지금은 화면 전체(1920x1080)를 그대로 담고, 글자를 읽는 몫은 확대창이 받는다.
 //
 // 언어별 이미지: 영문판은 영문 UI 캡처(scp-en-*). 단 **앱 글자가 안 나오는 컷은 한/영 공용**이다 -
 // 팔레트 모양(spc-05)과 맨 앞 창 전환 GIF(spc-07)가 그렇다. 후자는 메모를 접은 채로 찍어 스티커가
@@ -21,20 +21,20 @@ import ImageLightbox from './ImageLightbox.vue'
 // 2026-08-21에 아홉 칸이 됐다(배경 이미지). **한·영 따로 찍었다** - 프리셋 창의 글자가 크게
 // 보이는 컷이라 공용으로 쓸 수 없다(앞의 spc-05·spc-07만 글자가 안 나와 공용이다).
 // 3열이라 아홉이면 마지막 줄이 꽉 찬다(여덟일 때는 한 칸이 비어 있었다).
-const KO = ['spc-07.gif', 'spc-01.png', 'spc-02.png', 'spc-03.png', 'spc-04.png', 'spc-05.png', 'spc-08.png', 'spc-09.png', 'spc-10.png']
+// 2026-08-25에 한국어 아홉 장을 새로 찍어 갈아 끼웠다. 이름과 자리가 그대로 맞는다(nsc-01이
+// 첫 카드). 예전 배열은 spc-07, spc-01, spc-02… 순이라 번호와 자리가 어긋나 있었다.
+const KO = ['nsc-01.png', 'nsc-02.png', 'nsc-03.png', 'nsc-04.png', 'nsc-05.png', 'nsc-06.png', 'nsc-07.png', 'nsc-08.png', 'nsc-09.png']
 const EN = ['spc-07.gif', 'scp-en-01.png', 'scp-en-02.png', 'scp-en-03.png', 'scp-en-04.png', 'spc-05.png', 'scp-en-08.png', 'scp-en-09.png', 'scp-en-10.png']
 
 // **일본어는 영문 컷을 빌려 쓴다**(2026-08-24). 일본어 캡처는 아직 없는데, 그 사이 한국어 컷을
 // 내보내면 일본어 사용자는 읽을 수 없는 화면을 보게 된다. 영문 UI는 적어도 무엇을 하는 화면인지
 // 짚어 볼 수 있다. ▶ 일본어로 다시 찍으면 여기에 JA 배열을 하나 더 세운다.
-const shots = computed(() =>
-  (lang.value === 'ko' ? KO : EN).map((src) => ({ src, pos: 'center' })),
-)
+const shots = computed(() => (lang.value === 'ko' ? KO : EN))
 
 /* 카드를 누르면 원본 크기로 펼친다. 카드 폭이 340px 남짓이라 카드에서는 무슨 화면인지만
    알리고, 글자를 읽는 몫은 확대창이 받는다. 그래서 카드 쪽에서 잘라 넣지 않는다. */
 const opened = ref<number | null>(null)
-const sources = computed(() => shots.value.map((s) => `/screenshots/${s.src}`))
+const sources = computed(() => shots.value.map((src) => `/screenshots/${src}`))
 const alts = computed(() => t.value.screenshots.items.map((item) => item.title))
 </script>
 
@@ -52,7 +52,7 @@ const alts = computed(() => t.value.screenshots.items.map((item) => item.title))
       <div class="grid">
         <figure v-for="(item, i) in t.screenshots.items" :key="item.title" class="card">
           <button type="button" class="shot" @click="opened = i">
-            <img :src="`/screenshots/${shots[i].src}`" :alt="item.title" loading="lazy" />
+            <img :src="`/screenshots/${shots[i]}`" :alt="item.title" loading="lazy" />
           </button>
           <figcaption>
             <h3>{{ item.title }}</h3>
