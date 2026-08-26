@@ -258,6 +258,21 @@ const dict = {
       //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
       //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
+        // 2.2.1은 시계가 첫 줄이다(굵게 나오는 자리). 앱의 업데이트 창은 붙여넣기 수정을
+        // 앞세우는데(이미 겪던 사람이 보는 자리), 여기는 받을지 정하는 사람이 보므로 새
+        // 기능이 먼저다. 버튼 이름(샘플 그림·파일)은 화면 표기 그대로다.
+        {
+          version: '2.2.1',
+          items: [
+            '메모 제목을 시계로 설정할 수 있습니다',
+            '제목 입력 창에서 현재 시간을 입력할 수 있습니다',
+            '시간 제목에 요일이 추가되고 언어별 형식으로 변경되었습니다',
+            '제목 최대 길이가 16자에서 24자로 늘어났습니다',
+            '프리셋 설정의 이미지 선택이 샘플 그림과 파일 두 버튼으로 나뉘었습니다',
+            '웹에서 복사한 글을 붙여넣을 때 줄바꿈이 사라지던 것을 수정했습니다',
+            '크기를 조절해 둔 빈 메모가 재시작하면 기본 크기로 돌아가던 것을 수정했습니다',
+          ],
+        },
         {
           version: '2.2.0',
           items: [
@@ -702,6 +717,18 @@ const dict = {
       notesNewer: 'Newer update notes',
       notes: [
         {
+          version: '2.2.1',
+          items: [
+            'A note’s title can be a live clock',
+            'Stamp the current time into a title',
+            'Times in a title now carry the weekday, in each language’s own format',
+            'The title limit is now 24 characters, up from 16',
+            'Preset settings now has two buttons for picking an image, samples and file',
+            'Fixed line breaks disappearing when pasting text copied from the web',
+            'Fixed a resized empty note returning to its default size after a restart',
+          ],
+        },
+        {
           version: '2.2.0',
           items: [
             'The mark on a sticker with its note open has changed, and can be chosen from six',
@@ -1120,6 +1147,18 @@ const dict = {
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        {
+          version: '2.2.1',
+          items: [
+            'メモのタイトルを時計にできます',
+            'タイトルの入力画面から、現在時刻をすぐ入れられます',
+            'タイトルの時刻に曜日が加わり、言語ごとの表示形式になりました',
+            'タイトルの最大文字数が16文字から24文字に増えました',
+            'プリセット設定の画像選択が、[付属の画像]と[参照]の2つのボタンに分かれました',
+            'Webページからコピーした文章を貼り付けると、改行が消えていたのを修正しました',
+            'サイズを変更した空のメモが、アプリを再起動すると既定のサイズに戻っていたのを修正しました',
+          ],
+        },
         // ⚠ **이 카드만 차례가 다르다.** 다른 언어는 자주 만나는 것부터 세우는데, 일본어는
         // `日本語に対応しました`가 맨 위다. 앱의 업데이트 창과 사정이 갈린다 - 그 창은 이미 쓰고
         // 있는 사람이 보므로 언어 추가가 남 얘기로 시작하지만, 이 페이지를 일본어로 보는 사람에게
