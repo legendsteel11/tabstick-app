@@ -251,14 +251,20 @@ const dict = {
       // DownloadSection이 version보다 높은 덩이는 감추므로, 파일을 올리기 전에 미리 적어 두어도
       // 광고가 앞서 나가지 않는다(예전 notesVersion 상수가 하던 일을 데이터가 스스로 한다).
       // 1.0.2 이하는 싣지 않는다 - 한두 줄 요약뿐이라 목록이 채워 넣은 것처럼 보인다.
+      //
+      // ⚠ **첫 줄은 굵게 나온다**(`.notes li:first-child`). 그래서 차례가 곧 강조다 - 그 판에서
+      //   가장 눈에 들어오는 변화를 맨 위에 둔다. **앱의 업데이트 창과 차례가 달라도 된다**:
+      //   그 창은 이미 쓰는 사람이 한 번 보고 마는 자리고, 여기는 받을지 정하는 사람이 보는
+      //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
+      //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
         {
           version: '2.2.0',
           items: [
+            '펼쳐 둔 메모의 스티커에 붙는 표시가 바뀌었고, 여섯 가지 중에서 선택할 수 있습니다',
             '체크박스와 자주 쓰는 기호를 아이콘으로 바로 넣을 수 있습니다',
             '원 숫자와 통화 기호를 우클릭 메뉴에서 바로 넣을 수 있습니다',
             '글자 크기와 행간을 한 번에 선택할 수 있습니다',
-            '펼쳐 둔 메모의 스티커에 붙는 표시가 바뀌었고, 여섯 가지 중에서 선택할 수 있습니다',
             '윈도우 시작 시 팔레트를 표시할지 설정할 수 있습니다',
             '앱 글꼴을 Pretendard와 시스템 글꼴 중에서 선택할 수 있습니다',
             '팔레트와 우클릭 메뉴의 칸 간격이 크기에 따라 미세하게 어긋나던 것을 수정했습니다',
@@ -698,10 +704,10 @@ const dict = {
         {
           version: '2.2.0',
           items: [
+            'The mark on a sticker with its note open has changed, and can be chosen from six',
             'Reach checkboxes and the symbols you use most from icons',
             'Circled numbers and currency marks are in the right-click menu',
             'Text size and line spacing are picked in one go',
-            'The mark on a sticker with its note open has changed, and can be chosen from six',
             'Choose whether the palette shows when Windows starts',
             'Choose the app font between Pretendard and the system font',
             'Fixed item spacing in the palette and right-click menus being slightly out at some sizes',
@@ -1122,10 +1128,10 @@ const dict = {
           version: '2.2.0',
           items: [
             '日本語に対応しました',
+            '開いているメモのステッカーに付く印が変わり、6種類から選べるようになりました',
             'チェックボックスやよく使う記号を、アイコンからすぐ付けられるようになりました',
             '丸数字と通貨記号を、右クリックメニューからすぐ入力できます',
             'メモの文字サイズと行間を、一度に選べるようになりました',
-            '開いているメモのステッカーに付く印が変わり、6種類から選べるようになりました',
             'Windowsの起動時にパレットを表示するかどうかを設定できます',
             'アプリのフォントを、Pretendardとシステムフォントのどちらかから選べます',
             'パレットと右クリックメニューで、サイズによって項目の間隔がわずかにずれていたのを修正しました',
