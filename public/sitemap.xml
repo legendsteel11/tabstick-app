@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- 언어마다 주소가 하나씩이다(2026-08-27). 셋이 서로를 hreflang으로 가리켜, 검색엔진이
+     같은 페이지의 다른 언어로 알고 검색자 언어에 맞는 것을 내보인다. 영어가 `/`이자 x-default. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.tabstick.com/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tabstick.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.tabstick.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.tabstick.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tabstick.com/" />
+  </url>
+  <url>
+    <loc>https://www.tabstick.com/ko/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tabstick.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.tabstick.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.tabstick.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tabstick.com/" />
+  </url>
+  <url>
+    <loc>https://www.tabstick.com/ja/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tabstick.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.tabstick.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.tabstick.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tabstick.com/" />
   </url>
 </urlset>

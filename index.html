@@ -39,6 +39,15 @@
          주소는 www로 적는다 - apex(tabstick.com)는 308로 여기 넘어오므로, 사람이 실제로
          닿는 곳이자 최종 목적지가 www다. 사람에게 보여 주는 표시값만 짧은 apex를 쓴다. -->
     <link rel="canonical" href="https://www.tabstick.com/" />
+
+    <!-- 같은 페이지의 세 언어(2026-08-27). 빌드 뒤 scripts/localize.mjs가 이 HTML을 바탕으로
+         /ko/·/ja/의 HTML을 만들며 lang·제목·설명·og·canonical만 갈아 끼운다 - 아래 넷은 세 벌에
+         똑같이 들어가야 하므로 여기 정적으로 둔다. 영어가 `/`이자 x-default다(그동안 `/` 하나에
+         쌓인 검색 신호를 흩지 않으려는 것). -->
+    <link rel="alternate" hreflang="en" href="https://www.tabstick.com/" />
+    <link rel="alternate" hreflang="ko" href="https://www.tabstick.com/ko/" />
+    <link rel="alternate" hreflang="ja" href="https://www.tabstick.com/ja/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.tabstick.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TabStick" />
     <meta property="og:locale" content="en_US" />

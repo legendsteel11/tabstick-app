@@ -20,6 +20,11 @@ const isLang = (v: unknown): v is Lang => v === 'ko' || v === 'en' || v === 'ja'
  *   뿐이고 페이지는 그대로 선다.
  */
 function pickInitial(): Lang {
+  // 주소가 언어를 말하면 그것이 이긴다(2026-08-27). `/ko/`로 들어온 사람은 그 링크를 받은
+  // 사람이고, 저장된 선택보다 지금 손에 든 주소가 더 가까운 뜻이다.
+  const fromPath = langFromPath()
+  if (fromPath) return fromPath
+
   try {
     const saved = localStorage.getItem(STORE_KEY)
     if (isLang(saved)) return saved
@@ -37,7 +42,39 @@ function pickInitial(): Lang {
   return 'en'
 }
 
+/**
+ * 언어가 서는 주소. 영어가 `/`, 나머지는 `/ko/`·`/ja/`(2026-08-27).
+ *
+ * **검색엔진 때문이다.** 페이지 안의 글은 브라우저 언어로 바뀌지만 `<title>`·description은
+ * HTML에 박힌 한 벌뿐이라, 구글 국문 검색에서도 영어 제목·설명이 떴다. 언어마다 주소를 갖고
+ * 그 주소의 HTML에 그 언어의 메타를 박아야(빌드 뒤 scripts/localize.mjs가 만든다) 검색엔진이
+ * 셋을 따로 색인한다. 세 HTML은 서로를 hreflang으로 가리킨다(index.html).
+ *
+ * ⚠ 영어를 `/`에 두는 것은 **지금까지 `www.tabstick.com/` 하나에 쌓인 검색 신호를 흩지 않으려는
+ * 것**이다. `/`가 x-default이기도 하다.
+ */
+export const langPath: Record<Lang, string> = { en: '/', ko: '/ko/', ja: '/ja/' }
+
+function langFromPath(): Lang | null {
+  const seg = location.pathname.split('/')[1]?.toLowerCase()
+  return seg === 'ko' || seg === 'ja' ? seg : null
+}
+
+/**
+ * 주소를 언어에 맞춘다. 화면과 주소가 늘 같은 언어를 말하게 - 그래야 주소를 복사해 넘긴
+ * 사람도 같은 화면을 본다. 검색·해시(`?from=app`·`#download`)는 그대로 둔다 - App.vue와
+ * main.ts가 그것을 읽는다.
+ */
+function syncPath(code: Lang) {
+  const want = langPath[code]
+  if (location.pathname === want) return
+
+  history.replaceState(history.state, '', want + location.search + location.hash)
+}
+
 export const lang = ref<Lang>(pickInitial())
+
+syncPath(lang.value)
 
 /** 브라우저·스크린리더에도 알린다. 글꼴 대체와 읽는 말씨가 이 값을 본다. */
 watchEffect(() => {
@@ -59,6 +96,7 @@ export const langSwitchLabel: Record<Lang, string> = {
 
 export function setLang(next: Lang) {
   lang.value = next
+  syncPath(next)
 
   // 직접 고른 것은 기억한다. 새로고침하거나 다시 찾아와도 그 말로 선다.
   try {
