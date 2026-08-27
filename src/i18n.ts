@@ -84,7 +84,18 @@ const dict = {
       tagline: '메모를 바탕화면이 아니라, 그 메모가 필요한 “창” 옆에 붙입니다.',
       // "전송하지 않습니다"가 아니라 "내 PC에만"이다 - 같은 사실인데 앞은 없는 것을,
       // 뒤는 만들어 둔 것을 말한다. 셋을 한 줄에 두어 약속 목록이 아니라 성격 표시로 읽히게.
-      badges: ['무료', '광고 없음', '메모는 내 PC에만'],
+      // 칩이 넷이 됐다(2026-08-27) - `기업·관공서에서도 자유롭게 사용`이 들어왔다. 라이선스는
+      // 처음부터 상업 사용을 허용했는데 페이지 어디에도 그 말이 없었다 - 업무용으로 받는 사람이
+      // "회사에서 써도 되나"를 스스로 묻고 답을 못 찾던 자리다.
+      // ▣ `기업·관공서도 무료`로 먼저 썼다가 바꿨다 - "도 무료"는 기업용 요금이 따로 있는 것처럼
+      //   읽힌다. 국내 프리웨어의 관용구는 "자유롭게 사용 가능"이고, `무료`는 첫 3초에 먼저 찾는
+      //   말이라 칩을 하나 늘려 둘 다 남겼다. 영·일은 각 언어권 관용구(`Free for commercial use`·
+      //   `法人・官公庁も無料`)라 그대로다.
+      // "제약 없이" 같은 말은 일부러 없다: 사용 허가와 무료라는 우리 쪽 조건만 말하고, 조직의
+      // 반입 규정은 우리가 말할 것이 아니다.
+      badges: ['무료', '기업·관공서에서도 자유롭게 사용', '광고 없음', '메모는 내 PC에만'],
+      // 칩 사이를 `/` 글자로 가를지. 국문은 CSS 점으로 충분하다(아래 일문 참고).
+      badgeSlash: false,
     },
     why: {
       title: '왜 만들게 되었나요?',
@@ -235,7 +246,13 @@ const dict = {
       setupTitle: '설치 버전',
       setupDesc: '받아서 클릭 몇 번. 시작 메뉴에 등록되고, 제거도 깔끔합니다.',
       portableTitle: '무설치',
-      portableDesc: '압축을 풀고 바로 실행합니다.',
+      // "관리자 권한도 필요 없다"는 회사·관공서 PC를 위한 말이다(2026-08-27). 원래부터 그랬는데
+      // 적지 않고 있었다.
+      portableDesc: '압축을 풀고 바로 실행합니다. 설치도 관리자 권한도 필요 없습니다.',
+      // 받기 버튼 바로 위의 안심 한 줄. 히어로 배지와 같은 셋인데 여기는 결정 직전이라 빠짐없이
+      // 다 적는다(`개인·기업·관공서 모두`). 망설일 이유가 아니라 받을 이유라 이 자리가 맞다.
+      assure: ['개인·기업·관공서 모두 무료', '광고 없음', '메모는 내 PC에만'],
+      assureSlash: false,
       lightTitle: '경량',
       lightDesc: '.NET 8 데스크톱 런타임이 필요합니다.',
       // 업데이트 내역. 앱이 업데이트 뒤 첫 실행에 띄우는 창과 같은 글이다(EdgeIndex/WhatsNew.cs).
@@ -556,6 +573,13 @@ const dict = {
           q: '서버에 메모를 전송하나요?',
           a: '아닙니다. 메모는 사용자 PC에만 저장됩니다. 업데이트 안내를 위해 GitHub에서 새 버전이 나왔는지만 확인할 뿐이고, 그때도 메모나 개인정보는 보내지 않습니다.',
         },
+        {
+          // 회사·관공서 PC 항목(2026-08-27). 서버 항목 바로 뒤가 자리다 - "밖으로 안 나간다"
+          // 다음에 "권한이 없어도 된다"가 오면 업무용 PC의 걱정 둘이 나란히 풀린다.
+          // 버튼 이름은 Inno Setup 한국어 언어 파일의 실제 표기 그대로다(Korean.isl).
+          q: '회사·관공서 PC라 관리자 권한이 없는데 쓸 수 있나요?',
+          a: '네. 설치 버전은 실행할 때 "현재 사용자용으로 설치"를 선택하면 관리자 권한 없이 설치됩니다. 무설치 버전은 압축을 풀기만 하면 됩니다.',
+        },
       ],
     },
     footer: {
@@ -583,7 +607,10 @@ const dict = {
       eyebrow: 'Windows index-sticker notes',
       title: 'TabStick',
       tagline: 'Stick a note beside the window it belongs to — not on your desktop.',
-      badges: ['Free', 'No ads', 'Your notes stay on your PC'],
+      // `Free for commercial use` - 영어권 프리웨어가 굳어진 표현 그대로다(원어민 검수).
+      // 국문처럼 업종을 열거하면(`business and government`) 마케팅이 아니라 약관처럼 읽힌다.
+      badges: ['Free for commercial use', 'No ads', 'Your notes stay on your PC'],
+      badgeSlash: false,
     },
     why: {
       title: 'Why I made it',
@@ -707,7 +734,9 @@ const dict = {
       setupTitle: 'Installer',
       setupDesc: 'Download, click through, done — it lands in your Start menu and uninstalls cleanly.',
       portableTitle: 'Portable',
-      portableDesc: 'Unzip and run. No installation.',
+      portableDesc: 'Unzip and run. No installation, no admin rights.',
+      assure: ['Free for personal and commercial use', 'No ads', 'Your notes stay on your PC'],
+      assureSlash: false,
       lightTitle: 'Light',
       lightDesc: 'Needs the .NET 8 Desktop Runtime.',
       // 영문은 Changelog로 적는다(2026-08-05) - 아카이브들이 그 낱말로 찾는데 "Update notes"는
@@ -973,6 +1002,12 @@ const dict = {
           q: 'Do my notes go to a server?',
           a: 'No. They are stored only on your PC. It checks GitHub for a newer version so it can let you know — even then, no notes or personal data are sent.',
         },
+        {
+          // `my work PC` 한 마디가 회사·관공서를 다 덮는다 - 열거하면 어색하다(원어민 검수).
+          // 버튼 이름은 Inno Setup 영어 표준 문구 그대로다(Default.isl).
+          q: 'I don’t have admin rights on my work PC. Can I still use it?',
+          a: 'Yes. When you run the installer, choose “Install for me only” and it installs without admin rights. Or take the portable build — just unzip it.',
+        },
       ],
     },
     footer: {
@@ -996,7 +1031,12 @@ const dict = {
       eyebrow: 'Windows用 インデックスメモ',
       title: 'TabStick',
       tagline: 'メモを貼るのは、デスクトップではなく、そのメモが必要なウィンドウのとなり。',
-      badges: ['無料', '広告なし', 'メモはPCの中だけ'],
+      // 일본어는 영어와 반대로 이용 주체를 열거하는 것이 관행이다(`法人利用可`류). `法人`이
+      // 학교·의료·NPO 법인까지 덮고 `官公庁`이 표준어라 빠지는 조직이 없다(원어민 검수).
+      badges: ['法人・官公庁も無料', '広告なし', 'メモはPCの中だけ'],
+      // ⚠ 일문만 칩 사이를 `/`로 가른다. `法人・官公庁` 안에 이미 가운뎃점이 있어, 칩 사이도
+      // 점이면 「법인 / 관공서도 무료 / 광고 없음」네 덩어리로 잘못 읽힌다(원어민 검수).
+      badgeSlash: true,
     },
     why: {
       title: 'なぜ作ったのか',
@@ -1133,7 +1173,10 @@ const dict = {
       setupTitle: 'インストール版',
       setupDesc: 'ダウンロードして数回クリックするだけ。スタートメニューに登録され、アンインストールしても、余計なものが残りません。',
       portableTitle: 'ポータブル版',
-      portableDesc: '解凍してすぐ実行できます。インストールは不要です。',
+      portableDesc: '解凍してすぐ実行できます。インストールも管理者権限も不要です。',
+      // `を問わず`다 - `のいずれも`는 계약서 문체라 안심시키는 자리에 어울리지 않는다(원어민 검수).
+      assure: ['個人・法人・官公庁を問わず無料', '広告なし', 'メモはPCの中だけ'],
+      assureSlash: true,
       lightTitle: '軽量版',
       lightDesc: '.NET 8 デスクトップ ランタイムが必要です。',
       notesTitle: '更新内容',
@@ -1246,6 +1289,14 @@ const dict = {
         {
           q: 'メモをサーバーに送っていますか？',
           a: 'いいえ。メモはお使いのPCの中だけに保存されます。更新のお知らせのために、GitHubで新しいバージョンが出ていないかを確認するだけで、そのときもメモや個人情報は送りません。',
+        },
+        {
+          // ⚠ **인스톨러에 일본어 언어 파일이 없어 그 대화상자는 영어로 뜬다.** 그래서 "화면은
+          // 영어입니다"를 먼저 말하고 영어 버튼명을 그대로 인용한다 - 일본어 항목을 찾다 헤매지
+          // 않게(원어민 검수: 사과가 아니라 안내라 어조 규칙에 걸리지 않는다). 인스톨러에
+          // Japanese.isl을 넣는 날 그 절을 빼고 `「現在のユーザー用にインストール」`로 바꾼다.
+          q: '会社や官公庁のPCで管理者権限がないのですが、使えますか？',
+          a: 'はい。インストーラーの画面は英語ですが、「Install for me only」を選べば管理者権限なしでインストールできます。ポータブル版は解凍するだけで使えます。',
         },
       ],
     },

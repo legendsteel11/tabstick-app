@@ -40,7 +40,9 @@ const heroSrc = computed(() => HERO[lang.value] ?? '/screenshots/hero-en.mp4')
              않는다 - 이건 망설일 이유가 아니라 **받을 이유**다. 다만 문구는 긍정형으로 쓴다:
              "데이터를 전송하지 않습니다"가 아니라 "메모는 내 PC에만". 없는 것을 말하면
              묻지 않은 사람에게 질문을 심는다(2026-07-26에 그 자리에서 한 번 겪었다). -->
-        <ul class="badges">
+        <!-- slash: 칩 사이를 점 대신 `/` 글자로 가른다. 일문 칩 안에 이미 가운뎃점(法人・官公庁)이
+             있어 사이까지 점이면 네 덩어리로 읽힌다 - 언어가 정한다(i18n의 badgeSlash). -->
+        <ul class="badges" :class="{ slash: t.hero.badgeSlash }">
           <li v-for="b in t.hero.badges" :key="b">{{ b }}</li>
         </ul>
       </div>
@@ -189,6 +191,17 @@ h1 {
   background: var(--text-soft);
   opacity: 0.55;
   margin-right: 11px;
+}
+
+/* 점 대신 `/` 글자. 일문 칩 안의 가운뎃점과 겹치지 않게(2026-08-27, 원어민 검수). */
+.badges.slash li + li::before {
+  content: '/';
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: var(--text-soft);
+  opacity: 0.55;
 }
 
 /* 800에서 올렸다(2026-08-25). GIF 시절에는 1280으로 줄인 것을 쓰느라 크게 벌리면 흐려졌는데,

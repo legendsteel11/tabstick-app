@@ -171,6 +171,14 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
         </div>
       </div>
 
+      <!-- 받기 버튼 바로 위의 안심 한 줄(2026-08-27). 히어로 배지와 같은 셋을 결정 직전에 한 번
+           더 보인다 - 여기는 망설일 이유가 아니라 받을 이유라 이 자리가 맞다. 첫 칩이 상업 사용
+           무료인데, 라이선스가 처음부터 허용하던 것을 페이지가 말하지 않고 있었다. slash는 히어로와
+           같은 사정(일문 칩 안의 가운뎃점). -->
+      <ul class="assure" :class="{ slash: t.download.assureSlash }">
+        <li v-for="b in t.download.assure" :key="b">{{ b }}</li>
+      </ul>
+
       <!-- 히어로: 설치 버전. 대부분 여기로 오므로 시선을 독점한다(채운 강조색 + 디스크 아이콘). -->
       <a class="hero" :class="{ 'is-disabled': !ready }" :href="ready ? dl.setup.href : undefined"
          :aria-disabled="!ready" @click="trackDownload('setup')">
@@ -259,6 +267,46 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
 </template>
 
 <style scoped>
+/* 받기 버튼 위의 안심 줄. 히어로 배지(HeroSection .badges)와 같은 규격이다 - 크게 박으면
+   그쪽이 첫인상이 된다. 가운데 모아 두고 버튼과의 사이만 벌린다. */
+.assure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.assure li {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.assure li + li::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-soft);
+  opacity: 0.55;
+  margin-right: 11px;
+}
+
+.assure.slash li + li::before {
+  content: '/';
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: var(--text-soft);
+  opacity: 0.55;
+}
+
 /* 배경·가로선 규칙은 ScreenshotCards 주석에 - 히어로 아래 모든 섹션이 자기 위에 선을 하나 갖는다.
    이 선은 원래 여기만 따로 있었다. '드리는 말씀' 섹션을 빼면서 사용방법과 다운로드가 그냥
    이어져 버려 급히 넣은 것인데(2026-07-26), 2026-07-28에 전 섹션이 같은 규칙을 갖게 되면서
