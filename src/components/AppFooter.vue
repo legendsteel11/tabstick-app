@@ -60,11 +60,13 @@ onUnmounted(() => clearTimeout(clear))
       </div>
 
       <!-- 상호 링크는 푸터에(랜딩 계획). 다른 앱으로 가는 약한 방향이라 여기 한 줄로만.
-           이름은 고유명사라 두 언어가 같아 본문에 그대로 적는다(2026-08-23, SweepCap 추가). -->
+           이름은 고유명사라 두 언어가 같아 본문에 그대로 적는다(2026-08-23, SweepCap 추가).
+           새 앱은 뒤에 붙인다 - 나온 차례가 곧 줄의 차례다(2026-08-27, DeskNoise 추가). -->
       <p class="other">
         {{ t.footer.otherTool }} ·
         <a href="https://edgetree.vercel.app/" target="_blank" rel="noopener">Edgetree</a> ·
-        <a href="https://github.com/legendsteel11/SweepCap" target="_blank" rel="noopener">SweepCap</a>
+        <a href="https://github.com/legendsteel11/SweepCap" target="_blank" rel="noopener">SweepCap</a> ·
+        <a href="https://desk-noise.vercel.app/" target="_blank" rel="noopener">DeskNoise</a>
       </p>
 
       <!-- 내장한 글꼴·아이콘 고지. 두 라이선스 모두 배포할 때 표기를 요구하므로 앱 정보 탭에도
