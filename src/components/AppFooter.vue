@@ -65,7 +65,7 @@ onUnmounted(() => clearTimeout(clear))
       <p class="other">
         {{ t.footer.otherTool }} ·
         <a href="https://edgetree.vercel.app/" target="_blank" rel="noopener">Edgetree</a> ·
-        <a href="https://github.com/legendsteel11/SweepCap" target="_blank" rel="noopener">SweepCap</a> ·
+        <a href="https://sweepcap.vercel.app/" target="_blank" rel="noopener">SweepCap</a> ·
         <a href="https://desk-noise.vercel.app/" target="_blank" rel="noopener">DeskNoise</a>
       </p>
 
