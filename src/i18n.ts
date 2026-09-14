@@ -119,7 +119,9 @@ const dict = {
     hero: {
       eyebrow: 'Windows 인덱스 스티커 메모',
       title: 'TabStick',
-      tagline: '메모를 바탕화면이 아니라, 그 메모가 필요한 “창” 옆에 붙입니다.',
+      // 2026-09-14 교체(v2.3.0 바탕화면 부착). 전에는 "바탕화면이 아니라"였다 - 바탕화면에도 놓을 수
+      // 있게 되면서 대비 대신 둘 다 된다는 말로 바꿨다. 창 옆이 이 앱의 중심이라 뒤에 둔다.
+      tagline: '메모를 바탕화면뿐 아니라, 그 메모가 필요한 “창” 옆에 붙일 수 있습니다.',
       // "전송하지 않습니다"가 아니라 "내 PC에만"이다 - 같은 사실인데 앞은 없는 것을,
       // 뒤는 만들어 둔 것을 말한다. 셋을 한 줄에 두어 약속 목록이 아니라 성격 표시로 읽히게.
       // 칩이 넷이 됐다(2026-08-27) - `기업·관공서에서도 자유롭게 사용`이 들어왔다. 라이선스는
@@ -158,10 +160,12 @@ const dict = {
           desc: '창을 여러 개 띄워 두어도, 스티커를 누르면 그 창이 바로 앞으로 나옵니다. 작업 표시줄에서 비슷한 아이콘을 뒤질 필요 없이 색으로 찾으세요.',
         },
         {
-          title: '모든 스티커는 창과 함께-',
+          // 2026-09-14 제목 교체. 바탕화면에 놓은 스티커는 창을 따라가지 않으므로 '모든 스티커'가
+          // 틀린 말이 됐다. 본문 첫머리에도 '창에 붙인 스티커는'을 세운다.
+          title: '스티커를 창에 부착-',
           // '팔레트로 돌아온다'만으로는 스티커만 돌아오고 글은 날아간 것으로 읽힐 수 있어
           // 한 줄 더한다(2026-07-28). 앞 문장에 '종료'가 이미 있어 뒤는 '닫아도'로 받는다.
-          desc: '창과 같이 움직이고, 창과 함께 최소화 되고, 창이 종료되면 팔레트로 돌아옵니다. 실수로 닫았더라도 쓰던 내용은 그대로 남아 있습니다.',
+          desc: '창에 붙인 스티커는 창과 같이 움직이고, 창과 함께 최소화되고, 창이 종료되면 팔레트로 돌아옵니다. 실수로 닫았더라도 쓰던 내용은 그대로 남아 있습니다.',
         },
         {
           title: '단 9개의 스티커로 관리-',
@@ -212,6 +216,10 @@ const dict = {
     features: {
       title: '기타기능',
       items: [
+        // 2026-09-14 추가(v2.3.0). 새 방식이라 맨 앞에 둔다. 본문의 복원 옵션은 설정의
+        // '앱 시작 시 바탕화면 메모 복원'이다 - 기본이 켜짐이라 "켤 수 있다"가 아니라 "비활성화할 수도 있다"로
+        // 앞 문장(복원)을 받는다. `사용 여부는 설정에서 선택`은 무엇을 쓰는지가 안 잡혀 바꿨다(검수, 영·일과 같다).
+        { title: '창과 분리하여 단독 사용', desc: '메모를 바탕화면에 놓으면 독립된 메모로 동작합니다. 앱을 다시 시작하면 놓아 둔 자리에 자동으로 복원되며, 설정에서 비활성화할 수도 있습니다.' },
         { title: '메모 잠금', desc: '중요한 메모는 잠시 잠가둘 수 있습니다. 잠긴 메모는 잠금을 풀 때까지 수정하거나 지울 수 없습니다.' },
         // 2026-08-18에 들어왔다. '메모 잠금' 바로 옆에 세운다 - 앱에서도 이 둘은 '편집 잠금 /
         // 전체 잠금'으로 갈라 부르는 한 갈래이고(Strings.cs 주석), 떨어뜨려 놓으면 카드를 읽는
@@ -249,8 +257,9 @@ const dict = {
       title: '사용방법',
       steps: [
         {
-          title: '스티커를 집어 창에 붙이기',
-          desc: '팔레트에서 색 하나를 클릭하면 스티커가 커서에 붙습니다. 그대로 원하는 프로그램 창 아무 곳이나 클릭하면 부착됩니다. 옮기는 중에는 우클릭·바탕화면 클릭·ESC로 언제든 취소할 수 있습니다. 팔레트를 숨긴 상태에서는 트레이 아이콘을 우클릭해서 같은 색을 선택할 수 있습니다.',
+          // 2026-09-14. 바탕화면 클릭은 이제 취소가 아니라 그 자리에 놓는 동작이라 취소 목록에서 뺐다.
+          title: '스티커를 집어 창에 붙이거나 바탕화면에 놓기',
+          desc: '팔레트에서 색 하나를 클릭하면 스티커가 커서에 붙습니다. 그대로 원하는 프로그램 창이나 바탕화면 아무 곳이나 클릭하면 부착됩니다. 옮기는 중에는 우클릭·Esc로 언제든 취소할 수 있습니다. 팔레트를 숨긴 상태에서는 트레이 아이콘을 우클릭해서 같은 색을 선택할 수 있습니다.',
         },
         {
           title: '가볍게 적기',
@@ -659,7 +668,10 @@ const dict = {
     hero: {
       eyebrow: 'Windows index-sticker notes',
       title: 'TabStick',
-      tagline: 'Stick a note beside the window it belongs to — not on your desktop.',
+      // 2026-09-14 교체(v2.3.0). 국문과 같은 이유 - 바탕화면도 되니 대비를 걷는다.
+      // 쉼표가 아니라 줄표다(2026-09-14 검수) - `A, or B`는 둘을 대등하게 만들어 창 옆이라는 차별점이
+      // 묻힌다. 줄표가 뒤 절을 들어 올린다(국문 '~뿐 아니라'가 뒤에 무게를 두는 것과 같다).
+      tagline: 'Stick a note on your desktop — or right beside the window it belongs to.',
       // `Free for commercial use` - 영어권 프리웨어가 굳어진 표현 그대로다(원어민 검수).
       // 국문처럼 업종을 열거하면(`business and government`) 마케팅이 아니라 약관처럼 읽힌다.
       badges: ['Free for commercial use', 'No ads', 'Your notes stay on your PC'],
@@ -688,8 +700,9 @@ const dict = {
           desc: 'However many windows you have open, clicking a sticker pulls its window to the front. No more hunting through identical taskbar icons — pick the window by its color.',
         },
         {
-          title: 'Every note stays with its window',
-          desc: 'It moves with the window, minimizes with it, and returns to the palette when the window closes. Close one by accident and what you wrote is still there.',
+          // 2026-09-14 교체. 국문 '스티커를 창에 부착'과 짝 - 바탕화면 스티커가 생겨 'Every'가 틀린 말이 됐다.
+          title: 'Attach a sticker to a window',
+          desc: 'A sticker attached to a window moves with it, minimizes with it, and returns to the palette when the window closes. Close one by accident and what you wrote is still there.',
         },
         {
           title: 'Manage with just nine stickers',
@@ -728,6 +741,8 @@ const dict = {
     features: {
       title: 'More',
       items: [
+        // 2026-09-14 추가(v2.3.0). 국문 '창과 분리하여 단독 사용'과 짝. 설정 라벨은 'Restore desktop notes at launch'.
+        { title: 'On the desktop, on its own', desc: 'Place a note on the desktop and it works on its own, not tied to any window. It comes back to the same spot when the app starts again — you can turn that off in Settings.' },
         { title: 'Lock a note', desc: 'Lock a note you do not want to change. A locked note cannot be edited or cleared until you unlock it.' },
         // 국문 '전체 잠금'과 짝. UI 라벨이 그대로 Lock all이라 문장 안에서도 그 말을 쓴다.
         { title: 'Lock all', desc: 'Stepping away from the desk? Lock all folds every attached note away at once. It sits on the palette and in the tray menu.' },
@@ -752,8 +767,9 @@ const dict = {
       title: 'How it works',
       steps: [
         {
-          title: 'Pick a sticker, click a window',
-          desc: 'Click a color in the palette and the sticker rides your cursor. Click anywhere on the window you want and it sticks. To cancel, right-click, click the desktop, or press Esc. With the palette hidden, right-click the tray icon to reach the same colors.',
+          // 2026-09-14. 바탕화면 클릭은 이제 놓는 동작이라 취소 목록에서 뺐다(국문과 같다).
+          title: 'Pick a sticker, click a window or the desktop',
+          desc: 'Click a color in the palette and the sticker rides your cursor. Click anywhere on the window you want, or on the desktop, and it sticks. To cancel, right-click or press Esc. With the palette hidden, right-click the tray icon to reach the same colors.',
         },
         {
           title: 'Jot it down',
@@ -1097,7 +1113,8 @@ const dict = {
     hero: {
       eyebrow: 'Windows用 インデックスメモ',
       title: 'TabStick',
-      tagline: 'メモを貼るのは、デスクトップではなく、そのメモが必要なウィンドウのとなり。',
+      // 2026-09-14 교체(v2.3.0). 국문과 같은 이유 - 데스크톱에도 놓을 수 있게 됐다.
+      tagline: 'メモはデスクトップだけでなく、そのメモが必要なウィンドウのとなりにも貼れます。',
       // 일본어는 영어와 반대로 이용 주체를 열거하는 것이 관행이다(`法人利用可`류). `法人`이
       // 학교·의료·NPO 법인까지 덮고 `官公庁`이 표준어라 빠지는 조직이 없다(원어민 검수).
       badges: ['法人・官公庁も無料', '広告なし', 'メモはPCの中だけ'],
@@ -1123,8 +1140,11 @@ const dict = {
           desc: 'ウィンドウをいくつ開いていても、ステッカーを押せば、そのウィンドウがすぐ手前に出てきます。タスクバーで似たアイコンを探し回らなくても、色を見ればすぐ分かります。',
         },
         {
-          title: 'ステッカーは、いつもウィンドウと一緒に。',
-          desc: 'ウィンドウと一緒に動き、一緒に最小化され、ウィンドウを閉じるとパレットに戻ります。うっかり閉じてしまっても、書いた内容はそのまま残っています。',
+          // 2026-09-14 교체. 국문 '스티커를 창에 부착'과 짝.
+          // 제목은 체언지 + 마침표다(검수) - 특징 카드가 전부 그 꼴이고 `メモに、ちいさな絵を。`와 같은 「~を。」.
+          // 본문은 `ウィンドウ`가 세 번 나오던 것을 `貼ると`로 시작해 두 번으로 줄였다.
+          title: 'ステッカーを、ウィンドウに。',
+          desc: 'ステッカーをウィンドウに貼ると、そのウィンドウと一緒に動き、一緒に最小化され、閉じるとパレットに戻ります。うっかり閉じてしまっても、書いた内容はそのまま残っています。',
         },
         {
           title: '管理するのは、たった9枚。',
@@ -1161,6 +1181,13 @@ const dict = {
     features: {
       title: 'その他の機能',
       items: [
+        // 2026-09-14 추가(v2.3.0). 국문 '창과 분리하여 단독 사용'과 짝. 설정 라벨은 'アプリ起動時にデスクトップのメモを復元'.
+        {
+          // 제목은 명사구다(검수) - 기타기능이 전부 명사라 동사형이 목록 맨 앞에서 튄다.
+          // `使うかどうかは設定で選べます`는 무엇을 쓰는지가 안 잡혀 끊고 `オフに`로 앞 문장(복원)을 받는다.
+          title: '単独で使うデスクトップメモ',
+          desc: 'メモをデスクトップに置くと、ウィンドウに縛られない独立したメモとして使えます。アプリを起動し直すと、置いた場所に自動で復元されます。設定でオフにすることもできます。',
+        },
         {
           title: '編集ロック',
           desc: '変えたくないメモは、しばらくロックしておけます。ロック中のメモは、解除するまで編集も削除もできません。',
@@ -1207,8 +1234,9 @@ const dict = {
       title: '使い方',
       steps: [
         {
-          title: 'ステッカーをつかんで、ウィンドウに貼る',
-          desc: 'パレットで色を1つクリックすると、ステッカーがカーソルに付きます。そのまま、貼りたいプログラムのウィンドウのどこかをクリックすれば貼り付きます。カーソルに付けている間は、右クリック・デスクトップのクリック・Escでいつでも取り消せます。パレットを隠しているときは、トレイアイコンを右クリックして同じ色を選べます。',
+          // 2026-09-14. 데스크톱 클릭은 이제 놓는 동작이라 취소 목록에서 뺐다(국문과 같다).
+          title: 'ステッカーをつかんで、ウィンドウかデスクトップに貼る',
+          desc: 'パレットで色を1つクリックすると、ステッカーがカーソルに付きます。そのまま、貼りたいプログラムのウィンドウかデスクトップのどこかをクリックすれば貼り付きます。カーソルに付けている間は、右クリック・Escでいつでも取り消せます。パレットを隠しているときは、トレイアイコンを右クリックして同じ色を選べます。',
         },
         {
           title: '気軽に書く',
