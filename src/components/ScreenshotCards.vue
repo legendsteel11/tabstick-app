@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { t, lang } from '../i18n'
 import ImageLightbox from './ImageLightbox.vue'
+import StickerIcon from './StickerIcon.vue'
 
 // 컷은 자르지 않는다(2026-08-25). 예전에는 720x500 창에 원본 화소를 그대로 잘라 넣어서, 찍는
 // 쪽이 그 창에 요점을 맞춰 넣어야 했다 - 찍고, 포토샵으로 확인하고, 창을 옮겨 다시 찍는 일이
@@ -45,9 +46,8 @@ const alts = computed(() => t.value.screenshots.items.map((item) => item.title))
   <section id="screenshots">
     <div class="container">
       <div class="section-heading">
-        <!-- 캐릭터 Tabsty가 제목 왼쪽에 선다(2026-08-21). -->
         <div class="heading-row">
-          <img class="mascot" src="/character/features.png" alt="" />
+          <StickerIcon color="#F76B15" />
           <h2>{{ t.screenshots.title }}</h2>
         </div>
       </div>
@@ -70,20 +70,12 @@ const alts = computed(() => t.value.screenshots.items.map((item) => item.title))
 </template>
 
 <style scoped>
-/* 제목과 캐릭터를 한 줄에. 값은 다른 섹션과 같다 - 섹션마다 다르면 훑어 내릴 때 눈에 걸린다. */
+/* 제목과 스티커를 한 줄에. 값은 다른 섹션과 같다 - 섹션마다 다르면 훑어 내릴 때 눈에 걸린다. */
 .heading-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-}
-
-/* 110의 90%(2026-08-21). 엎드려 가리키는 자세라 가로로 넓어 같은 높이에서도 커 보였다. */
-.heading-row .mascot {
-  height: 100px;
-  width: auto;
-  flex-shrink: 0;
-  pointer-events: none;
 }
 
 /* 섹션 배경은 위아래와 번갈아 간다(2026-07-28). 전체 차례는

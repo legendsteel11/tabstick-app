@@ -2,6 +2,7 @@
 import { computed, ref, onUnmounted } from 'vue'
 import { track } from '@vercel/analytics'
 import { t } from '../i18n'
+import StickerIcon from './StickerIcon.vue'
 
 // 폰으로 들어온 사람에게 다음 걸음을 준다.
 //
@@ -126,11 +127,8 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
   <section id="download">
     <div class="container">
       <div class="section-heading">
-        <!-- 캐릭터 Tabsty가 제목 왼쪽에 선다(2026-08-21). 초록 메모를 든 작은 고양이가 제목
-             오른쪽에 있었는데 **캐릭터가 들어오면서 뺐다** - 한 줄에 그림이 둘이면 어느 쪽도
-             제목의 짝으로 읽히지 않는다. 파일(cat-memo.png)은 남겨 두었다. -->
         <div class="title-row">
-          <img class="mascot" src="/character/download.png" alt="" />
+          <StickerIcon color="#3E63DD" />
           <h2>{{ t.download.title }}</h2>
         </div>
       </div>
@@ -378,18 +376,6 @@ function trackDownload(build: 'setup' | 'portable' | 'light') {
   align-items: center;
   justify-content: center;
   gap: 12px;
-}
-
-/* 캐릭터 Tabsty(2026-08-21). 가로로 긴 그림이라 높이를 재도 폭이 꽤 나간다. */
-.title-row .mascot {
-  height: 120px;
-  width: auto;
-  flex-shrink: 0;
-  pointer-events: none;
-}
-
-@media (max-width: 640px) {
-  .title-row .mascot { height: 84px; }
 }
 
 /* ---------- 업데이트 내역 ---------- */
