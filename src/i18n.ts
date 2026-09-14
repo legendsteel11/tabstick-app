@@ -202,7 +202,7 @@ const dict = {
         // 함께 담았다 - 어디서 정하는지가 그림에 같이 나온다.
         {
           title: '메모에 간단한 이미지를-',
-          desc: '메모 하단에 이미지를 배경으로 넣을 수 있습니다. 캐릭터 이미지가 함께 들어 있고, 원하는 이미지 파일을 선택할 수 있습니다. 크기와 투명도, 배치를 조정할 수 있습니다.',
+          desc: '메모 하단에 이미지를 배경으로 넣을 수 있습니다. 원하는 이미지 파일을 선택하고, 크기와 투명도, 배치를 조정할 수 있습니다.',
         },
         // '편리한 앱 메뉴' 카드는 2026-07-27에 뺐다. 관리 화면이 있다는 얘기라 어느 앱에나
         // 있는 것이고, 받을 이유를 만드는 힘이 여섯 중 제일 약했다. 캡처 spc-06은
@@ -706,7 +706,7 @@ const dict = {
         },
         {
           title: 'A small image on your note',
-          desc: 'An image can sit behind the foot of a note. Character images come with the app, or pick a file of your own, and you choose the size, how faint it is, and which side it rests on.',
+          desc: 'An image can sit behind the foot of a note. Pick a file of your own, then choose its size, how faint it is, and which side it rests on.',
         },
       ],
     },
@@ -1125,7 +1125,7 @@ const dict = {
         },
         {
           title: 'メモに、ちいさな絵を。',
-          desc: 'メモの下のほうに、背景として画像を置けます。キャラクター画像が同梱されているほか、好きな画像ファイルも選べます。サイズ・透明度・配置を調整できます。',
+          desc: 'メモの下のほうに、背景として画像を置けます。好きな画像ファイルを選べます。サイズ・透明度・配置を調整できます。',
         },
       ],
     },
