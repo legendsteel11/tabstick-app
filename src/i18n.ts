@@ -313,6 +313,21 @@ const dict = {
       //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
       //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
+        // 2.3.0은 앱 업데이트 창과 차례가 같다(2026-09-14) - 바탕화면 부착이 첫 줄(굵게)이고,
+        // 새 기능 → 모양이 바뀐 것 → 뺀 것 → 고친 것 순이다. 문장도 앱(EdgeIndex/WhatsNew.cs)과 같다.
+        {
+          version: '2.3.0',
+          items: [
+            '메모를 바탕화면에 놓아 창과 분리하여 사용할 수 있습니다',
+            '바탕화면 메모는 앱을 다시 시작하면 놓아 둔 자리에 복원되며, 설정에서 비활성화할 수 있습니다',
+            '펼쳐지지 않은 메모의 스티커에 마우스를 올리면 제목과 내용 일부가 표시됩니다',
+            '메모 본문에서 Tab과 Shift+Tab으로 들여쓰기와 내어쓰기를 할 수 있습니다',
+            '메모 최대 폭이 400px에서 512px로 늘어났습니다',
+            '우클릭 메뉴의 기호가 마지막으로 보던 페이지로 열리도록 변경되었습니다',
+            '프리셋 설정의 샘플 그림이 제외되어 이미지 선택이 파일 버튼 하나로 정리되었습니다',
+            '드래그로 선택할 때 마지막 빈 줄이 선택되지 않던 것을 수정했습니다',
+          ],
+        },
         // 2.2.1은 시계가 첫 줄이다(굵게 나오는 자리). 앱의 업데이트 창은 붙여넣기 수정을
         // 앞세우는데(이미 겪던 사람이 보는 자리), 여기는 받을지 정하는 사람이 보므로 새
         // 기능이 먼저다. 버튼 이름(샘플 그림·파일)은 화면 표기 그대로다.
@@ -783,6 +798,20 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        // 2.3.0 - 국문 카드 주석과 같다. 버튼 이름은 영문 라벨 `Browse`.
+        {
+          version: '2.3.0',
+          items: [
+            'Place a note on the desktop and use it on its own, apart from any window',
+            'Desktop notes come back where you left them when the app restarts, and you can turn that off in Settings',
+            'Hover over the sticker of a closed note to see its title and the start of its text',
+            'Indent and outdent lines in a note with Tab and Shift+Tab',
+            'The maximum note width is now 512px, up from 400px',
+            'The symbols in the right-click menu now open on the page you last used',
+            'Edit preset no longer includes sample images, and images are picked with the Browse button',
+            'Fixed the last blank line not being selected when dragging over text',
+          ],
+        },
         {
           version: '2.2.1',
           items: [
@@ -1228,6 +1257,20 @@ const dict = {
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        // 2.3.0 - 국문 카드 주석과 같다. 일문 검수(2026-09-14) 반영본이다(앱 WhatsNew.cs 주석에 고친 자리).
+        {
+          version: '2.3.0',
+          items: [
+            'メモをデスクトップに置くと、ウィンドウから切り離して使えます',
+            'デスクトップのメモは、アプリを再起動すると置いた場所に復元されます。設定でオフにすることもできます',
+            '閉じているメモのステッカーにマウスを乗せると、タイトルと内容の一部が表示されます',
+            'メモ本文で、Tabでインデント、Shift+Tabでインデント解除ができます',
+            'メモの最大幅が400pxから512pxに広がりました',
+            '右クリックメニューの記号が、最後に見ていたページから開くようになりました',
+            'プリセット設定から付属の画像がなくなり、画像の選択が[参照]ボタンにまとまりました',
+            'ドラッグで範囲を選ぶとき、最後の空行が選択されなかったのを修正しました',
+          ],
+        },
         {
           version: '2.2.1',
           items: [

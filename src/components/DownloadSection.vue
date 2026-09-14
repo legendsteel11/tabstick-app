@@ -54,7 +54,7 @@ const ready = true
 
 // 표시용 버전(배지 "v1.0.2")과 릴리즈 태그(v1.0.2)는 여기. channel이 비면 (Beta) 알약이 사라진다 -
 // 2026-07-26에 뗐다(개인 프로그램의 베타 표기가 "덜 만든 것"으로 읽히기 때문이다).
-const version = '2.2.1'
+const version = '2.3.0'
 const channel = ''
 
 /**
@@ -101,9 +101,9 @@ const dl = {
   // ⚠ **크기는 판마다 다시 잰다.** 2.2.0에서 일본어용 글꼴이 들어가며 셋 다 커졌는데
   // (49→56 · 64→72 · 5→14), 특히 light는 세 배가 되어 옛 표기를 그대로 두면 받는 사람이
   // 기대한 것과 어긋난다. 값은 릴리즈 자산의 실제 바이트에서 온다.
-  setup: { size: '56 MB', file: `${base}-setup.exe`, href: `${relBase}/${base}-setup.exe` },
-  portable: { size: '72 MB', file: `${base}-portable.zip`, href: `${relBase}/${base}-portable.zip` },
-  light: { size: '14 MB', file: `${base}-light.exe`, href: `${relBase}/${base}-light.exe` },
+  setup: { size: '53 MB', file: `${base}-setup.exe`, href: `${relBase}/${base}-setup.exe` },
+  portable: { size: '69 MB', file: `${base}-portable.zip`, href: `${relBase}/${base}-portable.zip` },
+  light: { size: '11 MB', file: `${base}-light.exe`, href: `${relBase}/${base}-light.exe` },
 }
 // t는 computed(ComputedRef)라 <script setup> 최상단에서 t.download를 만지면 undefined다.
 // 라벨은 템플릿에서 t를 참조한다(템플릿은 ref를 자동 언랩한다).

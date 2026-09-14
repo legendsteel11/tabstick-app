@@ -1,8 +1,8 @@
-﻿# TabStick v2.2.1
+﻿# TabStick v2.3.0
 
 ![TabStick — index notes that stick beside the window they belong to](public/screenshots/hero-en.gif)
 
-Stick a small sticky note beside the window it belongs to — not on your desktop.
+Stick a note on your desktop — or right beside the window it belongs to.
 
 A tiny Windows sticker-memo app: nine fixed notes, attached to the windows where
 you need them. The note follows the window, hides when it goes behind another,
