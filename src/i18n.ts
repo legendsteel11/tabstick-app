@@ -325,16 +325,20 @@ const dict = {
         // 2.3.0은 앱 업데이트 창과 차례가 같다(2026-09-14) - 바탕화면 부착이 첫 줄(굵게)이고,
         // 새 기능 → 모양이 바뀐 것 → 뺀 것 → 고친 것 순이다. 문장도 앱(EdgeIndex/WhatsNew.cs)과 같다.
         {
-          version: '2.3.0',
+          // 2.3.1은 2.3.0 여덟 줄에 고친 셋을 더했다(2026-09-15). 셋째 줄에 팔레트를 합쳤고, 차례와 문장은 앱과 같다.
+          version: '2.3.1',
           items: [
             '메모를 바탕화면에 놓아 창과 분리하여 사용할 수 있습니다',
             '바탕화면 메모는 앱을 다시 시작하면 놓아 둔 자리에 복원되며, 설정에서 비활성화할 수 있습니다',
-            '펼쳐지지 않은 메모의 스티커에 마우스를 올리면 제목과 내용 일부가 표시됩니다',
+            '펼쳐지지 않은 메모의 스티커나 팔레트의 스티커에 마우스를 올리면 제목과 내용 일부가 표시됩니다',
             '메모 본문에서 Tab과 Shift+Tab으로 들여쓰기와 내어쓰기를 할 수 있습니다',
             '메모 최대 폭이 400px에서 512px로 늘어났습니다',
             '우클릭 메뉴의 기호가 마지막으로 보던 페이지로 열리도록 변경되었습니다',
             '프리셋 설정의 샘플 그림이 제외되어 이미지 선택이 파일 버튼 하나로 정리되었습니다',
             '드래그로 선택할 때 마지막 빈 줄이 선택되지 않던 것을 수정했습니다',
+            '보조 모니터를 껐다 켠 뒤 스티커와 메모가 창에서 떨어져 있던 것을 수정했습니다',
+            '창을 옮긴 뒤 두 번째 스티커부터 창에 가려지던 것을 수정했습니다',
+            '스티커를 펼쳐진 메모 위에 놓아도 붙지 않던 것을 수정했습니다',
           ],
         },
         // 2.2.1은 시계가 첫 줄이다(굵게 나오는 자리). 앱의 업데이트 창은 붙여넣기 수정을
@@ -816,16 +820,20 @@ const dict = {
       notes: [
         // 2.3.0 - 국문 카드 주석과 같다. 버튼 이름은 영문 라벨 `Browse`.
         {
-          version: '2.3.0',
+          // 2.3.1 - 국문 카드 주석과 같다. 셋째 줄은 두 경우를 줄표 사이에 넣어 병렬을 맞췄다.
+          version: '2.3.1',
           items: [
             'Place a note on the desktop and use it on its own, apart from any window',
             'Desktop notes come back where you left them when the app restarts, and you can turn that off in Settings',
-            'Hover over the sticker of a closed note to see its title and the start of its text',
+            'Hover over a sticker — on a closed note or on the palette — to see its title and the start of its text',
             'Indent and outdent lines in a note with Tab and Shift+Tab',
             'The maximum note width is now 512px, up from 400px',
             'The symbols in the right-click menu now open on the page you last used',
             'Edit preset no longer includes sample images, and images are picked with the Browse button',
             'Fixed the last blank line not being selected when dragging over text',
+            'Fixed stickers and notes ending up away from their window after turning a second monitor off and on',
+            'Fixed all but the first sticker being hidden behind the window after you move it',
+            'Fixed a sticker not attaching when placed on an open note',
           ],
         },
         {
@@ -1287,16 +1295,20 @@ const dict = {
       notes: [
         // 2.3.0 - 국문 카드 주석과 같다. 일문 검수(2026-09-14) 반영본이다(앱 WhatsNew.cs 주석에 고친 자리).
         {
-          version: '2.3.0',
+          // 2.3.1 - 국문 카드 주석과 같다. 일문 검수(2026-09-15) 반영본이다(3번 읽점 · 9번 電源を入れ直した · 10번 その裏に).
+          version: '2.3.1',
           items: [
             'メモをデスクトップに置くと、ウィンドウから切り離して使えます',
             'デスクトップのメモは、アプリを再起動すると置いた場所に復元されます。設定でオフにすることもできます',
-            '閉じているメモのステッカーにマウスを乗せると、タイトルと内容の一部が表示されます',
+            '閉じているメモのステッカーや、パレットのステッカーにマウスを乗せると、タイトルと内容の一部が表示されます',
             'メモ本文で、Tabでインデント、Shift+Tabでインデント解除ができます',
             'メモの最大幅が400pxから512pxに広がりました',
             '右クリックメニューの記号が、最後に見ていたページから開くようになりました',
             'プリセット設定から付属の画像がなくなり、画像の選択が[参照]ボタンにまとまりました',
             'ドラッグで範囲を選ぶとき、最後の空行が選択されなかったのを修正しました',
+            'サブモニターの電源を入れ直した後、ステッカーとメモがウィンドウから離れていたのを修正しました',
+            'ウィンドウを動かした後、2枚目以降のステッカーがその裏に隠れていたのを修正しました',
+            '開いているメモの上にステッカーを置いても、貼り付かなかったのを修正しました',
           ],
         },
         {
