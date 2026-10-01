@@ -322,6 +322,15 @@ const dict = {
       //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
       //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
+        // 2.4.0은 이번 판의 세 줄만 적는다(2026-10-01). 차례와 문장은 앱(EdgeIndex/WhatsNew.cs)과 같다.
+        {
+          version: '2.4.0',
+          items: [
+            '바탕화면 메모에 스티커를 놓으면 창에 붙인 메모처럼 최대 3개까지 묶어서 사용할 수 있습니다',
+            '설정에서 스티커를 메모 옆 대신 메모 위에 표시할 수 있으며, 바탕화면 메모는 좌상단과 우상단 중에서 선택할 수 있습니다',
+            '창에 붙인 메모를 창 맨 위부터 맨 아래까지 사용할 수 있습니다',
+          ],
+        },
         // 2.3.0은 앱 업데이트 창과 차례가 같다(2026-09-14) - 바탕화면 부착이 첫 줄(굵게)이고,
         // 새 기능 → 모양이 바뀐 것 → 뺀 것 → 고친 것 순이다. 문장도 앱(EdgeIndex/WhatsNew.cs)과 같다.
         {
@@ -818,6 +827,15 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        // 2.4.0 - 국문 카드 주석과 같다. 둘째 줄은 스티커가 메모 위끝에 맞닿아 서므로 `above`다.
+        {
+          version: '2.4.0',
+          items: [
+            'Place a sticker on a desktop note to group up to three notes, just like notes on a window',
+            'In Settings, you can now show stickers above a note instead of beside it, and choose top left or top right for desktop notes',
+            'Notes on a window can now use the full height of the window',
+          ],
+        },
         // 2.3.0 - 국문 카드 주석과 같다. 버튼 이름은 영문 라벨 `Browse`.
         {
           // 2.3.1 - 국문 카드 주석과 같다. 셋째 줄은 두 경우를 줄표 사이에 넣어 병렬을 맞췄다.
@@ -1293,6 +1311,15 @@ const dict = {
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        // 2.4.0 - 국문 카드 주석과 같다. 앱 일문 UI에 맞춰 `メモ`로 적는다.
+        {
+          version: '2.4.0',
+          items: [
+            'デスクトップのメモにステッカーを置くと、ウィンドウに貼ったメモと同じように最大3枚までまとめて使えるようになりました',
+            '設定で、ステッカーをメモの横ではなく上に表示できるようになりました。デスクトップのメモでは、左上か右上かを選べます',
+            'ウィンドウに貼ったメモを、ウィンドウの上端から下端まで使えるようになりました',
+          ],
+        },
         // 2.3.0 - 국문 카드 주석과 같다. 일문 검수(2026-09-14) 반영본이다(앱 WhatsNew.cs 주석에 고친 자리).
         {
           // 2.3.1 - 국문 카드 주석과 같다. 일문 검수(2026-09-15) 반영본이다(3번 읽점 · 9번 電源を入れ直した · 10번 その裏に).
