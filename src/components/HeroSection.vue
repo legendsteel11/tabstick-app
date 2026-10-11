@@ -15,6 +15,11 @@ const HERO: Partial<Record<Lang, string>> = {
 }
 
 const heroSrc = computed(() => HERO[lang.value] ?? '/screenshots/hero-en.mp4')
+
+// 앱 언어 이름(2026-10-11). 각 언어를 **그 언어 글자로** 적는다 - 언어 선택 목록의 관례라 자기 언어를 한눈에 찾는다.
+// 차례는 페이지마다 i18n의 hero.appLangs가 정한다. 이름마다 lang을 다는 이유는 둘이다: 한국어 페이지에서 日本語가
+// 한국어 글꼴의 한자 모양으로 그려지지 않게, 그리고 스크린리더가 각 이름을 그 언어 발음으로 읽게.
+const APP_LANG_NAMES: Record<string, string> = { ko: '한국어', en: 'English', ja: '日本語', pl: 'Polski' }
 </script>
 
 <template>
@@ -41,6 +46,14 @@ const heroSrc = computed(() => HERO[lang.value] ?? '/screenshots/hero-en.mp4')
         <ul class="badges" :class="{ slash: t.hero.badgeSlash }">
           <li v-for="b in t.hero.badges" :key="b">{{ b }}</li>
         </ul>
+
+        <!-- 앱이 쓰는 언어. 배지보다 한 단 작고 흐리게 둔다 - 찾는 사람에게만 눈에 들어오면 된다. -->
+        <p class="langs">
+          <template v-for="(code, i) in t.hero.appLangs" :key="code">
+            <span v-if="i > 0" class="sep" aria-hidden="true">·</span>
+            <span :lang="code">{{ APP_LANG_NAMES[code] }}</span>
+          </template>
+        </p>
       </div>
       <div class="shot">
         <!-- autoplay는 muted가 있어야 걸리고, playsinline이 없으면 모바일 사파리가 전체
@@ -162,6 +175,19 @@ h1 {
   background: none;
   color: var(--text-soft);
   opacity: 0.55;
+}
+
+/* 배지 줄 아래의 언어 줄. 배지(14.5px)보다 작고 흐리게 - 받을 이유가 아니라 "내 언어가 있나"를 찾는 사람용이다. */
+.langs {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  opacity: 0.85;
+}
+
+.langs .sep {
+  margin: 0 7px;
+  opacity: 0.6;
 }
 
 /* 800에서 올렸다(2026-08-25). GIF 시절에는 1280으로 줄인 것을 쓰느라 크게 벌리면 흐려졌는데,

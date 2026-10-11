@@ -136,6 +136,9 @@ const dict = {
       badges: ['무료', '기업·관공서에서도 자유롭게 사용', '광고 없음', '메모는 내 PC에만'],
       // 칩 사이를 `/` 글자로 가를지. 국문은 CSS 점으로 충분하다(아래 일문 참고).
       badgeSlash: false,
+      // 앱이 쓰는 언어(2026-10-11). 여기는 **차례만** 둔다 - 이름은 HeroSection이 그 언어 글자로 적는다(언어 선택 목록의
+      // 관례라 자기 언어를 한눈에 찾는다). 이 페이지의 언어가 맨 앞이다. 언어가 늘면 기타기능 카드와 함께 고친다.
+      appLangs: ['ko', 'en', 'ja', 'pl'],
     },
     why: {
       title: '왜 만들게 되었나요?',
@@ -249,6 +252,11 @@ const dict = {
         // 마디는 설정의 실제 라벨('윈도우 시작 시 실행')과 맞춘다 - 제목은 기능 이름이고,
         // 설정에서 찾을 사람은 본문의 라벨로 찾는다.
         { title: '자동 시작', desc: '윈도우 시작 시 함께 실행되도록 설정할 수 있습니다. 이 경우 화면을 가리지 않도록 팔레트 없이 트레이에서 시작합니다.' },
+        // 2026-10-11(v2.4.1 폴란드어). 열두 칸째라 3열에 정확히 떨어진다. 본문의 언어 이름은 **읽는 사람의 언어로** 적는다 -
+        // 문장 안에 못 읽는 글자가 끼면 무엇이 지원되는지 안 읽힌다(그 언어 글자로 적는 것은 히어로 줄의 몫이다).
+        // 끝 문장은 번역 참여 안내이고, `문의 메일`은 푸터 링크 이름(`문의`)과 맞춘 말이다.
+        // ⚠ 언어가 늘면 이 카드(제목 숫자·본문 목록) · hero.appLangs · download.requirement를 세 페이지 모두 함께 고친다.
+        { title: '4개 언어 지원', desc: '한국어, 영어, 일본어, 폴란드어 중에서 선택할 수 있습니다. TabStick을 모국어로 번역해 주실 수 있다면 페이지 아래 문의 메일로 알려 주세요.' },
         // '설정 기억'은 2026-08-03에 뺐다. 설정이 유지되는 것은 어느 앱에서나 당연해서, 적어
         // 두면 오히려 "안 그런 앱도 있나" 쪽으로 읽힌다. 여섯 칸이 3열에 정확히 떨어지기도 한다.
       ],
@@ -701,6 +709,7 @@ const dict = {
       // 국문처럼 업종을 열거하면(`business and government`) 마케팅이 아니라 약관처럼 읽힌다.
       badges: ['Free for commercial use', 'No ads', 'Your notes stay on your PC'],
       badgeSlash: false,
+      appLangs: ['en', 'ko', 'ja', 'pl'],
     },
     why: {
       title: 'Why I made it',
@@ -786,6 +795,9 @@ const dict = {
         // 설정의 실제 라벨은 'Start with Windows'라 제목을 그대로 두고 본문이 새 동작을 말한다.
         // 제목이 주어를 못 세워서 본문 첫 마디에 TabStick을 적는다(검수).
         { title: 'Start with Windows', desc: 'Set TabStick to run when Windows starts. It comes up in the tray with the palette hidden, so nothing covers your screen.' },
+        // 2026-10-11 - 국문 카드 주석과 같다. 영문 푸터 링크 이름이 `Requests`라 "email"이라 부르지 않고 링크가 아래 있다고만
+        // 말한다. `your language`는 그대로다 - 모든 나라 사람이 들어오는 페이지라 정확히 맞는 말이다.
+        { title: 'Four languages', desc: 'Use TabStick in English, Korean, Japanese or Polish. Can you translate it into your language? Let me know by email — the link is at the bottom of this page.' },
       ],
     },
     howto: {
@@ -1172,6 +1184,7 @@ const dict = {
       // ⚠ 일문만 칩 사이를 `/`로 가른다. `法人・官公庁` 안에 이미 가운뎃점이 있어, 칩 사이도
       // 점이면 「법인 / 관공서도 무료 / 광고 없음」네 덩어리로 잘못 읽힌다(원어민 검수).
       badgeSlash: true,
+      appLangs: ['ja', 'ko', 'en', 'pl'],
     },
     why: {
       title: 'なぜ作ったのか',
@@ -1278,6 +1291,12 @@ const dict = {
         {
           title: '自動起動',
           desc: 'Windowsの起動と同時に実行するよう設定できます。このときは画面を覆わないよう、パレットを出さずにトレイから始まります。',
+        },
+        // 2026-10-11 - 국문 카드 주석과 같다. 제목은 소프트웨어 관용인 `〜言語対応`(か国語는 사람이 하는 말을 셀 때)이고,
+        // 다른 카드 제목처럼 명사형이다. 끝은 일문 푸터 링크 이름 `お問い合わせ` 그대로라 바로 찾아간다.
+        {
+          title: '4言語対応',
+          desc: '日本語・韓国語・英語・ポーランド語から選べます。TabStickの翻訳にご協力いただける方は、ページ下部の「お問い合わせ」からお知らせください。',
         },
       ],
     },
