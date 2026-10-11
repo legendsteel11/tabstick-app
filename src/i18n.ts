@@ -322,6 +322,18 @@ const dict = {
       //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
       //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
+        // 2.4.1은 이번 판의 여섯 줄만 적는다(2026-10-11). 차례와 문장은 앱(EdgeIndex/WhatsNew.cs)과 같다.
+        {
+          version: '2.4.1',
+          items: [
+            '바탕화면 메모의 스티커 우클릭 메뉴에서 [추가]를 누르면 선택한 메모가 그 묶음에 바로 추가되도록 변경되었습니다',
+            '설정의 [현재 스티커]에서 표시 없음을 선택할 수 있습니다',
+            '스티커가 간격 없이 나란히 붙어 표시되도록 변경되었습니다',
+            '툴팁 크기가 우클릭 메뉴, 앱 메뉴, 팔레트, 스티커의 크기 설정을 따르도록 변경되었습니다',
+            '앱 메뉴의 폭이 넓어지고, [내보내기]가 스티커 목록 아래로 이동되었습니다',
+            '폴란드어(Polski)가 추가되었습니다 (번역: DariuszKu)',
+          ],
+        },
         // 2.4.0은 이번 판의 세 줄만 적는다(2026-10-01). 차례와 문장은 앱(EdgeIndex/WhatsNew.cs)과 같다.
         {
           version: '2.4.0',
@@ -558,7 +570,7 @@ const dict = {
       // 지원 언어를 여기 함께 적는다(2026-08-05). 프리웨어 아카이브들이 받기 버튼 근처를
       // 긁어 가는데, 어디에도 적혀 있지 않아 oldergeeks 등록 페이지에 "지원 언어: 찾을 수 없음"
       // 으로 실렸다. 이미 아는 사실을 문장으로 세워 두기만 하면 되는 일이다.
-      requirement: 'Windows 10 / 11 · 64비트 · 한국어 · English · 日本語',
+      requirement: 'Windows 10 / 11 · 64비트 · 한국어 · English · 日本語 · Polski',
       // 메모리 이야기는 여기 한 곳에만 둔다(2026-07-28). FAQ에 "메모리가 커 보입니다" 항목을
       // 세우면 걱정하지 않던 사람에게 수치를 먼저 쥐여 주는 꼴이라 뺐다.
       //
@@ -827,6 +839,19 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        // 2.4.1 - 국문 카드 주석과 같다. 1번은 쉼표 뒤 대문자 Add가 새 문장처럼 읽혀 `choosing Add`로, 3번은
+        // flush가 no gap과 뜻이 겹쳐 `side by side`로 적는다(검수).
+        {
+          version: '2.4.1',
+          items: [
+            "On a desktop note, choosing Add from the sticker's right-click menu now puts the note you pick straight into the group",
+            'Settings → Current sticker now has an option for no mark',
+            'Stickers now sit side by side with no gap between them',
+            'Tooltips now follow the size settings of the menu, palette or sticker they belong to',
+            'The app menu is wider, and Export has moved below the sticker list',
+            'Polish (Polski) is now available, translated by DariuszKu',
+          ],
+        },
         // 2.4.0 - 국문 카드 주석과 같다. 둘째 줄은 스티커가 메모 위끝에 맞닿아 서므로 `above`다.
         {
           version: '2.4.0',
@@ -1056,7 +1081,7 @@ const dict = {
       copied: 'Copied',
       soon: 'Download links are being prepared.',
       // 영문 화면에서는 언어 이름도 영어로 적는다 - 긁어 가는 쪽이 읽는 것은 이 화면이다.
-      requirement: 'Windows 10 / 11 · 64-bit · English · Korean · Japanese',
+      requirement: 'Windows 10 / 11 · 64-bit · English · Korean · Japanese · Polish',
       bothApps:
         'Install the .NET 8 Desktop Runtime once and the Light build becomes an option — as does Edgetree, another app, from a single small file. (A smaller download, and the memory figure shows what is actually in use.)',
       smartscreenNote:
@@ -1307,10 +1332,23 @@ const dict = {
       copyLink: 'リンクをコピー',
       copied: 'コピーしました',
       soon: 'ダウンロードリンクは公開の準備中です。',
-      requirement: 'Windows 10 / 11 · 64ビット · 日本語 · 한국어 · English',
+      requirement: 'Windows 10 / 11 · 64ビット · 日本語 · 한국어 · English · Polski',
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        // 2.4.1 - 국문 카드 주석과 같다. 2번의 설정 이름은 앱 일문 UI(`アクティブなステッカー`)와 같고, 표시는 v2.2 노트부터
+        // 써 온 `印`이다. 1번은 동작 순서대로 풀고 뒤쪽은 `指定した`로 적어 選ぶ가 두 번 나오지 않게 했다(검수).
+        {
+          version: '2.4.1',
+          items: [
+            'デスクトップに置いたメモのステッカーを右クリックして「追加」を選ぶと、指定したメモがそのグループにすぐ加わるようになりました',
+            '設定の「アクティブなステッカー」で、印なしを選べるようになりました',
+            'ステッカーが隙間なく並んで表示されるようになりました',
+            'ツールチップの大きさが、右クリックメニュー・アプリメニュー・パレット・ステッカーのサイズ設定に合わせて変わるようになりました',
+            'アプリメニューの幅が広がり、「エクスポート」がステッカー一覧の下に移りました',
+            'ポーランド語（Polski）に対応しました（翻訳：DariuszKu）',
+          ],
+        },
         // 2.4.0 - 국문 카드 주석과 같다. 앱 일문 UI에 맞춰 `メモ`로 적는다.
         {
           version: '2.4.0',
@@ -1439,12 +1477,11 @@ const dict = {
           a: 'いいえ。メモはお使いのPCの中だけに保存されます。更新のお知らせのために、GitHubで新しいバージョンが出ていないかを確認するだけで、そのときもメモや個人情報は送りません。',
         },
         {
-          // ⚠ **인스톨러에 일본어 언어 파일이 없어 그 대화상자는 영어로 뜬다.** 그래서 "화면은
-          // 영어입니다"를 먼저 말하고 영어 버튼명을 그대로 인용한다 - 일본어 항목을 찾다 헤매지
-          // 않게(원어민 검수: 사과가 아니라 안내라 어조 규칙에 걸리지 않는다). 인스톨러에
-          // Japanese.isl을 넣는 날 그 절을 빼고 `「現在のユーザー用にインストール」`로 바꾼다.
+          // 2.4.1부터 인스톨러가 일본어로 뜬다(Japanese.isl). 그 전에는 대화상자가 영어라 "화면은 영어입니다"와 영어
+          // 버튼명 `Install for me only`를 인용했다. 지금 버튼명은 Japanese.isl의 표기 그대로다(단축키 `(&M)`은 인용 때 뺀다).
+          // 끝을 `管理者権限は不要です`로 맺어 인스톨이 세 번 겹치지 않게 하고, 무설치 카드의 `管理者権限も不要です`와 짝을 맞췄다.
           q: '会社や官公庁のPCで管理者権限がないのですが、使えますか？',
-          a: 'はい。インストーラーの画面は英語ですが、「Install for me only」を選べば管理者権限なしでインストールできます。ポータブル版は解凍するだけで使えます。',
+          a: 'はい。インストーラーで「現在のユーザー用にインストール」を選べば、管理者権限は不要です。ポータブル版は解凍するだけで使えます。',
         },
       ],
     },
