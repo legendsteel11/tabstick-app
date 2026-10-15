@@ -1,4 +1,4 @@
-﻿# TabStick v2.4.1
+﻿# TabStick v2.5.0
 
 ![TabStick — index notes that stick beside the window they belong to](public/screenshots/hero-en.gif)
 
