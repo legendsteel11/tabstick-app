@@ -330,6 +330,20 @@ const dict = {
       //   자리라 앞세울 것이 다르다. 앱은 새 판이 나오면 지난 판 줄을 아예 안 보여 주므로
       //   여기서 갈려도 두 화면이 나란히 놓일 일이 없다.
       notes: [
+        // 2.5.0은 이번 판의 일곱 줄만 적는다(2026-10-15). 차례와 문장은 앱(EdgeIndex/WhatsNew.cs)과 같다 - 첫 줄(굵게)이
+        // 판 번호를 올린 까닭인 드래그라 받을지 정하는 사람에게도 그대로 맞는다.
+        {
+          version: '2.5.0',
+          items: [
+            '팔레트의 스티커를 창이나 바탕화면으로 드래그해서 바로 붙일 수 있습니다',
+            '창에 붙은 스티커를 옆으로 드래그하면 분리해서 다른 창, 바탕화면, 팔레트로 옮길 수 있습니다',
+            '바탕화면 메모의 스티커를 창이나 팔레트로 드래그해서 옮길 수 있으며, 다른 바탕화면 메모 위에 놓아 하나로 묶을 수 있습니다',
+            'Ctrl + 마우스 휠, Ctrl + +/-는 이제 해당 메모의 글자 크기에만 적용되며, Ctrl + 0으로 기본값으로 복원할 수 있습니다',
+            '기호, 번호, 체크박스로 시작하는 줄에서 Shift + Enter를 누르면 다음 줄도 같은 형식으로 입력할 수 있습니다',
+            '메모에서 세 번 클릭하면 문단 전체를 선택할 수 있습니다',
+            '팔레트에서 집은 스티커가 설정의 [스티커 크기]와 같은 크기로 표시되도록 변경되었습니다',
+          ],
+        },
         // 2.4.1은 이번 판의 여섯 줄만 적는다(2026-10-11). 차례와 문장은 앱(EdgeIndex/WhatsNew.cs)과 같다.
         {
           version: '2.4.1',
@@ -851,6 +865,20 @@ const dict = {
       notesOlder: 'Older update notes',
       notesNewer: 'Newer update notes',
       notes: [
+        // 2.5.0 - 국문 카드 주석과 같다. 4번은 `text size`가 없으면 메모 자체를 바꾸는 것처럼 읽혀 넣었고, 5번은 새 기능임을
+        // 드러내려고 `now`를 넣었다(검수).
+        {
+          version: '2.5.0',
+          items: [
+            'Drag a sticker from the palette onto a window or the desktop to attach it right away',
+            'Drag a sticker on a window sideways to detach it and move it to another window, the desktop or the palette',
+            "Drag a desktop note's sticker onto a window or the palette to move it, or drop it onto another desktop note to group them",
+            'Ctrl + mouse wheel and Ctrl + +/- now change the text size of the current note only, and Ctrl + 0 resets it to the default',
+            'On a line that starts with a bullet, a number or a checkbox, Shift + Enter now continues the list on the next line',
+            'Triple-click in a note to select the whole paragraph',
+            'A sticker picked up from the palette now appears at the size set in Settings → Sticker size',
+          ],
+        },
         // 2.4.1 - 국문 카드 주석과 같다. 1번은 쉼표 뒤 대문자 Add가 새 문장처럼 읽혀 `choosing Add`로, 3번은
         // flush가 no gap과 뜻이 겹쳐 `side by side`로 적는다(검수).
         {
@@ -1355,6 +1383,20 @@ const dict = {
       bothApps: '.NET 8 デスクトップ ランタイムを一度インストールしておけば、軽量版が使えるようになり、別のアプリ Edgetree も小さなファイル1つで使えます。（ダウンロード容量が小さく、メモリも実際の使用量で表示されます）',
       smartscreenNote: '初回起動時に「WindowsによってPCが保護されました」と表示された場合は、[詳細情報] → [実行] を押してください。',
       notes: [
+        // 2.5.0 - 국문 카드 주석과 같다. 1번은 `貼り付け`가 붙여넣기로 먼저 읽혀 `貼れる`로, 4번은 `編集中のメモ`로 적는다(검수).
+        // 7번의 설정 이름은 앱 일문 UI(`ステッカーサイズ`)와 같다.
+        {
+          version: '2.5.0',
+          items: [
+            'パレットのステッカーをウィンドウやデスクトップへドラッグして、そのまま貼れるようになりました',
+            'ウィンドウに貼ったステッカーを横にドラッグすると、外して別のウィンドウやデスクトップ、パレットに移せるようになりました',
+            'デスクトップのメモのステッカーを、ウィンドウやパレットへドラッグして移せるようになりました。別のデスクトップのメモに置くと、1つにまとめられます',
+            'Ctrl + マウスホイールと Ctrl + +/- は、編集中のメモの文字サイズだけを変えるようになりました。Ctrl + 0 で既定のサイズに戻せます',
+            '記号・番号・チェックボックスで始まる行で Shift + Enter を押すと、次の行も同じ形式で入力できるようになりました',
+            'メモ内でトリプルクリックすると、段落全体を選択できるようになりました',
+            'パレットからつかんだステッカーが、設定の「ステッカーサイズ」と同じ大きさで表示されるようになりました',
+          ],
+        },
         // 2.4.1 - 국문 카드 주석과 같다. 2번의 설정 이름은 앱 일문 UI(`アクティブなステッカー`)와 같고, 표시는 v2.2 노트부터
         // 써 온 `印`이다. 1번은 동작 순서대로 풀고 뒤쪽은 `指定した`로 적어 選ぶ가 두 번 나오지 않게 했다(검수).
         {
