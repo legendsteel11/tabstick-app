@@ -265,8 +265,15 @@ const dict = {
       title: '사용방법',
       steps: [
         {
+          // 2026-10-15(v2.5.0). 붙이는 길이 둘이라 단계도 둘로 나눴다 - 이 판부터 첫 길인 드래그가 먼저, 클릭해서 집기가 다음이다.
+          // "옆으로"는 창 스티커 몫이고(위아래로 끌면 자리만 옮긴다), 바탕화면 스티커도 옆으로 끌면 되므로 한 문장으로 둘 다 덮는다.
+          title: '드래그해서 붙이고 옮기기',
+          desc: '팔레트의 스티커를 원하는 프로그램 창이나 바탕화면으로 드래그해서 놓으면 바로 부착됩니다. 붙어 있는 스티커는 옆으로 드래그해서 다른 창이나 바탕화면, 팔레트로 옮길 수 있습니다. 드래그하는 중에는 Esc로 취소할 수 있습니다.',
+        },
+        {
           // 2026-09-14. 바탕화면 클릭은 이제 취소가 아니라 그 자리에 놓는 동작이라 취소 목록에서 뺐다.
-          title: '스티커를 집어 창에 붙이거나 바탕화면에 놓기',
+          // 2026-10-15에 제목만 바꿨다(드래그 단계와 짝). 본문은 그대로다.
+          title: '클릭해서 붙이기',
           desc: '팔레트에서 색 하나를 클릭하면 스티커가 커서에 붙습니다. 그대로 원하는 프로그램 창이나 바탕화면 아무 곳이나 클릭하면 부착됩니다. 옮기는 중에는 우클릭·Esc로 언제든 취소할 수 있습니다. 팔레트를 숨긴 상태에서는 트레이 아이콘을 우클릭해서 같은 색을 선택할 수 있습니다.',
         },
         {
@@ -818,8 +825,14 @@ const dict = {
       title: 'How it works',
       steps: [
         {
+          // 2026-10-15(v2.5.0) - 국문과 같다. 검수를 거친 문장이다.
+          title: 'Drag to attach and move',
+          desc: 'Drag a sticker from the palette onto the window you want or the desktop, and it attaches as soon as you drop it. To move an attached sticker, drag it sideways onto another window, the desktop or the palette. Press Esc while dragging to cancel.',
+        },
+        {
           // 2026-09-14. 바탕화면 클릭은 이제 놓는 동작이라 취소 목록에서 뺐다(국문과 같다).
-          title: 'Pick a sticker, click a window or the desktop',
+          // 2026-10-15에 제목만 바꿨다 - 본문은 검수를 거친 그대로다.
+          title: 'Click to attach',
           desc: 'Click a color in the palette and the sticker rides your cursor. Click anywhere on the window you want, or on the desktop, and it sticks. To cancel, right-click or press Esc. With the palette hidden, right-click the tray icon to reach the same colors.',
         },
         {
@@ -1332,8 +1345,15 @@ const dict = {
       title: '使い方',
       steps: [
         {
+          // 2026-10-15(v2.5.0) - 국문과 같다. 검수를 거친 문장이고, 끝 문장은 아래 단계의 `Escでいつでも取り消せます`와 맞춰
+          // `取り消せます`로, 페이지의 다른 문장처럼 `Escで`를 붙여 적는다.
+          title: 'ドラッグして貼る・移す',
+          desc: 'パレットのステッカーを、貼りたいウィンドウやデスクトップへドラッグ＆ドロップすると、そのまま貼れます。貼ってあるステッカーは、横にドラッグして別のウィンドウやデスクトップ、パレットへ移せます。ドラッグ中はEscで取り消せます。',
+        },
+        {
           // 2026-09-14. 데스크톱 클릭은 이제 놓는 동작이라 취소 목록에서 뺐다(국문과 같다).
-          title: 'ステッカーをつかんで、ウィンドウかデスクトップに貼る',
+          // 2026-10-15에 제목만 바꿨다 - 본문은 검수를 거친 그대로다.
+          title: 'クリックして貼る',
           desc: 'パレットで色を1つクリックすると、ステッカーがカーソルに付きます。そのまま、貼りたいプログラムのウィンドウかデスクトップのどこかをクリックすれば貼り付きます。カーソルに付けている間は、右クリック・Escでいつでも取り消せます。パレットを隠しているときは、トレイアイコンを右クリックして同じ色を選べます。',
         },
         {
